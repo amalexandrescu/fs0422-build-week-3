@@ -9,6 +9,7 @@ export default function SideComponentsMyProfile() {
   return (
     <>
       {/* 2 components with same basic structure in SimpleTextMyProfile, text passed as props */}
+
       <div className=" border side-component-border bg-white">
         <SimpleTextMyProfile text="Edit public profile & URL" />
         <hr style={{ width: "90%" }} />

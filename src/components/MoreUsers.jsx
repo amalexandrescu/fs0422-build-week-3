@@ -8,7 +8,7 @@ export default function RecommendedUser({ user }) {
     <div className="recommended-user-container bg-white">
       <div className="d-flex recommended-user-content">
         <div className="border recommended-user-image">
-          <img src={user.image} alt={user.username} />
+          <img src={user.image} alt="" />
         </div>
         <div className="text-left">
           <h6 className="mb-0">
