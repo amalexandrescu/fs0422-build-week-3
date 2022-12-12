@@ -1,20 +1,17 @@
-
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import MyProfile from "./components/MyProfile"
 import CustomNavbar from "./components/CustomNavbar.jsx";
 
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import ProfilePageCenter from "./components/ProfilePageCenter";
 
 function App() {
   return (
     <div className="App">
-      
-      <CustomNavbar />
-      <ProfilePageCenter />
+     <CustomNavbar />
+       <MyProfile />
+   
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
