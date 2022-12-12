@@ -32,7 +32,7 @@ const UserDetails = () => {
           {/* User Info Content */}
           <Row>
             <Col>
-              <div className="col-6 d-flex flex-column align-items-start pb-4 px-4 userInfoDiv ">
+              <div className="col-6 d-flex flex-column align-items-start pb-2 px-4 userInfoDiv ">
                 <h3>Alexander Spomer</h3>
                 <h6>Full-Stack Web Developer</h6>
                 <p className="text-secondary my-1">
