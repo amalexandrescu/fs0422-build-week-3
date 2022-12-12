@@ -15,6 +15,7 @@ const UserDetails = () => {
                 className="profileImage"
               />
             </div>
+
             {/* Edit Button User profile Header */}
             <div className="editButtonDiv d-flex justify-content-center align-items-center">
               <Pencil className="text-dark" />
@@ -25,15 +26,16 @@ const UserDetails = () => {
         <div className="bg-white">
           {/* User Info Edit Button */}
           <Row className="justify-content-end">
-            <div className="editButtonDiv d-flex justify-content-center align-items-center">
+            <div className="editButtonDivTwo d-flex justify-content-center align-items-center">
               <Pencil className="text-dark" />
             </div>
           </Row>
+
           {/* User Info Content */}
           <Row>
             <Col>
               <div className="col-6 d-flex flex-column align-items-start pb-2 px-4 userInfoDiv ">
-                <h3>Alexander Spomer</h3>
+                <h4>Alexander Spomer</h4>
                 <h6>Full-Stack Web Developer</h6>
                 <p className="text-secondary my-1">
                   Frankfurt am Main, Germany ·{" "}
@@ -42,10 +44,11 @@ const UserDetails = () => {
                   </a>
                 </p>
                 <a href="/">
-                  <b>385 connections</b>
+                  <p>385 connections</p>
                 </a>
+
                 {/* Section 3 Links Pills */}
-                <div className="col d-flex justify-content-between px-0 my-3">
+                <div className="col d-flex justify-content-between px-0 my-2">
                   <div className="openToDiv rounded-pill text-white py-1 px-3">
                     <div> Open to</div>
                   </div>
@@ -59,6 +62,7 @@ const UserDetails = () => {
               </div>
             </Col>
           </Row>
+
           {/* Open to work section */}
           <Row className="justify-content-between mx-4 pb-4 flex-nowrap">
             {/* Left side */}
@@ -79,6 +83,7 @@ const UserDetails = () => {
                 </div>
               </div>
             </div>
+
             {/* Right side */}
             <div className="col-6 d-flex shareHiringDiv px-2 py-2 ml-1">
               <div className="col-11  d-flex flex-column px-0">
