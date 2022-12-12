@@ -3,8 +3,8 @@ import * as Icon from "react-bootstrap-icons";
 
 const AboutComponent = () => {
   return (
-    <Row>
-      <div className="about-container-design p-4 normal-cursor-on-hover">
+    <Row className="my-2">
+      <div className="col about-container-design p-4 normal-cursor-on-hover">
         <div className="d-flex justify-content-between">
           <h5 className="text-left mb-0 font-weight-bold">About</h5>
           <div className="cursor-on-hover">
