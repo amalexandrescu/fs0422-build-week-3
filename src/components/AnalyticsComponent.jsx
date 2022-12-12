@@ -5,15 +5,15 @@ const AnalyticsComponent = () => {
   return (
     <Container className="profilePageCenterContainer px-0">
       {/* <Row> */}
-      <div className="bg-light analytics-container-design p-4">
-        <h3 className="text-left mb-0">Analytics</h3>
-        <div className="d-flex mb-2">
+      <div className="analytics-container-design p-4">
+        <h3 className="text-left mb-0 normal-cursor-on-hover">Analytics</h3>
+        <div className="d-flex mb-2 normal-cursor-on-hover">
           <div className="mr-2">
             <Icon.EyeFill />
           </div>
           <div>Private to you</div>
         </div>
-        <div className="d-flex ">
+        <div className="d-flex cursor-on-hover">
           <div className="col-4 d-flex px-0">
             <div className="mr-2">
               <Icon.PeopleFill />

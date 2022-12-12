@@ -46,8 +46,17 @@ body {
   border-radius: 10px;
   border: 1px solid lightgrey;
   font-size: 15px;
+  background-color: white;
 }
 
 .profilePageCenterContainer {
   width: 782px !important;
+}
+
+.cursor-on-hover {
+  cursor: pointer;
+}
+
+.normal-cursor-on-hover {
+  cursor: default;
 }
