@@ -34,6 +34,9 @@
 }
 
 
+/*--------------------------RESOURCES COMPONENT--------------------------*/
+
+
 
 /* Side Components USer Profile START */
 .side-component-border {
@@ -156,6 +159,16 @@ body {
 }
 
 
+.profilePageCenterContainer {
+  width: 782px !important;
+}
+
+.resources-container-design {
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  background-color: white;
+  font-size: 15px;
+
 .analytics-container-design {
   border-radius: 10px;
   border: 1px solid lightgrey;
@@ -172,7 +185,13 @@ body {
 }
 
 .normal-cursor-on-hover {
-  cursor: default; }
+  cursor: default;
+}
+
+.off-badge-resources-comp {
+  border-radius: 5px;
+  background-color: lightgrey;
+}
   
 a {
   text-decoration: none !important;
