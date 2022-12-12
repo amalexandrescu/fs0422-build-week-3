@@ -5,7 +5,7 @@ import { SlArrowRight } from "react-icons/sl"
 import logoOne from "../assets/v-team-logo.png"
 export default function Promoted() {
   return (
-    <div className=" border side-component-border mt-2">
+    <div className=" border side-component-border mt-2 bg-white">
       <p className="d-flex justify-content-between mt-1 mb-0">
         <span className="ml-3"> Promoted</span>
         <span className="mr-3">

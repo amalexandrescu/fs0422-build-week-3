@@ -15,7 +15,7 @@ export default function MorePeopleYouKnow({ heading }) {
   }, [])
   return (
     <>
-      <div className="border side-component-border mt-2">
+      <div className="border side-component-border mt-2 bg-white">
         <h6 className="text-left font-weight-bold ml-3 mt-3">{heading}</h6>
 
         {randomUsers.slice(0, 5).map((user, i) => (

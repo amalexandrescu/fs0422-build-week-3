@@ -5,7 +5,7 @@ import ButtonConnect from "./ButtonConnect"
 
 export default function RecommendedUser({ user }) {
   return (
-    <div className="recommended-user-container">
+    <div className="recommended-user-container bg-white">
       <div className="d-flex recommended-user-content">
         <div className="border recommended-user-image">
           <img src={user.image} alt={user.username} />
