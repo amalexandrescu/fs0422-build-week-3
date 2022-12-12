@@ -1,7 +1,7 @@
 import React from "react"
 import SimpleTextMyProfile from "./SimpleTextMyProfile"
-import PeopleYouMayKnow from "./PeopleYouMayKnow"
-import PeopleAlsoViewed from "./PeopleAlsoViewed"
+
+import MorePeople from "./MorePeople"
 
 export default function SideComponentsMyProfile() {
   return (
@@ -13,9 +13,10 @@ export default function SideComponentsMyProfile() {
         <SimpleTextMyProfile text="Add profile in another language" />
       </div>
       {/* People also viewed component */}
-      <PeopleAlsoViewed />
+      <MorePeople heading="People also viewed" />
       {/* People you may know section, component */}
-      <PeopleYouMayKnow />
+      <MorePeople heading="People you may know" />
+      {/* <PeopleYouMayKnow /> */}
     </>
   )
 }

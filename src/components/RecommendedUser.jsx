@@ -1,19 +1,30 @@
 import React from "react"
-import ButtonConnect from "./ButtonConnect"
+import { RxDotFilled } from "react-icons/rx"
+import ButtonMessage from "./ButtonMessage"
+// import { Image } from "react-bootstrap-icons"
 
-export default function RecommendedUser() {
+export default function RecommendedUser({ user }) {
   return (
     <div className="recommended-user-container">
-      <div className="d-flex">
-        <div className="border recommended-user-image">Img</div>
+      <div className="d-flex recommended-user-content">
+        <div className="border recommended-user-image">
+          <img src={user.image} alt={user.username} />
+          {/* <Image src={user.image} /> */}
+        </div>
         <div className="text-left">
-          <h6 className="mb-0">Ania Chmielnicka</h6>
+          <h6 className="mb-0">
+            <span> {user.name} </span>
+            <span> {user.surname}</span>
+            <RxDotFilled />
+            <span className="font-weight-light"> 1st </span>
+          </h6>
           <div className="font-weight-light recommended-user-job-description-text">
-            Interior Designer | 3D Visualiser
+            {user.title}
           </div>
         </div>{" "}
       </div>
-      <ButtonConnect />
+
+      <ButtonMessage />
     </div>
   )
 }
