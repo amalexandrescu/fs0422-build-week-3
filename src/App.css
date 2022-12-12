@@ -33,10 +33,7 @@
   }
 }
 
-
 /*--------------------------RESOURCES COMPONENT--------------------------*/
-
-
 
 /* Side Components USer Profile START */
 .side-component-border {
@@ -148,16 +145,13 @@
 }
 /* Large Footer END */
 
-
 /*-----------------------ANALYTICS COMPONENT-----------------------*/
 
 /* CUSTOM CLASSES */
 
-
 body {
   background-color: #f3f2ef !important;
 }
-
 
 .profilePageCenterContainer {
   width: 782px !important;
@@ -168,6 +162,7 @@ body {
   border: 1px solid lightgrey;
   background-color: white;
   font-size: 15px;
+}
 
 .analytics-container-design {
   border-radius: 10px;
@@ -192,7 +187,7 @@ body {
   border-radius: 5px;
   background-color: lightgrey;
 }
-  
+
 a {
   text-decoration: none !important;
   font-weight: bold;
@@ -389,6 +384,7 @@ p {
 
 .showAllActivityDiv {
   cursor: pointer;
+  text-align: center;
 }
 
 .showAllActivityDiv:hover {

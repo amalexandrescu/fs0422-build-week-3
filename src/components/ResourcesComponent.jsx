@@ -5,9 +5,8 @@ import { useNavigate } from "react-router-dom";
 const ResourcesComponent = () => {
   const navigate = useNavigate();
   return (
-    <Container className="profilePageCenterContainer px-0">
-      {/* <Row> */}
-      <div className="resources-container-design p-4">
+    <Row className="my-2">
+      <div className=" col resources-container-design p-4">
         <h5 className="text-left mb-0 normal-cursor-on-hover font-weight-bold">
           Resources
         </h5>
@@ -59,8 +58,7 @@ const ResourcesComponent = () => {
           </ListGroup>
         </div>
       </div>
-      {/* </Row> */}
-    </Container>
+    </Row>
   );
 };
 
