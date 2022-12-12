@@ -3,6 +3,7 @@ import SimpleTextMyProfile from "./SimpleTextMyProfile"
 
 import MorePeople from "./MorePeople"
 import MorePeopleYouKnow from "./MorePeopleYouKnow"
+import Promoted from "./Promoted"
 
 export default function SideComponentsMyProfile() {
   return (
@@ -13,6 +14,8 @@ export default function SideComponentsMyProfile() {
         <hr style={{ width: "90%" }} />
         <SimpleTextMyProfile text="Add profile in another language" />
       </div>
+      {/* promoted section component */}
+      <Promoted />
       {/* People also viewed component */}
       <MorePeople heading="People also viewed" />
       {/* People you may know section, component */}
