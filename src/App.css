@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+/*-----------------------------ABOUT COMPONENT-----------------------------*/
+
+body {
+  background-color: #f3f2ef !important;
+}
+
+.profilePageCenterContainer {
+  width: 782px !important;
+}
+
+.about-container-design {
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  background-color: white;
+  font-size: 15px;
+}
+
+.cursor-on-hover {
+  cursor: pointer;
+}
+
+.normal-cursor-on-hover {
+  cursor: default;
+}
+
+.off-badge-resources-comp {
+  border-radius: 5px;
+  background-color: lightgrey;
+}
