@@ -33,6 +33,9 @@
   }
 }
 
+
+/*-------------------------EDUCATION COMPONENT -------------------------*/
+
 /*------------------------EXPERIENCE COMPONENT------------------------*/
 
 /*-----------------------------ABOUT COMPONENT-----------------------------*/
@@ -161,6 +164,14 @@ body {
   width: 782px !important;
 }
 
+
+.education-container-design {
+border-radius: 10px;
+  border: 1px solid lightgrey;
+  background-color: white;
+  font-size: 15px;
+}
+
 .experience-container-design {
   border-radius: 10px;
   border: 1px solid lightgrey;
@@ -193,6 +204,7 @@ body {
   width: 782px !important;
 }
 
+
 .cursor-on-hover {
   cursor: pointer;
 }
@@ -200,7 +212,7 @@ body {
 .normal-cursor-on-hover {
   cursor: default;
 }
-
+  
 .light-grey-color {
   color: grey;
 }
