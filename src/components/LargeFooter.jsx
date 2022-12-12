@@ -1,13 +1,18 @@
 import React from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Image } from "react-bootstrap"
 import { BsQuestionCircleFill } from "react-icons/bs"
-
+import { RiSettings3Fill } from "react-icons/ri"
+import LinkedinLogo from "../assets/linkedin-logo-png-transparent.png"
 export default function LargeFooter() {
   return (
     <>
       <Container className="mt-5 mb-5">
         <Row>
-          <Col lg={12}>LOGO</Col>
+          <Col lg={12}>
+            <div className="li-logo-container">
+              <Image src={LinkedinLogo} className="li-logo" />
+            </div>
+          </Col>
           <Col lg={2}>
             <div>
               <ul className="footer-text">
@@ -52,7 +57,9 @@ export default function LargeFooter() {
               </div>
             </div>
             <div className="d-flex footer-text">
-              <div className="mr-2"></div>
+              <div className="mr-2">
+                <RiSettings3Fill />
+              </div>
               <div className="d-flex flex-column">
                 <span>Manage your account and privacy</span>
                 <span>Go to your settings</span>

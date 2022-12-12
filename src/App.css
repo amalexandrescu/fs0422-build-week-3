@@ -119,9 +119,26 @@
 /* Large Footer START */
 .footer-text {
   font-size: 10px;
+  text-align: left;
+  padding: 0;
 }
 
 .footer-text li {
   list-style: none;
+  text-align: left;
+}
+
+.li-logo-container {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+/* Large Footer END */
+
+.li-logo {
+  max-width: 100px;
+  max-height: 100px;
 }
 /* Large Footer END */
