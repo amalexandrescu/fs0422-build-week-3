@@ -8,7 +8,9 @@ const ResourcesComponent = () => {
     <Container className="profilePageCenterContainer px-0">
       {/* <Row> */}
       <div className="resources-container-design p-4">
-        <h3 className="text-left mb-0 normal-cursor-on-hover">Resources</h3>
+        <h5 className="text-left mb-0 normal-cursor-on-hover font-weight-bold">
+          Resources
+        </h5>
         <div className="d-flex mb-2 normal-cursor-on-hover">
           <div className="mr-2">
             <Icon.EyeFill />

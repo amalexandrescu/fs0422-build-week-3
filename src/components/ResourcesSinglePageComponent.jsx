@@ -17,9 +17,9 @@ const ResourcesSinglePageComponent = () => {
           >
             <Icon.ArrowLeft />
           </div>
-          <h3 className=" d-flex justify-content-center align-items-centertext-left mb-0 normal-cursor-on-hover">
+          <h5 className=" d-flex justify-content-center align-items-centertext-left mb-0 normal-cursor-on-hover font-weight-bold">
             Resources
-          </h3>
+          </h5>
         </div>
         <div className="d-flex mb-2 normal-cursor-on-hover">
           <div className="mr-2">
