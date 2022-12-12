@@ -7,7 +7,7 @@ export default function MyProfile() {
     <Container>
       <Row>
         <Col lg={9}>Main Section Component</Col>
-        <Col lg={3} className="border mt-5 p-0 ">
+        <Col lg={3} className=" mt-5 p-0 ">
           {" "}
           <SideComponentsMyProfile />
         </Col>

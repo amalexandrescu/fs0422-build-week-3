@@ -1,5 +1,6 @@
 import React from "react"
 import RecommendedUser from "./RecommendedUser"
+import ShowMore from "./ShowMore"
 
 export default function PeopleAlsoViewed() {
   return (
@@ -22,6 +23,7 @@ export default function PeopleAlsoViewed() {
           {" "}
           <RecommendedUser />
         </div>
+        <ShowMore />
       </div>
     </>
   )
