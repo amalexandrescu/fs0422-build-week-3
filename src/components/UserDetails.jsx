@@ -1,5 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 import { Pencil, XLg } from "react-bootstrap-icons";
+import EditUserDetailsModal from "./EditUserDetailsModal";
 
 const UserDetails = () => {
   return (
@@ -26,9 +27,7 @@ const UserDetails = () => {
         <div className="bg-white">
           {/* User Info Edit Button */}
           <Row className="justify-content-end">
-            <div className="editButtonDivTwo d-flex justify-content-center align-items-center">
-              <Pencil className="text-dark" />
-            </div>
+            <EditUserDetailsModal />
           </Row>
 
           {/* User Info Content */}
