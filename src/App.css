@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+/* Side Components USer Profile START */
+.side-component-border {
+  border-radius: 10px;
+}
+
+.simple-text-component {
+  font-size: 14px;
+  text-align: start;
+}
+
+.float-right {
+  float: right;
+  margin-right: 20px;
+}
+.recommended-user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.recommended-user-image {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.recommended-user-job-description-text {
+  font-size: 12px;
+}
+
+.connect-button {
+  border: 1px solid black;
+  width: fit-content;
+  padding: 2px 10px;
+  border-radius: 15px;
+  margin: 0px 0px 5px 0px;
+}
+/* Side Components USer Profile END */ ;

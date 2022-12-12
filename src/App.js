@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./App.css"
-import MyProfile from "./components/MyProfile/MyProfile"
+import MyProfile from "./components/MyProfile"
 function App() {
   return (
     <div className="App">
