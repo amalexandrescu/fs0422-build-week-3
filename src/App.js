@@ -1,4 +1,3 @@
-
 import CustomNavbar from "./components/CustomNavbar.jsx";
 
 import "./App.css";
@@ -8,11 +7,8 @@ import ProfilePageCenter from "./components/ProfilePageCenter";
 function App() {
   return (
     <div className="App">
-
-      <ProfilePageCenter />
-
       <CustomNavbar />
-
+      <ProfilePageCenter />
     </div>
   );
 }

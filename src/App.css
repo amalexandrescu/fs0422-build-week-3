@@ -37,7 +37,6 @@
   }
 }
 
-
 /* CUSTOM CLASSES */
 
 body {
@@ -259,6 +258,7 @@ p {
 
 .editButtonDivThree:hover {
   background-color: rgba(211, 211, 211, 0.377) !important;
+}
 
 /*-----------------------NAVBAR-----------------------*/
 
@@ -280,5 +280,4 @@ p {
 
 .navbar-logo-icon {
   color: #0a66c2;
-
 }
