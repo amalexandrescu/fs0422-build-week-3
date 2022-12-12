@@ -4,7 +4,7 @@ import * as Icon from "react-bootstrap-icons";
 
 const CustomNavbar = () => {
   return (
-    <Navbar expand="lg" variant="light" bg="light">
+    <Navbar expand="lg" variant="light" bg="white">
       <Container className="d-flex justify-content-between align-items-center navbar-font-sizes">
         <div className="d-flex">
           <div className="my-auto">

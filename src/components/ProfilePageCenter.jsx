@@ -7,6 +7,7 @@ import AnalyticsComponent from "./AnalyticsComponent";
 import ResourcesComponent from "./ResourcesComponent";
 import AboutComponent from "./AboutComponent";
 import ExperienceComponent from "./ExperienceComponent";
+import EducationComponent from "./EducationComponent";
 
 const ProfilePageCenter = () => {
   return (
@@ -17,6 +18,7 @@ const ProfilePageCenter = () => {
       <AboutComponent />
       <Activity />
       <ExperienceComponent />
+      <EducationComponent />
       <Languages />
     </Container>
   );

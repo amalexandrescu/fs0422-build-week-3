@@ -33,7 +33,6 @@
   }
 }
 
-
 /*-------------------------EDUCATION COMPONENT -------------------------*/
 
 /*------------------------EXPERIENCE COMPONENT------------------------*/
@@ -160,13 +159,8 @@ body {
   background-color: #f3f2ef !important;
 }
 
-.profilePageCenterContainer {
-  width: 782px !important;
-}
-
-
 .education-container-design {
-border-radius: 10px;
+  border-radius: 10px;
   border: 1px solid lightgrey;
   background-color: white;
   font-size: 15px;
@@ -201,9 +195,8 @@ border-radius: 10px;
 }
 
 .profilePageCenterContainer {
-  width: 782px !important;
+  max-width: 782px !important;
 }
-
 
 .cursor-on-hover {
   cursor: pointer;
@@ -212,7 +205,7 @@ border-radius: 10px;
 .normal-cursor-on-hover {
   cursor: default;
 }
-  
+
 .light-grey-color {
   color: grey;
 }
@@ -254,11 +247,6 @@ p {
   color: grey;
 }
 
-/* Profile page center container */
-
-.profilePageCenterContainer {
-  width: 782px !important;
-}
 /* first component // USER DETAILS */
 .firstComponent {
   border: 1px solid lightgrey;

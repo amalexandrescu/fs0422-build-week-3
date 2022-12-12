@@ -51,7 +51,7 @@ const UserDetails = () => {
                   <div className="openToDiv rounded-pill text-white py-1 px-3">
                     <div> Open to</div>
                   </div>
-                  <div className="addProfileSectionDiv bg-white rounded-pill py-1 px-3">
+                  <div className="addProfileSectionDiv bg-white rounded-pill py-1 px-3 mx-2">
                     <div> Add profile section</div>
                   </div>
                   <div className="moreDiv bg-white rounded-pill py-1 px-3">
