@@ -1,9 +1,9 @@
-import { Container } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 
 const AboutComponent = () => {
   return (
-    <Container className="profilePageCenterContainer px-0">
+    <Row>
       <div className="about-container-design p-4 normal-cursor-on-hover">
         <div className="d-flex justify-content-between">
           <h5 className="text-left mb-0 font-weight-bold">About</h5>
@@ -19,7 +19,7 @@ const AboutComponent = () => {
           Always open to learning and taking on a new challenge.
         </div>
       </div>
-    </Container>
+    </Row>
   );
 };
 

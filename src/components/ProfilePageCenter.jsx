@@ -5,6 +5,7 @@ import Languages from "./Languages";
 import UserDetails from "./UserDetails";
 import AnalyticsComponent from "./AnalyticsComponent";
 import ResourcesComponent from "./ResourcesComponent";
+import AboutComponent from "./AboutComponent";
 
 const ProfilePageCenter = () => {
   return (
@@ -12,6 +13,7 @@ const ProfilePageCenter = () => {
       <UserDetails />
       <AnalyticsComponent />
       <ResourcesComponent />
+      <AboutComponent />
       <Activity />
       <Languages />
     </Container>
