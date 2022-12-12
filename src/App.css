@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+/*-----------------------NAVBAR-----------------------*/
+
+.me-icon-container {
+  height: 15px;
+  width: 15px;
+  background-color: green;
+  border-radius: 50%;
+}
+
+.navbar-font-sizes {
+  font-size: 10px;
+}
+
+.navbar-brand svg {
+  height: 38px;
+  width: 38px;
+}
+
+.navbar-logo-icon {
+  color: #0a66c2;
+}
