@@ -14,9 +14,9 @@ const Languages = () => {
           <div className="col-6 d-flex justify-content-end">
             <div>
               <div className="d-flex justify-content-between align-items-center">
-                <Plus style={{ "font-size": "30px" }} className="mr-2" />
+                <Plus style={{ fontSize: "30px" }} className="mr-2" />
                 <div className="editButtonDivThree d-flex justify-content-center align-items-center">
-                  <Pencil style={{ "font-size": "15px" }} />
+                  <Pencil style={{ fontSize: "15px" }} />
                 </div>
               </div>
             </div>

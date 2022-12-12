@@ -3,8 +3,7 @@ import * as Icon from "react-bootstrap-icons";
 
 const AnalyticsComponent = () => {
   return (
-    <Container className="profilePageCenterContainer px-0">
-      {/* <Row> */}
+    <Row className="my-2">
       <div className="analytics-container-design p-4">
         <h5 className="text-left mb-0 normal-cursor-on-hover font-weight-bold">
           Analytics
@@ -45,8 +44,7 @@ const AnalyticsComponent = () => {
           </div>
         </div>
       </div>
-      {/* </Row> */}
-    </Container>
+    </Row>
   );
 };
 
