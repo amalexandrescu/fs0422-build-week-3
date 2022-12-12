@@ -37,12 +37,35 @@
   }
 }
 
+
+/*-----------------------ANALYTICS COMPONENT-----------------------*/
+
 /* CUSTOM CLASSES */
+
 
 body {
   background-color: #f3f2ef !important;
 }
 
+
+.analytics-container-design {
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  font-size: 15px;
+  background-color: white;
+}
+
+.profilePageCenterContainer {
+  width: 782px !important;
+}
+
+.cursor-on-hover {
+  cursor: pointer;
+}
+
+.normal-cursor-on-hover {
+  cursor: default; }
+  
 a {
   text-decoration: none !important;
   font-weight: bold;
