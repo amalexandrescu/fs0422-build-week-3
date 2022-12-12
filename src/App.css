@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+/*-------------------------EDUCATION COMPONENT -------------------------*/
+
+body {
+  background-color: #f3f2ef !important;
+}
+
+.profilePageCenterContainer {
+  width: 782px !important;
+}
+
+.education-container-design {
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  background-color: white;
+  font-size: 15px;
+}
+
+.cursor-on-hover {
+  cursor: pointer;
+}
+
+.normal-cursor-on-hover {
+  cursor: default;
+}
+
+.edit-icon {
+  font-size: 20px;
+}
+
+.add-icon {
+  font-size: 35px;
+}
+
+.light-grey-color {
+  color: grey;
+}
