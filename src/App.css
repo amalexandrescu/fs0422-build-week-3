@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+/*-----------------------ANALYTICS COMPONENT-----------------------*/
+body {
+  background-color: #f3f2ef !important;
+}
+
+.analytics-container-design {
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  font-size: 15px;
+}
+
+.profilePageCenterContainer {
+  width: 782px !important;
+}
