@@ -105,5 +105,13 @@
   border-radius: 15px;
   margin: 5px 0px 0px 0px;
   align-self: center;
+  cursor: pointer;
 }
+
+.connect-button:hover {
+  background-color: rgb(231, 229, 229);
+  box-shadow: inset 1px 1px 1px 0 rgba(0, 0, 0, 0.2),
+    inset -1px -1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
 /* Side Components USer Profile END */ ;
