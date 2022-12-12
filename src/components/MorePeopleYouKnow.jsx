@@ -1,9 +1,9 @@
 import React, { useEffect } from "react"
-import RecommendedUser from "./RecommendedUser"
+import MoreUsers from "./MoreUsers"
 import ShowMore from "./ShowMore"
 import { useSelector, useDispatch } from "react-redux"
 import { getUsersAction } from "../redux/actions"
-export default function MorePeople({ heading }) {
+export default function MorePeopleYouKnow({ heading }) {
   let users = useSelector((state) => state.users.usersFromFetch)
   const randomUsers = [...users].sort(() => 0.5 - Math.random())
 
@@ -20,7 +20,7 @@ export default function MorePeople({ heading }) {
 
         {randomUsers.slice(0, 5).map((user, i) => (
           <div key={user.id}>
-            <RecommendedUser user={user} />
+            <MoreUsers user={user} />
             <hr style={{ width: "90%" }} />
           </div>
         ))}

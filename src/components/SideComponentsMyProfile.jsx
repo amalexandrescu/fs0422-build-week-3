@@ -2,6 +2,7 @@ import React from "react"
 import SimpleTextMyProfile from "./SimpleTextMyProfile"
 
 import MorePeople from "./MorePeople"
+import MorePeopleYouKnow from "./MorePeopleYouKnow"
 
 export default function SideComponentsMyProfile() {
   return (
@@ -15,7 +16,7 @@ export default function SideComponentsMyProfile() {
       {/* People also viewed component */}
       <MorePeople heading="People also viewed" />
       {/* People you may know section, component */}
-      <MorePeople heading="People you may know" />
+      <MorePeopleYouKnow heading="People you may know" />
       {/* <PeopleYouMayKnow /> */}
     </>
   )
