@@ -33,9 +33,7 @@
   }
 }
 
-
 /*------------------------EXPERIENCE COMPONENT------------------------*/
-
 
 /*-----------------------------ABOUT COMPONENT-----------------------------*/
 
@@ -155,7 +153,6 @@
 
 /* CUSTOM CLASSES */
 
-
 body {
   background-color: #f3f2ef !important;
 }
@@ -169,11 +166,10 @@ body {
   border: 1px solid lightgrey;
   background-color: white;
   font-size: 15px;
-  }
-
+}
 
 .about-container-design {
-border-radius: 10px;
+  border-radius: 10px;
   border: 1px solid lightgrey;
   background-color: white;
   font-size: 15px;
@@ -186,8 +182,6 @@ border-radius: 10px;
   font-size: 15px;
 }
 
-
-
 .analytics-container-design {
   border-radius: 10px;
   border: 1px solid lightgrey;
@@ -198,7 +192,6 @@ border-radius: 10px;
 .profilePageCenterContainer {
   width: 782px !important;
 }
-
 
 .cursor-on-hover {
   cursor: pointer;
@@ -218,12 +211,12 @@ border-radius: 10px;
 
 .edit-icon {
   font-size: 20px;
+}
 
 .off-badge-resources-comp {
   border-radius: 5px;
   background-color: lightgrey;
 }
-
 
 a {
   text-decoration: none !important;

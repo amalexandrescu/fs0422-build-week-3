@@ -1,8 +1,8 @@
-import React from "react"
-import { Container, Row, Col, Image } from "react-bootstrap"
-import { BsQuestionCircleFill } from "react-icons/bs"
-import { RiSettings3Fill } from "react-icons/ri"
-import LinkedinLogo from "../assets/linkedin-logo-png-transparent.png"
+import React from "react";
+import { Container, Row, Col, Image } from "react-bootstrap";
+import { BsQuestionCircleFill } from "react-icons/bs";
+import { RiSettings3Fill } from "react-icons/ri";
+import LinkedinLogo from "../assets/linkedin-logo-png-transparent.png";
 export default function LargeFooter() {
   return (
     <>
@@ -68,9 +68,7 @@ export default function LargeFooter() {
           </Col>
           <Col lg={3}>
             <div className="d-flex flex-column">
-              <label for="language" className="footer-text">
-                Select Language
-              </label>
+              <label className="footer-text">Select Language</label>
               <select id="language" name="language">
                 <option value="English">English (English)</option>
                 <option value="Italian">Italian</option>
@@ -85,5 +83,5 @@ export default function LargeFooter() {
         </Row>
       </Container>
     </>
-  )
+  );
 }

@@ -3,9 +3,8 @@ import * as Icon from "react-bootstrap-icons";
 
 const ExperienceComponent = () => {
   return (
-    <Container className="profilePageCenterContainer px-0">
-      {/* <Row> */}
-      <div className="experience-container-design p-4 normal-cursor-on-hover">
+    <Row className="my-2">
+      <div className="col experience-container-design p-4 normal-cursor-on-hover">
         <div className="d-flex justify-content-between">
           <h5 className="text-left mb-0 normal-cursor-on-hover font-weight-bold">
             Experience
@@ -80,8 +79,7 @@ const ExperienceComponent = () => {
           </ListGroup>
         </div>
       </div>
-      {/* </Row> */}
-    </Container>
+    </Row>
   );
 };
 
