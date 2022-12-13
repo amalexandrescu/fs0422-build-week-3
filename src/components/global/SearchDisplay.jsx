@@ -11,28 +11,39 @@ export default function SearchDisplay() {
   console.log("usersFromSearch", usersFromSearch)
 
   return (
-    <div id="search-results-float" className=" bg-white border">
-      {usersFromSearch.length === 0 ? (
-        <div>Search for users</div>
-      ) : (
-        <>
-          {firstTen.map((user) => (
-            <div key={user._id} className="search-individual-user-diplay">
-              <span className="mr-3">
-                <BiSearch />
-              </span>
-              <span>{user.name} </span>
-              <span>{user.surname}</span>
-              <span>
-                <BsDot />
-              </span>
-              <span className="recommended-user-job-description-text">
-                {user.title}
-              </span>
+    <div>
+      <div className="search-overlay"></div>
+      <div id="search-results-float" className=" bg-white border">
+        {usersFromSearch.length === 0 ? (
+          <div>Search for users</div>
+        ) : (
+          <>
+            {firstTen.map((user) => (
+              <div key={user._id} className="search-individual-user-display ">
+                <div className="search-results-text-wrapper">
+                  <span className="mr-3 ml-2">
+                    <BiSearch />
+                  </span>
+                  <span>{user.name} </span>
+                  <span>{user.surname}</span>
+                  <span>
+                    <BsDot />
+                  </span>
+                  <span className="recommended-user-job-description-text">
+                    {user.title}
+                  </span>
+                </div>
+                <div className="border recommended-user-image ml-auto">
+                  <img src={user.image} alt="" />
+                </div>
+              </div>
+            ))}
+            <div className="border-top p-2 text-center gray-hover text-primary">
+              See all results
             </div>
-          ))}
-        </>
-      )}
+          </>
+        )}
+      </div>
     </div>
   )
 }
