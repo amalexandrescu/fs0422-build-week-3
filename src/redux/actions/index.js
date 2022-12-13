@@ -1,8 +1,15 @@
-export const GET_USERS = "GET_USERS";
+
+export const GET_USERS = "GET_USERS"
+export const USER_SEARCH_SUBMITTED = "USER_SEARCH_SUBMITTED"
+export const SHOW_SEARCH_RESULTS = "SHOW_SEARCH_RESULTS"
+export const HIDE_SEARCH_RESULTS = "HIDE_SEARCH_RESULTS"
+export const EXPAND_MESSENGER = "EXPAND_MESSENGER"
+export const COLLAPSE_MESSENGER = "COLLAPSE_MESSENGER"
 export const GET_EXPERIENCES = "GET_EXPERIENCES";
 export const GET_MY_PROFILEDETAILS = "GET_MY_PROFILEDETAILS";
 export const GET_IS_FETCHED = "GET_IS_FETCHED";
 export const CHANGE_PROFILE_DETAILS = "CHANGE_PROFILE_DETAILS";
+
 
 //constants to use for fetching data
 
@@ -39,6 +46,49 @@ export const getUsersAction = () => {
     } catch (error) {
       console.log(error);
     }
+
+  }
+}
+
+// action for the user search
+
+export const sendUserSearchAction = (filteredUsers) => {
+  return {
+    type: "USER_SEARCH_SUBMITTED",
+    payload: filteredUsers
+  }
+}
+
+// action to make the user search results display
+
+export const showUserSearchAction = () => {
+  return {
+    type: "SHOW_SEARCH_RESULTS"
+  }
+}
+
+//action to his the user search results display
+
+export const hideUserSearchAction = () => {
+  return {
+    type: "HIDE_SEARCH_RESULTS"
+  }
+}
+
+// action to expand and collapse the messenger
+
+export const expandMessengerAction = () => {
+  return {
+    type: "EXPAND_MESSENGER"
+  }
+}
+
+export const collapseMessengerAction = () => {
+  return {
+    type: "COLLAPSE_MESSENGER"
+  }
+}
+
   };
 };
 
@@ -134,3 +184,4 @@ export const changeProfileDetailsAction = (details) => {
     }
   };
 };
+

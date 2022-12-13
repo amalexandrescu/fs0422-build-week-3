@@ -122,6 +122,11 @@
     inset -1px -1px 1px 0 rgba(0, 0, 0, 0.2);
 }
 
+.show-more:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
 /* Side Components USer Profile END */
 
 /* Large Footer START */
@@ -458,6 +463,94 @@ p {
   color: #0a66c2;
 }
 
+
+/* ------------------SEARCH DROPDOWN ----------------- */
+#search-field {
+  width: 250px;
+  transition: width 0.5s ease-out;
+  box-shadow: none;
+  position: relative;
+}
+
+#search-field:focus {
+  width: 350px;
+  border: 2px solid #282c34;
+  transition-duration: 0.5s;
+}
+
+#search-results-float {
+  position: absolute;
+  left: 13%;
+  top: 50px;
+  z-index: 3;
+  border-radius: 5px;
+  width: 450px;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.search-results-text-wrapper {
+  max-width: 360px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-individual-user-display {
+  padding: 6px;
+  padding-inline: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.search-individual-user-display:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.search-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 62px;
+  z-index: 3;
+  border-radius: 5px;
+  width: 100%;
+  height: 200vh;
+}
+
+.gray-hover:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* --------------messenger------------ */
+
+#messaging-popup-wrapper {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  width: 300px;
+  background-color: white;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: -3px -1px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.icon-wrapper-messenger {
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+=======
 /*----------------------------EXPERIENCE MODAL----------------------------*/
 
 .experience-dropdown {
@@ -498,4 +591,5 @@ p {
 
 .saveButtonExperiencesModal {
   border-radius: 50px !important;
+
 }
