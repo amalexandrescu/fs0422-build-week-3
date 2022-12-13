@@ -5,9 +5,9 @@ import { useSelector, useDispatch } from "react-redux"
 import { getUsersAction } from "../../redux/actions"
 export default function MorePeople({ heading }) {
   let usersArray = useSelector((state) => state.users.usersFromFetch)
-  const usersRandom = [...usersArray].sort(() => 0.5 - Math.random())
-  const users = usersRandom.slice(0, 5)
-  const moreUsers = usersRandom.slice(5, 10)
+
+  const users = usersArray.slice(2, 7)
+  const moreUsers = usersArray.slice(7, 12)
 
   const dispatch = useDispatch()
 
