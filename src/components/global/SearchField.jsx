@@ -30,7 +30,7 @@ export default function SearchField() {
   return (
     <div className="my-auto">
       <Nav className="me-auto">
-        <Form className="d-flex" onSubmit={handleSubmit}>
+        <Form className="d-flex" onSubmit={handleSubmit} id="search-field">
           <Form.Control
             type="search"
             value={query}

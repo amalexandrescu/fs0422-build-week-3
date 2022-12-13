@@ -1,11 +1,13 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
 import getUserReducer from "../reducers/getUserReducer"
+import getUsersFromSearchReducer from "../reducers/getUsersFromSearchReducer"
 
 // configureStore will set up the Redux Store for us!
 
 const bigReducer = combineReducers({
   // cart: cartReducer,
-  users: getUserReducer
+  users: getUserReducer,
+  usersFromSearchFilter: getUsersFromSearchReducer
 })
 
 const store = configureStore({

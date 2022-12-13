@@ -462,3 +462,18 @@ p {
 .navbar-logo-icon {
   color: #0a66c2;
 }
+
+/* ------------------SEARCH DROPDOWN ----------------- */
+#search-field:focus {
+  background-color: pink;
+}
+
+#search-results-float {
+  position: absolute;
+  left: 157px;
+  top: 50px;
+  z-index: 1;
+  border-radius: 5px;
+  padding: 10px;
+  width: 300px;
+}
