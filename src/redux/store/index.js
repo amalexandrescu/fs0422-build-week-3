@@ -5,6 +5,7 @@ import getUserReducer from "../reducers/getUserReducer"
 import getUsersFromSearchReducer from "../reducers/getUsersFromSearchReducer"
 import experiencesReducer from "../reducers/experiencesReducer"
 import myProfileReducer from "../reducers/myProfileReducer"
+import setOtherUserReducer from "../reducers/setOtherUserReducer"
 
 // configureStore will set up the Redux Store for us!
 
@@ -15,7 +16,8 @@ const bigReducer = combineReducers({
   showUsers: displayUserSearchReducer,
   messenger: expandMesengerReducer,
   experiences: experiencesReducer,
-  myProfile: myProfileReducer
+  myProfile: myProfileReducer,
+  otherUser: setOtherUserReducer
 })
 
 const store = configureStore({

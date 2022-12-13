@@ -1,11 +1,22 @@
 import React from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { BiSearch } from "react-icons/bi"
 import { BsDot } from "react-icons/bs"
+import { showUserSearchAction } from "../../redux/actions/index"
 export default function SearchDisplay() {
+  const dispatch = useDispatch()
+
+  // const selectedUser = useSelector((state) => state.otherUser.selectedUser)
+  // console.log("selectedUser", selectedUser)
+
   let usersFromSearch = useSelector(
     (state) => state.usersFromSearchFilter.searchResults
   )
+  const handleClick = (user, e) => {
+    e.preventDefault()
+    dispatch(showUserSearchAction())
+    console.log("selectedUser", user)
+  }
 
   let firstTen = usersFromSearch.slice(0, 10)
   console.log("usersFromSearch", usersFromSearch)
@@ -19,7 +30,11 @@ export default function SearchDisplay() {
         ) : (
           <>
             {firstTen.map((user) => (
-              <div key={user._id} className="search-individual-user-display ">
+              <div
+                key={user._id}
+                className="search-individual-user-display"
+                onClick={handleClick}
+              >
                 <div className="search-results-text-wrapper">
                   <span className="mr-3 ml-2">
                     <BiSearch />

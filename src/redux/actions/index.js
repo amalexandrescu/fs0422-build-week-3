@@ -8,6 +8,7 @@ export const GET_EXPERIENCES = "GET_EXPERIENCES"
 export const GET_MY_PROFILEDETAILS = "GET_MY_PROFILEDETAILS"
 export const GET_IS_FETCHED = "GET_IS_FETCHED"
 export const CHANGE_PROFILE_DETAILS = "CHANGE_PROFILE_DETAILS"
+export const OTHER_USER_SELECTED = "OTHER_USER_SELECTED"
 
 //constants to use for fetching data
 
@@ -174,5 +175,14 @@ export const changeProfileDetailsAction = (details) => {
     } catch (error) {
       console.log("🚀 error", error)
     }
+  }
+}
+
+// change state of selected user to get their profile
+
+export const otherUserProfileAction = (user) => {
+  return {
+    type: "OTHER_USER_SELECTED",
+    payload: user
   }
 }
