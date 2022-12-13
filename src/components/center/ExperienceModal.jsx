@@ -1,19 +1,27 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import * as Icon from "react-bootstrap-icons";
 import { Button, Modal, Form, InputGroup } from "react-bootstrap";
+
+import { addExperienceAction, POST_EXPERIENCE } from "../../redux/actions";
 
 const ExperienceModal = () => {
   //this is for the modal
   const [show, setShow] = useState(false);
+  const dispatch = useDispatch();
 
   //this is for the checkbox
-  const [checkedInput, setCheckedInput] = useState("");
+  // const [checkedInput, setCheckedInput] = useState("");
 
   //this is for the end date experience inputs
   const [disabledInput, setDisabledInput] = useState("");
 
   // "2019-06-16"
 
+  const userId = useSelector((state) => state.myProfile.detailsData._id);
+
+  const [day, setDay] = useState("01");
+  const [checked, setChecked] = useState(false);
   const [experience, setExperience] = useState({
     role: "",
     company: "",
@@ -21,14 +29,72 @@ const ExperienceModal = () => {
     endDate: "",
     description: "",
     area: "",
+    startYear: "",
+    endYear: "",
+    startMonth: "",
+    endMonth: "",
   });
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   //changes the value of the inputs
   const onChangeHandler = (value, fieldToSet) => {
+    // setExperience((currentState) => ({ ...currentState, [fieldToSet]: value }));
+
     setExperience({
       ...experience,
       [fieldToSet]: value,
     });
+  };
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+
+    let randomDay = Math.floor(Math.random() * 28);
+    if (randomDay < 10) {
+      setDay(`0${randomDay}`);
+    } else {
+      setDay(randomDay);
+    }
+
+    let newExperience = {
+      role: experience.role,
+      company: experience.company,
+      startDate: `${experience.startYear}-${experience.startMonth}-${day}`,
+      endDate:
+        experience.endMonth !== "" && experience.endYear !== ""
+          ? `${experience.endYear}-${experience.endMonth}-${day}`
+          : null,
+      description: experience.description,
+      area: experience.location,
+    };
+    // dispatch({
+    //   type: POST_EXPERIENCE,
+    //   payload: {
+    //     role: experience.role,
+    //     company: experience.company,
+    //     startDate: `${experience.startYear}-${experience.startMonth}-${day}`,
+    //     endDate: `experience.endDate !== "" ? ${experience.endYear}-${experience.endMonth}-${day} : null`,
+    //     description: experience.description,
+    //     area: experience.location,
+    //   },
+    // });
+    console.log("new experience", newExperience);
+
+    dispatch(addExperienceAction(newExperience, userId));
+    setExperience({
+      role: "",
+      company: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+      area: "",
+      startYear: "",
+      endYear: "",
+      startMonth: "",
+      endMonth: "",
+    });
+    handleClose();
   };
 
   //if the checkbox is checked, than disable the end date inputs
@@ -37,18 +103,6 @@ const ExperienceModal = () => {
   //this means that the checkbox is checked(still working at this role) and
   //we don't have an end date; I will put it with "null" in the POST
 
-  const handleCheckbox = () => {
-    if (checkedInput === "") {
-      setCheckedInput(true);
-      setDisabledInput(true);
-    } else {
-      setCheckedInput("");
-      setDisabledInput("");
-    }
-  };
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   return (
     <>
       <div
@@ -74,30 +128,59 @@ const ExperienceModal = () => {
           {/* <div className="overflow-auto"> */}
           <Form className="experiencesModal">
             <Form.Group controlId="exampleForm.ControlInput1">
-              <Form.Label>Title</Form.Label>
+              <Form.Label>Title*</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Ex. Retail Sales Manager"
                 required
+                value={experience.role}
+                onChange={(e) => {
+                  onChangeHandler(e.target.value, "role");
+                }}
               />
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Company name*</Form.Label>
-              <Form.Control type="text" placeholder="Ex. Microsoft" />
+              <Form.Control
+                type="text"
+                placeholder="Ex. Microsoft"
+                required
+                value={experience.company}
+                onChange={(e) => {
+                  onChangeHandler(e.target.value, "company");
+                }}
+              />
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Location*</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Ex. London, United Kingdom"
+                required
+                value={experience.area}
+                onChange={(e) => {
+                  onChangeHandler(e.target.value, "area");
+                }}
               />
             </Form.Group>
             <Form.Group className="d-flex align-items-center">
               <Form.Control
                 type="checkbox"
                 className="d-inline-block checkboxInput mr-2"
-                checked={checkedInput}
-                onClick={handleCheckbox}
+                checked={checked}
+                // onClick={handleCheckbox}
+                onChange={(e) => {
+                  if (checked === true) {
+                    setDisabledInput(false);
+                  } else {
+                    onChangeHandler("", "endDate");
+                    onChangeHandler("", "endMonth");
+                    onChangeHandler("", "endYear");
+                    setDisabledInput(true);
+                  }
+                  setChecked(e.target.checked);
+                  // }
+                }}
               />
               <Form.Label className="mb-0">
                 I am currently working on this role.
@@ -110,34 +193,35 @@ const ExperienceModal = () => {
                 <Form.Control
                   as="select"
                   className="monthSelectInput"
-                  // value={reservation.numberOfPeople}
-                  // onChange={(e) =>
-                  // onChangeHandler(e.target.value, "numberOfPeople")
-                  // }
+                  required
+                  value={experience.startMonth}
+                  onChange={(e) =>
+                    onChangeHandler(e.target.value, "startMonth")
+                  }
                 >
                   <option>Month</option>
-                  <option>January</option>
-                  <option>February</option>
-                  <option>March</option>
-                  <option>April</option>
-                  <option>May</option>
-                  <option>June</option>
-                  <option>July</option>
-                  <option>August</option>
-                  <option>September</option>
-                  <option>October</option>
-                  <option>November</option>
-                  <option>December</option>
+                  <option>01</option>
+                  <option>02</option>
+                  <option>03</option>
+                  <option>04</option>
+                  <option>05</option>
+                  <option>06</option>
+                  <option>07</option>
+                  <option>08</option>
+                  <option>09</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
                 </Form.Control>
 
                 <Form.Control
-                  type="text"
+                  type="number"
+                  min={1900}
+                  max={2022}
                   placeholder="Year"
                   className="yearSelectInput"
-                  // value={reservation.numberOfPeople}
-                  // onChange={(e) =>
-                  // onChangeHandler(e.target.value, "numberOfPeople")
-                  // }
+                  value={experience.startYear}
+                  onChange={(e) => onChangeHandler(e.target.value, "startYear")}
                 ></Form.Control>
               </div>
             </Form.Group>
@@ -148,35 +232,34 @@ const ExperienceModal = () => {
                   as="select"
                   disabled={disabledInput}
                   className="monthSelectInput"
-
-                  // value={reservation.numberOfPeople}
-                  // onChange={(e) =>
-                  // onChangeHandler(e.target.value, "numberOfPeople")
-                  // }
+                  value={experience.endMonth}
+                  onChange={(e) => {
+                    onChangeHandler(e.target.value, "endMonth");
+                  }}
                 >
                   <option>Month</option>
-                  <option>January</option>
-                  <option>February</option>
-                  <option>March</option>
-                  <option>April</option>
-                  <option>May</option>
-                  <option>June</option>
-                  <option>July</option>
-                  <option>August</option>
-                  <option>September</option>
-                  <option>October</option>
-                  <option>November</option>
-                  <option>December</option>
+                  <option>01</option>
+                  <option>02</option>
+                  <option>03</option>
+                  <option>04</option>
+                  <option>05</option>
+                  <option>06</option>
+                  <option>07</option>
+                  <option>08</option>
+                  <option>09</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
                 </Form.Control>
                 <Form.Control
-                  type="text"
+                  type="number"
+                  min={1900}
+                  max={2022}
                   placeholder="Year"
                   className="yearSelectInput"
                   disabled={disabledInput}
-                  // value={reservation.numberOfPeople}
-                  // onChange={(e) =>
-                  // onChangeHandler(e.target.value, "numberOfPeople")
-                  // }
+                  value={experience.endYear}
+                  onChange={(e) => onChangeHandler(e.target.value, "endYear")}
                 ></Form.Control>
               </div>
             </Form.Group>
@@ -185,10 +268,8 @@ const ExperienceModal = () => {
               <Form.Control
                 as="textarea"
                 rows={3}
-                // value={reservation.specialRequests}
-                // onChange={(e) =>
-                // onChangeHandler(e.target.value, "specialRequests")
-                // }
+                value={experience.description}
+                onChange={(e) => onChangeHandler(e.target.value, "description")}
               />
             </Form.Group>
           </Form>
@@ -198,7 +279,11 @@ const ExperienceModal = () => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" className="saveButtonExperiencesModal">
+          <Button
+            variant="primary"
+            className="saveButtonExperiencesModal"
+            onClick={onSubmitHandler}
+          >
             Add
           </Button>
         </Modal.Footer>

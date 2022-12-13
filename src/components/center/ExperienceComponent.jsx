@@ -1,9 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Row, ListGroup } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
+import { useDispatch, useSelector } from "react-redux";
 import ExperienceModal from "./ExperienceModal";
+import { getExperiencesAction } from "../../redux/actions";
 
 const ExperienceComponent = () => {
+  const dispatch = useDispatch();
+  // let userId = "";
+  let userId = useSelector((state) => state.myProfile.detailsData._id);
+  console.log("user id from exp comp", userId);
+
+  useEffect(() => {
+    if (userId) {
+      dispatch(getExperiencesAction(userId));
+    }
+  }, [userId]);
+
   const [plusButton, setPlusButton] = useState(false);
   return (
     <Row className="my-2">

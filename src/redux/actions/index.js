@@ -1,11 +1,9 @@
-
 export const GET_USERS = "GET_USERS";
 export const GET_EXPERIENCES = "GET_EXPERIENCES";
-import { useSelector } from "react-redux";
+
 export const GET_MY_PROFILEDETAILS = "GET_MY_PROFILEDETAILS";
 export const GET_IS_FETCHED = "GET_IS_FETCHED";
 export const CHANGE_PROFILE_DETAILS = "CHANGE_PROFILE_DETAILS";
-
 
 //constants to use for fetching data
 
@@ -45,27 +43,42 @@ export const getUsersAction = () => {
   };
 };
 
-
 //action for getting the experiences
 
 //change the userId with the original one from Redux State
-const experiencesUrl =
-  "https://striveschool-api.herokuapp.com/api/profile/:userId/experiences";
 
-export const getExperiencesAction = () => {
+export const getExperiencesAction = (userId) => {
+  const experiencesUrl = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`;
+  console.log("userID", userId);
+  const getOptions = {
+    method: "GET",
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjAxM2M5NmRmYjAwMTUyMWE1YmEiLCJpYXQiOjE2NzA4MzYyNDMsImV4cCI6MTY3MjA0NTg0M30.y7kED45MhN6V7jWF7PwyZ4DryRe6OJ6b9-so68M-zaE",
+    },
+  };
   console.log("fetching experiences - GET method");
   return async (dispatch) => {
     try {
-      let response = await fetch(experiencesUrl);
+      let response = await fetch(experiencesUrl, getOptions);
       if (response.ok) {
         let data = await response.json();
-        console.log("data from experiences fetch with GET method", data);
+        console.log(
+          "data from ----------experiences--------- fetch with GET method",
+          data
+        );
         dispatch({
           type: GET_EXPERIENCES,
           payload: data,
         });
       } else {
         console.log("en error occured while fetching the experiences");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 // get My Profile Details Fetching Action
 
@@ -133,3 +146,33 @@ export const changeProfileDetailsAction = (details) => {
   };
 };
 
+//POST method for experience modal
+
+export const addExperienceAction = (experience, userId) => {
+  const postUrl = `https://striveschool-api.herokuapp.com/api/profile/:${userId}/experiences`;
+  console.log("----------add experience-----------");
+  return async (dispatch) => {
+    const optionsPost = {
+      method: "POST",
+      body: JSON.stringify(experience),
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjAxM2M5NmRmYjAwMTUyMWE1YmEiLCJpYXQiOjE2NzA4MzYyNDMsImV4cCI6MTY3MjA0NTg0M30.y7kED45MhN6V7jWF7PwyZ4DryRe6OJ6b9-so68M-zaE",
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const response = await fetch(postUrl, optionsPost);
+      if (response.ok) {
+        console.log("new experience added successfully!");
+      } else {
+        console.log(
+          "sorry, an error occured while trying to add a new experience"
+        );
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
