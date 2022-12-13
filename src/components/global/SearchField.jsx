@@ -11,6 +11,14 @@ export default function SearchField() {
   const handleChange = (e) => {
     setQuery(e.target.value)
     dispatch(showUserSearchAction())
+
+    const filteredUsers = usersArray.filter((user) => {
+      const userFullName = user.name + user.surname
+      return userFullName.toLowerCase().includes(query.toLowerCase())
+    })
+
+    console.log("filteredUsers -->", filteredUsers)
+    dispatch(sendUserSearchAction(filteredUsers))
   }
 
   const handleSubmit = (e) => {
