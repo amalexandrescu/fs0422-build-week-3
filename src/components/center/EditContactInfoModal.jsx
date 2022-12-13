@@ -5,10 +5,8 @@ import {
   GeoAltFill,
   Linkedin,
   Pencil,
-  PhoneFill,
   TelephoneFill,
 } from "react-bootstrap-icons";
-import { RiGpsFill } from "react-icons/ri";
 import { useSelector } from "react-redux";
 
 function EditContactInfoModal() {

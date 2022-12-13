@@ -1,12 +1,6 @@
 import Dropdown from "react-bootstrap/Dropdown";
 import CustomToggleOpenToButton from "../../customToggleElements/CustomToggleOpenToButton";
 import CustomMenuOpenToButton from "../../customToggleElements/CustomMenuOpenToButton";
-import {
-  Arrow90degRight,
-  Download,
-  FileEarmark,
-  InfoSquareFill,
-} from "react-bootstrap-icons";
 
 export default function OpenToDropDownButton() {
   return (

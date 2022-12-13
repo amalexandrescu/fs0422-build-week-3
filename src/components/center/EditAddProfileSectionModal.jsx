@@ -1,13 +1,6 @@
 import { useState } from "react";
 import { Form, Modal, Row } from "react-bootstrap";
-import {
-  ChevronDown,
-  ChevronUp,
-  Envelope,
-  GeoAltFill,
-  Linkedin,
-  TelephoneFill,
-} from "react-bootstrap-icons";
+import { ChevronDown, ChevronUp } from "react-bootstrap-icons";
 
 import { useSelector } from "react-redux";
 
