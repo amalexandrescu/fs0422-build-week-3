@@ -1,11 +1,8 @@
-
 export const GET_USERS = "GET_USERS";
 export const GET_EXPERIENCES = "GET_EXPERIENCES";
-import { useSelector } from "react-redux";
 export const GET_MY_PROFILEDETAILS = "GET_MY_PROFILEDETAILS";
 export const GET_IS_FETCHED = "GET_IS_FETCHED";
 export const CHANGE_PROFILE_DETAILS = "CHANGE_PROFILE_DETAILS";
-
 
 //constants to use for fetching data
 
@@ -45,7 +42,6 @@ export const getUsersAction = () => {
   };
 };
 
-
 //action for getting the experiences
 
 //change the userId with the original one from Redux State
@@ -66,6 +62,12 @@ export const getExperiencesAction = () => {
         });
       } else {
         console.log("en error occured while fetching the experiences");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 // get My Profile Details Fetching Action
 
@@ -132,4 +134,3 @@ export const changeProfileDetailsAction = (details) => {
     }
   };
 };
-
