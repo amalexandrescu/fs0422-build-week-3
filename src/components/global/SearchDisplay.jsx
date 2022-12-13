@@ -24,8 +24,8 @@ export default function SearchDisplay() {
                   <span className="mr-3 ml-2">
                     <BiSearch />
                   </span>
-                  <span>{user.name} </span>
-                  <span>{user.surname}</span>
+                  <span className="small-header-text ">{user.name} </span>
+                  <span className="small-header-text">{user.surname}</span>
                   <span>
                     <BsDot />
                   </span>

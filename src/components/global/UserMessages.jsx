@@ -10,7 +10,7 @@ export default function UserMessages() {
             <img src={placeholder} alt="" />
           </div>
           <div className="message">
-            <div>Olaf Glad</div>
+            <div className="small-header-text">Olaf Glad</div>
             <div className="font-weight-light recommended-user-job-description-text ">
               Olaf: Why am I getting an empty array?
             </div>
@@ -25,8 +25,8 @@ export default function UserMessages() {
           <div className="border recommended-user-image ml-1">
             <img src={placeholder} alt="" />
           </div>
-          <div className="message">
-            <div>Akbar Rahimov</div>
+          <div className="message ">
+            <div className="small-header-text">Akbar Rahimov</div>
             <div className="font-weight-light recommended-user-job-description-text">
               You: Are you still looking for a job?
             </div>
@@ -42,7 +42,7 @@ export default function UserMessages() {
             <img src={placeholder} alt="" />
           </div>
           <div className="message">
-            <div>Abiodun</div>
+            <div className="small-header-text">Abiodun A</div>
             <div className="font-weight-light recommended-user-job-description-text">
               Abiodun: Report your location
             </div>

@@ -22,10 +22,12 @@ export default function MessagingPopup() {
         <div id="messaging-popup-wrapper-full" className="border pointer">
           <div className="top-messenger-wrapper ">
             <div className="d-flex align-items-center">
-              <div className="border recommended-user-image ml-1 mr-1">
+              <div className="border recommended-user-image ml-1 mr-2">
                 <img src={placeholder} alt="" />
               </div>
-              <div className="font-weight-bold">Messaging</div>
+              <div className="font-weight-bold small-header-text ">
+                Messaging
+              </div>
             </div>
             <div className="d-flex">
               <div className="mr-1 gray-hover icon-wrapper-messenger">
@@ -63,10 +65,12 @@ export default function MessagingPopup() {
             className="border pointer top-messenger-wrapper"
           >
             <div className="d-flex align-items-center">
-              <div className="border recommended-user-image ml-auto mr-1">
+              <div className="border recommended-user-image ml-auto mr-2">
                 <img src={placeholder} alt="" />
               </div>
-              <div className="font-weight-bold">Messaging</div>
+              <div className="font-weight-bold  small-header-text">
+                Messaging
+              </div>
             </div>
             <div className="d-flex">
               <div className="mr-1 gray-hover icon-wrapper-messenger">
