@@ -122,6 +122,11 @@
     inset -1px -1px 1px 0 rgba(0, 0, 0, 0.2);
 }
 
+.show-more:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
 /* Side Components USer Profile END */
 
 /* Large Footer START */
