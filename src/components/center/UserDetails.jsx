@@ -1,9 +1,13 @@
 import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
-import { Pencil, XLg } from "react-bootstrap-icons";
+import { Dot, Pencil, XLg } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getMyProfileDetailsAction } from "../../redux/actions";
+import EditAddProfileSectionModal from "./EditAddProfileSectionModal";
+import EditContactInfoModal from "./EditContactInfoModal";
 import EditUserDetailsModal from "./EditUserDetailsModal";
+import MoreDropDownButton from "./MoreDropdownButton";
+import OpenToDropDownButton from "./OpenToDropdownButton";
 
 const UserDetails = () => {
   let details = useSelector((state) => state.myProfile.detailsData);
@@ -38,7 +42,7 @@ const UserDetails = () => {
             </Row>
           </div>
           {/* User Info Section*/}
-          <div className="bg-white">
+          <div className="bg-white" style={{ borderRadius: "10px" }}>
             {/* User Info Edit Button */}
             <Row className="justify-content-end">
               <EditUserDetailsModal />
@@ -53,27 +57,26 @@ const UserDetails = () => {
                   </h4>
 
                   <h6>{details.title}</h6>
-                  <p className="text-secondary my-1">
-                    {details.area} ·{" "}
-                    <a href="/">
-                      <b>Contact info</b>
-                    </a>
-                  </p>
+                  <div className="d-flex align-items-center">
+                    <p className="text-secondary my-1">
+                      {details.area} <Dot />{" "}
+                    </p>
+                    <div
+                      className="text-primary"
+                      style={{ "font-size": "0.8em", cursor: "pointer" }}
+                    >
+                      <EditContactInfoModal />
+                    </div>
+                  </div>
                   <a href="/">
-                    <p>385 connections</p>
+                    <p>500+ connections</p>
                   </a>
 
                   {/* Section 3 Links Pills */}
                   <div className="col d-flex justify-content-between px-0 my-2">
-                    <div className="openToDiv rounded-pill text-white py-1 px-3">
-                      <div> Open to</div>
-                    </div>
-                    <div className="addProfileSectionDiv bg-white rounded-pill py-1 px-3 mx-2">
-                      <div> Add profile section</div>
-                    </div>
-                    <div className="moreDiv bg-white rounded-pill py-1 px-3">
-                      <div> More</div>
-                    </div>
+                    <OpenToDropDownButton />
+                    <EditAddProfileSectionModal />
+                    <MoreDropDownButton />
                   </div>
                 </div>
               </Col>

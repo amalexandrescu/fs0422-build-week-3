@@ -1,4 +1,4 @@
-import { Container, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 
 const AnalyticsComponent = () => {
