@@ -463,7 +463,6 @@ p {
   color: #0a66c2;
 }
 
-
 /* ------------------SEARCH DROPDOWN ----------------- */
 #search-field {
   width: 250px;
@@ -550,7 +549,7 @@ p {
   justify-content: center;
   height: 30px;
   width: 30px;
-=======
+}
 /*----------------------------EXPERIENCE MODAL----------------------------*/
 
 .experience-dropdown {
@@ -591,5 +590,4 @@ p {
 
 .saveButtonExperiencesModal {
   border-radius: 50px !important;
-
 }
