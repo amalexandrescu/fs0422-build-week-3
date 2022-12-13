@@ -457,3 +457,25 @@ p {
 .navbar-logo-icon {
   color: #0a66c2;
 }
+
+/*----------------------------EXPERIENCE MODAL----------------------------*/
+
+.experience-dropdown {
+  width: 180px;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  background-color: white;
+  font-size: 15px;
+  position: absolute;
+  top: 65px;
+  right: 50px;
+  z-index: 1;
+}
+
+.add-position-experience-effect-on-hover:hover {
+  color: rgb(71, 70, 70);
+}
+
+.plus-icon-button-experience-container {
+  background-color: rgba(211, 211, 211, 0.377) !important;
+}

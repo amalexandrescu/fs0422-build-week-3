@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Container, Row, ListGroup } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
+import ExperienceModal from "./ExperienceModal";
 
 const ExperienceComponent = () => {
+  const [plusButton, setPlusButton] = useState(false);
   return (
     <Row className="my-2">
       <div className="col experience-container-design p-4 normal-cursor-on-hover">
@@ -10,11 +13,44 @@ const ExperienceComponent = () => {
             Experience
           </h5>
           <div className="d-flex cursor-on-hover">
-            <div className="d-flex justify-content-center align-items-center mr-2 add-icon">
+            <div
+              className={
+                plusButton === true
+                  ? "d-flex justify-content-center align-items-center mr-2 add-icon rounded-circle plus-icon-button-experience-container"
+                  : "d-flex justify-content-center align-items-center mr-2 add-icon rounded-circle "
+              }
+              onClick={() => {
+                if (plusButton === false) {
+                  setPlusButton(true);
+                } else {
+                  setPlusButton(false);
+                }
+              }}
+            >
               <Icon.Plus />
             </div>
             <div className="d-flex justify-content-center align-items-center edit-icon">
               <Icon.Pencil />
+            </div>
+            <div
+              className={
+                plusButton === true
+                  ? "visible experience-dropdown light-grey-color p-3"
+                  : "invisible experience-dropdown light-grey-color p-3"
+              }
+            >
+              <div className="d-flex mb-1 add-position-experience-effect-on-hover">
+                <div className="mr-2">
+                  <Icon.BriefcaseFill />
+                </div>
+                <div>Add position</div>
+              </div>
+              <div className="d-flex">
+                <div className="mr-2">
+                  <Icon.Calendar2Date />
+                </div>
+                <div>Add career break</div>
+              </div>
             </div>
           </div>
         </div>
