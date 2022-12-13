@@ -39,12 +39,13 @@ const ExperienceComponent = () => {
                   : "invisible experience-dropdown light-grey-color p-3"
               }
             >
-              <div className="d-flex mb-1 add-position-experience-effect-on-hover">
+              {/* <div className="d-flex mb-1 add-position-experience-effect-on-hover">
                 <div className="mr-2">
                   <Icon.BriefcaseFill />
                 </div>
                 <div>Add position</div>
-              </div>
+              </div> */}
+              <ExperienceModal />
               <div className="d-flex">
                 <div className="mr-2">
                   <Icon.Calendar2Date />

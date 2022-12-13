@@ -470,6 +470,7 @@ p {
   top: 65px;
   right: 50px;
   z-index: 1;
+  box-shadow: 0 4px 4px rgba(0 0 0 / 17%) !important;
 }
 
 .add-position-experience-effect-on-hover:hover {
@@ -478,4 +479,23 @@ p {
 
 .plus-icon-button-experience-container {
   background-color: rgba(211, 211, 211, 0.377) !important;
+}
+
+.checkboxInput {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.monthSelectInput,
+.yearSelectInput {
+  width: 45% !important;
+}
+
+.experiencesModal {
+  overflow-y: scroll;
+  height: 60vh !important;
+}
+
+.saveButtonExperiencesModal {
+  border-radius: 50px !important;
 }
