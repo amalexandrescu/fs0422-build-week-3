@@ -1,8 +1,11 @@
-import { useSelector } from "react-redux";
+
 export const GET_USERS = "GET_USERS";
+export const GET_EXPERIENCES = "GET_EXPERIENCES";
+import { useSelector } from "react-redux";
 export const GET_MY_PROFILEDETAILS = "GET_MY_PROFILEDETAILS";
 export const GET_IS_FETCHED = "GET_IS_FETCHED";
 export const CHANGE_PROFILE_DETAILS = "CHANGE_PROFILE_DETAILS";
+
 
 //constants to use for fetching data
 
@@ -41,6 +44,28 @@ export const getUsersAction = () => {
     }
   };
 };
+
+
+//action for getting the experiences
+
+//change the userId with the original one from Redux State
+const experiencesUrl =
+  "https://striveschool-api.herokuapp.com/api/profile/:userId/experiences";
+
+export const getExperiencesAction = () => {
+  console.log("fetching experiences - GET method");
+  return async (dispatch) => {
+    try {
+      let response = await fetch(experiencesUrl);
+      if (response.ok) {
+        let data = await response.json();
+        console.log("data from experiences fetch with GET method", data);
+        dispatch({
+          type: GET_EXPERIENCES,
+          payload: data,
+        });
+      } else {
+        console.log("en error occured while fetching the experiences");
 
 // get My Profile Details Fetching Action
 
@@ -107,3 +132,4 @@ export const changeProfileDetailsAction = (details) => {
     }
   };
 };
+
