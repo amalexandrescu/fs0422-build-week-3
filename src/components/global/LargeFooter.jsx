@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { BsQuestionCircleFill } from "react-icons/bs";
 import { RiSettings3Fill } from "react-icons/ri";
-import LinkedinLogo from "../assets/linkedin-logo-png-transparent.png";
+import LinkedinLogo from "../../assets/linkedin-logo-png-transparent.png";
 export default function LargeFooter() {
   return (
     <>

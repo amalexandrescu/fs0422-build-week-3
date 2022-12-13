@@ -1,8 +1,8 @@
-import React from "react"
-import { Image } from "react-bootstrap"
-import { BsThreeDots } from "react-icons/bs"
-import { SlArrowRight } from "react-icons/sl"
-import logoOne from "../assets/v-team-logo.png"
+import React from "react";
+import { Image } from "react-bootstrap";
+import { BsThreeDots } from "react-icons/bs";
+import { SlArrowRight } from "react-icons/sl";
+import logoOne from "../../assets/v-team-logo.png";
 export default function Promoted() {
   return (
     <div className=" border side-component-border mt-2 bg-white">
@@ -30,5 +30,5 @@ export default function Promoted() {
         </span>
       </div>
     </div>
-  )
+  );
 }

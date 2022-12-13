@@ -1,17 +1,17 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ResourcesSinglePageComponent from "./components/ResourcesSinglePageComponent.jsx";
+import ResourcesSinglePageComponent from "./components/center/ResourcesSinglePageComponent.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MyProfile from "./components/MyProfile"
-import CustomNavbar from "./components/CustomNavbar.jsx";
+import MyProfile from "./components/global/MyProfile";
+import CustomNavbar from "./components/global/CustomNavbar.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-      <CustomNavbar />
+        <CustomNavbar />
         <Routes>
-        <Route path="/" element={<MyProfile />} />
+          <Route path="/" element={<MyProfile />} />
           <Route
             path="/details/resources"
             element={<ResourcesSinglePageComponent />}
@@ -22,4 +22,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
