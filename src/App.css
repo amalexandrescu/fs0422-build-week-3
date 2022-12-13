@@ -307,6 +307,20 @@ p {
   background-color: rgba(211, 211, 211, 0.377) !important;
 }
 
+/* REUSABLE FOR ALL ICONS */
+
+.editButtonIconDiv {
+  background-color: white;
+  height: 35px !important;
+  aspect-ratio: 1/1 !important;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.editButtonIconDiv:hover {
+  background-color: rgba(211, 211, 211, 0.377) !important;
+}
+
 /* 3 Buttons */
 
 .openToDiv {

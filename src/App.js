@@ -4,6 +4,7 @@ import ResourcesSinglePageComponent from "./components/center/ResourcesSinglePag
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyProfile from "./components/global/MyProfile";
 import CustomNavbar from "./components/global/CustomNavbar.jsx";
+import ExperienceComponent from "./components/center/ExperienceComponent";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             path="/details/resources"
             element={<ResourcesSinglePageComponent />}
           />
+          <Route path="/editexperiences" element={<ExperienceComponent />} />
         </Routes>
       </div>
     </BrowserRouter>

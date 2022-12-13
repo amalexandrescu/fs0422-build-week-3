@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { Pencil, InfoSquareFill } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -46,7 +46,7 @@ function EditUserDetailsModal() {
       type: CHANGE_PROFILE_DETAILS,
       payload: {
         name: name,
-        surname: surname,
+        startDate: surname,
         email: email,
         bio: bio,
         title: title,
