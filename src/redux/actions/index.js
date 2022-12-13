@@ -1,5 +1,5 @@
 export const GET_USERS = "GET_USERS"
-
+export const USER_SEARCH_SUBMITTED = "USER_SEARCH_SUBMITTED"
 //constants to use for fetching data
 
 const baseEndPoint = "https://striveschool-api.herokuapp.com/api/profile/"
@@ -35,5 +35,14 @@ export const getUsersAction = () => {
     } catch (error) {
       console.log(error)
     }
+  }
+}
+
+// action for the user search
+
+export const sendUserSearchAction = (filteredUsers) => {
+  return {
+    type: "USER_SEARCH_SUBMITTED",
+    payload: filteredUsers
   }
 }

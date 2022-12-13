@@ -1,6 +1,7 @@
-import { Container, Navbar, Nav, NavDropdown, Form } from "react-bootstrap";
+import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 
-import * as Icon from "react-bootstrap-icons";
+import * as Icon from "react-bootstrap-icons"
+import SearchField from "./SearchField"
 
 const CustomNavbar = () => {
   return (
@@ -12,18 +13,7 @@ const CustomNavbar = () => {
               <Icon.Linkedin className="navbar-logo-icon" />
             </Navbar.Brand>
           </div>
-          <div className="my-auto">
-            <Nav className="me-auto">
-              <Form className="d-flex">
-                <Form.Control
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-              </Form>
-            </Nav>
-          </div>
+          <SearchField />
         </div>
         <Nav>
           <div className="nav-link">
@@ -91,7 +81,7 @@ const CustomNavbar = () => {
         </Nav>
       </Container>
     </Navbar>
-  );
-};
+  )
+}
 
-export default CustomNavbar;
+export default CustomNavbar
