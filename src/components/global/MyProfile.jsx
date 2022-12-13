@@ -1,13 +1,16 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import SideComponentsMyProfile from "../sidebar/SideComponentsMyProfile";
-import LargeFooter from "./LargeFooter";
-import ProfilePageCenter from "../center/ProfilePageCenter";
+import React from "react"
+import { Container, Row, Col } from "react-bootstrap"
+import SideComponentsMyProfile from "../sidebar/SideComponentsMyProfile"
+import LargeFooter from "./LargeFooter"
+import ProfilePageCenter from "../center/ProfilePageCenter"
+import { useDispatch } from "react-redux"
+import { hideUserSearchAction } from "../../redux/actions"
 
 export default function MyProfile() {
+  const dispatch = useDispatch()
   return (
     <>
-      <Container>
+      <Container onClick={() => dispatch(hideUserSearchAction())}>
         <Row>
           <Col lg={9}>
             <ProfilePageCenter />
@@ -20,5 +23,5 @@ export default function MyProfile() {
       </Container>
       <LargeFooter />
     </>
-  );
+  )
 }

@@ -1,4 +1,5 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
+import displayUserSearchReducer from "../reducers/displayUserSearchReducer"
 import getUserReducer from "../reducers/getUserReducer"
 import getUsersFromSearchReducer from "../reducers/getUsersFromSearchReducer"
 
@@ -7,7 +8,8 @@ import getUsersFromSearchReducer from "../reducers/getUsersFromSearchReducer"
 const bigReducer = combineReducers({
   // cart: cartReducer,
   users: getUserReducer,
-  usersFromSearchFilter: getUsersFromSearchReducer
+  usersFromSearchFilter: getUsersFromSearchReducer,
+  showUsers: displayUserSearchReducer
 })
 
 const store = configureStore({

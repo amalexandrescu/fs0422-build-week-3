@@ -2,15 +2,15 @@ import React, { useState } from "react"
 import { Nav, Form } from "react-bootstrap"
 
 import { useSelector, useDispatch } from "react-redux"
-import { sendUserSearchAction } from "../../redux/actions"
+import { sendUserSearchAction, showUserSearchAction } from "../../redux/actions"
 export default function SearchField() {
   const dispatch = useDispatch()
   const [query, setQuery] = useState("")
   let usersArray = useSelector((state) => state.users.usersFromFetch)
 
   const handleChange = (e) => {
-    console.log(e.target.value)
     setQuery(e.target.value)
+    dispatch(showUserSearchAction())
   }
 
   const handleSubmit = (e) => {
@@ -20,7 +20,8 @@ export default function SearchField() {
     console.log("usersArray from search --->", usersArray)
 
     const filteredUsers = usersArray.filter((user) => {
-      return user.name.toLowerCase().includes(query.toLowerCase())
+      const userFullName = user.name + user.surname
+      return userFullName.toLowerCase().includes(query.toLowerCase())
     })
 
     console.log("filteredUsers -->", filteredUsers)
@@ -30,8 +31,9 @@ export default function SearchField() {
   return (
     <div className="my-auto">
       <Nav className="me-auto">
-        <Form className="d-flex" onSubmit={handleSubmit} id="search-field">
+        <Form className="d-flex" onSubmit={handleSubmit}>
           <Form.Control
+            id="search-field"
             type="search"
             value={query}
             onChange={handleChange}

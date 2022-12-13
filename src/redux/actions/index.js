@@ -1,5 +1,7 @@
 export const GET_USERS = "GET_USERS"
 export const USER_SEARCH_SUBMITTED = "USER_SEARCH_SUBMITTED"
+export const SHOW_SEARCH_RESULTS = "SHOW_SEARCH_RESULTS"
+export const HIDE_SEARCH_RESULTS = "HIDE_SEARCH_RESULTS"
 //constants to use for fetching data
 
 const baseEndPoint = "https://striveschool-api.herokuapp.com/api/profile/"
@@ -44,5 +46,21 @@ export const sendUserSearchAction = (filteredUsers) => {
   return {
     type: "USER_SEARCH_SUBMITTED",
     payload: filteredUsers
+  }
+}
+
+// action to make the user search results display
+
+export const showUserSearchAction = () => {
+  return {
+    type: "SHOW_SEARCH_RESULTS"
+  }
+}
+
+//action to his the user search results display
+
+export const hideUserSearchAction = () => {
+  return {
+    type: "HIDE_SEARCH_RESULTS"
   }
 }
