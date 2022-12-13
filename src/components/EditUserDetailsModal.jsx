@@ -10,6 +10,7 @@ function EditUserDetailsModal() {
 
   return (
     <>
+      {/* Button Open Modal */}
       <div
         className="editButtonDivTwo d-flex justify-content-center align-items-center"
         onClick={handleShow}
