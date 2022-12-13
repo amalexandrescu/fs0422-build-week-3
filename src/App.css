@@ -463,6 +463,7 @@ p {
   color: #0a66c2;
 }
 
+
 /* ------------------SEARCH DROPDOWN ----------------- */
 #search-field {
   width: 250px;
@@ -549,4 +550,46 @@ p {
   justify-content: center;
   height: 30px;
   width: 30px;
+=======
+/*----------------------------EXPERIENCE MODAL----------------------------*/
+
+.experience-dropdown {
+  width: 180px;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  background-color: white;
+  font-size: 15px;
+  position: absolute;
+  top: 65px;
+  right: 50px;
+  z-index: 1;
+  box-shadow: 0 4px 4px rgba(0 0 0 / 17%) !important;
+}
+
+.add-position-experience-effect-on-hover:hover {
+  color: rgb(71, 70, 70);
+}
+
+.plus-icon-button-experience-container {
+  background-color: rgba(211, 211, 211, 0.377) !important;
+}
+
+.checkboxInput {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.monthSelectInput,
+.yearSelectInput {
+  width: 45% !important;
+}
+
+.experiencesModal {
+  overflow-y: scroll;
+  height: 60vh !important;
+}
+
+.saveButtonExperiencesModal {
+  border-radius: 50px !important;
+
 }
