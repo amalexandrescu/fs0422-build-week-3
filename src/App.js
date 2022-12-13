@@ -1,3 +1,4 @@
+import ExperienceComponent from "./components/center/ExperienceComponent";
 import "./App.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import ResourcesSinglePageComponent from "./components/center/ResourcesSinglePageComponent.jsx"
@@ -20,6 +21,7 @@ function App() {
             path="/details/resources"
             element={<ResourcesSinglePageComponent />}
           />
+          <Route path="/editexperiences" element={<ExperienceComponent />} />
         </Routes>
       </div>
       <MessagingPopup />
