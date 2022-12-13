@@ -6,6 +6,7 @@ import MyProfile from "./components/global/MyProfile"
 import CustomNavbar from "./components/global/CustomNavbar.jsx"
 import { useDispatch } from "react-redux"
 import { hideUserSearchAction } from "./redux/actions"
+import MessagingPopup from "./components/global/MessagingPopup"
 
 function App() {
   const dispatch = useDispatch()
@@ -21,6 +22,7 @@ function App() {
           />
         </Routes>
       </div>
+      <MessagingPopup />
     </BrowserRouter>
   )
 }

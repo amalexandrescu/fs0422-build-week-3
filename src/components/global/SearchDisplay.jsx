@@ -38,7 +38,7 @@ export default function SearchDisplay() {
                 </div>
               </div>
             ))}
-            <div className="border-top p-2 text-center gray-hover text-primary">
+            <div className="border-top p-2 text-center gray-hover text-primary font-weight-bold">
               See all results
             </div>
           </>

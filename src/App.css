@@ -520,3 +520,19 @@ p {
   cursor: pointer;
   background-color: lightgrey;
 }
+
+/* --------------messenger------------ */
+
+#messaging-popup-wrapper {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  width: 300px;
+  background-color: white;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: -3px -1px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
