@@ -521,6 +521,10 @@ p {
   background-color: lightgrey;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 /* --------------messenger------------ */
 
 #messaging-popup-wrapper {
@@ -535,4 +539,14 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+}
+
+.icon-wrapper-messenger {
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
 }

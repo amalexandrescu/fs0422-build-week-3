@@ -2,6 +2,8 @@ export const GET_USERS = "GET_USERS"
 export const USER_SEARCH_SUBMITTED = "USER_SEARCH_SUBMITTED"
 export const SHOW_SEARCH_RESULTS = "SHOW_SEARCH_RESULTS"
 export const HIDE_SEARCH_RESULTS = "HIDE_SEARCH_RESULTS"
+export const EXPAND_MESSENGER = "EXPAND_MESSENGER"
+export const COLLAPSE_MESSENGER = "COLLAPSE_MESSENGER"
 //constants to use for fetching data
 
 const baseEndPoint = "https://striveschool-api.herokuapp.com/api/profile/"
@@ -62,5 +64,19 @@ export const showUserSearchAction = () => {
 export const hideUserSearchAction = () => {
   return {
     type: "HIDE_SEARCH_RESULTS"
+  }
+}
+
+// action to expand and collapse the messenger
+
+export const expandMessengerAction = () => {
+  return {
+    type: "EXPAND_MESSENGER"
+  }
+}
+
+export const collapseMessengerAction = () => {
+  return {
+    type: "COLLAPSE_MESSENGER"
   }
 }
