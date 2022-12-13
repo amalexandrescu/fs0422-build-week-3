@@ -1,16 +1,41 @@
 import React from "react"
-import { SlArrowDown } from "react-icons/sl"
-
-export default function ShowMore() {
+import { SlArrowDown, SlArrowUp } from "react-icons/sl"
+import { useState } from "react"
+import RecommendedUser from "./MoreUsers"
+export default function ShowMore({ moreUsers }) {
+  const [showUsers, setShowUsers] = useState(false)
+  const clickToShowUsers = () => setShowUsers(!showUsers)
   return (
-    <div className="m-2 d-flex align-items-center justify-content-center">
-      <div>
-        <span> Show More</span>
-
-        <span>
-          <SlArrowDown className="ml-1" />
-        </span>
-      </div>
-    </div>
+    <>
+      {showUsers ? (
+        <>
+          {moreUsers.map((user, i) => (
+            <div key={user._id}>
+              <RecommendedUser user={user} />
+              <hr style={{ width: "90%" }} />
+            </div>
+          ))}
+          <div
+            onClick={clickToShowUsers}
+            className=" p-3 d-flex align-items-center justify-content-center show-more mt-n3"
+          >
+            <span>Show Less</span>
+            <span>
+              <SlArrowUp className="ml-1" />
+            </span>
+          </div>
+        </>
+      ) : (
+        <div
+          onClick={clickToShowUsers}
+          className=" p-3 d-flex align-items-center justify-content-center show-more mt-n3"
+        >
+          <span>Show More</span>
+          <span>
+            <SlArrowDown className="ml-1" />
+          </span>
+        </div>
+      )}
+    </>
   )
 }
