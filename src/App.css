@@ -468,6 +468,7 @@ p {
   width: 250px;
   transition: width 0.5s ease-out;
   box-shadow: none;
+  position: relative;
 }
 
 #search-field:focus {
@@ -477,12 +478,15 @@ p {
 }
 
 #search-results-float {
-  display: block;
-  position: absolute;
-  left: 157px;
+  position: fixed;
+  left: 13%;
   top: 50px;
   z-index: 1;
   border-radius: 5px;
   padding: 10px;
-  width: 400px;
+  width: 450px;
+}
+
+.search-individual-user-diplay {
+  padding: 10px;
 }
