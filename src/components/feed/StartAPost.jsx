@@ -51,7 +51,7 @@ export default function StartAPost() {
           </div>
         </div>
       </div>
-      {showModal === true ? <WritePostModal /> : <div>Modal is hidden</div>}
+      {showModal === true ? <WritePostModal /> : null}
     </>
   )
 }

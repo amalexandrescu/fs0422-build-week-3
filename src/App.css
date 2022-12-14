@@ -567,7 +567,7 @@ p {
 
 .gray-hover:hover {
   cursor: pointer;
-  background-color: lightgrey;
+  background-color: rgb(221, 220, 220);
 }
 
 .pointer {
@@ -700,7 +700,6 @@ p {
   border-radius: 50px !important;
 }
 
-
 /* ---------------Feed Page Center----------- */
 
 #feed-start-a-post-container {
@@ -745,12 +744,36 @@ p {
 
 .orange {
   color: orangered;
-  }
+}
+
+#select-viewing-options {
+  margin-top: 2px;
+  border: 1px solid rgb(170, 170, 170);
+  border-radius: 20px;
+  padding: 3px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100px;
+}
+
+#feed-modal-form {
+  width: 100%;
+  height: auto;
+}
+.form-border-none {
+  border: none;
+}
+
+.feed-post {
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 5px;
+}
 
 /* FEED CLASSES */
 
 .hoverGreyBg:hover {
   cursor: pointer;
   background-color: rgb(237, 237, 237);
-
 }
