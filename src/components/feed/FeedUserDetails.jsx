@@ -7,7 +7,7 @@ const FeedUserDetails = () => {
 
   return (
     <div
-      className="bg-white hoverGreyBg"
+      className="bg-white"
       style={{
         borderRadius: "10px",
         overflow: "hidden",
@@ -58,6 +58,7 @@ const FeedUserDetails = () => {
         >
           {details.title}
         </div>
+        {/* Center element */}
         <div className="p-feed-y">
           <div className="d-flex mb-2 align-items-center justify-content-between p-feed-x hoverGreyBg">
             <div
@@ -121,6 +122,7 @@ const FeedUserDetails = () => {
             </div>
           </div>
         </div>
+        {/* Bottom Element My Items */}
         <div
           className="d-flex align-items-center p-feed-x hoverGreyBg"
           style={{ heigth: "100px !important" }}
