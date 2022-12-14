@@ -16,8 +16,6 @@ const ExperienceModal = () => {
   //this is for the end date experience inputs
   const [disabledInput, setDisabledInput] = useState("");
 
-  // "2019-06-16"
-
   const userId = useSelector((state) => state.myProfile.detailsData._id);
 
   const [day, setDay] = useState("01");
@@ -68,17 +66,7 @@ const ExperienceModal = () => {
       description: experience.description,
       area: experience.area,
     };
-    // dispatch({
-    //   type: POST_EXPERIENCE,
-    //   payload: {
-    //     role: experience.role,
-    //     company: experience.company,
-    //     startDate: `${experience.startYear}-${experience.startMonth}-${day}`,
-    //     endDate: `experience.endDate !== "" ? ${experience.endYear}-${experience.endMonth}-${day} : null`,
-    //     description: experience.description,
-    //     area: experience.location,
-    //   },
-    // });
+
     console.log("new experience", newExperience);
 
     dispatch(addExperienceAction(newExperience, userId));

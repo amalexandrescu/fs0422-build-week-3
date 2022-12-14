@@ -1,41 +1,44 @@
-import React, { useState } from "react"
-import { Nav, Form } from "react-bootstrap"
+import React, { useState } from "react";
+import { Nav, Form } from "react-bootstrap";
 
-import { useSelector, useDispatch } from "react-redux"
-import { sendUserSearchAction, showUserSearchAction } from "../../redux/actions"
+import { useSelector, useDispatch } from "react-redux";
+import {
+  sendUserSearchAction,
+  showUserSearchAction,
+} from "../../redux/actions";
 export default function SearchField() {
-  const dispatch = useDispatch()
-  const [query, setQuery] = useState("")
+  const dispatch = useDispatch();
+  const [query, setQuery] = useState("");
 
-  let usersArray = useSelector((state) => state.users.usersFromFetch)
+  let usersArray = useSelector((state) => state.users.usersFromFetch);
 
   const handleChange = (e) => {
-    setQuery(e.target.value)
-    dispatch(showUserSearchAction())
+    setQuery(e.target.value);
+    dispatch(showUserSearchAction());
 
     const filteredUsers = usersArray.filter((user) => {
-      const userFullName = user.name + user.surname
-      return userFullName.toLowerCase().includes(query.toLowerCase())
-    })
+      const userFullName = user.name + user.surname;
+      return userFullName.toLowerCase().includes(query.toLowerCase());
+    });
 
-    console.log("filteredUsers -->", filteredUsers)
-    dispatch(sendUserSearchAction(filteredUsers))
-  }
+    console.log("filteredUsers -->", filteredUsers);
+    dispatch(sendUserSearchAction(filteredUsers));
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    console.log("--------------search submitted--------------", query)
-    console.log("usersArray from search --->", usersArray)
+    console.log("--------------search submitted--------------", query);
+    console.log("usersArray from search --->", usersArray);
 
     const filteredUsers = usersArray.filter((user) => {
-      const userFullName = user.name + user.surname
-      return userFullName.toLowerCase().includes(query.toLowerCase())
-    })
+      const userFullName = user.name + user.surname;
+      return userFullName.toLowerCase().includes(query.toLowerCase());
+    });
 
-    console.log("filteredUsers -->", filteredUsers)
-    dispatch(sendUserSearchAction(filteredUsers))
-  }
+    console.log("filteredUsers -->", filteredUsers);
+    dispatch(sendUserSearchAction(filteredUsers));
+  };
 
   return (
     <div className="my-auto">
@@ -53,5 +56,5 @@ export default function SearchField() {
         </Form>
       </Nav>
     </div>
-  )
+  );
 }

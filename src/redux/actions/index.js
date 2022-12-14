@@ -11,6 +11,8 @@ export const GET_IS_FETCHED = "GET_IS_FETCHED";
 export const CHANGE_PROFILE_DETAILS = "CHANGE_PROFILE_DETAILS";
 export const OTHER_USER_SELECTED = "OTHER_USER_SELECTED";
 export const DELETE_EXPERIENCE = "DELETE_EXPERIENCE";
+export const GET_SELECTEDEXP = "GET_SELECTEDEXP";
+export const EDIT_SINGLE_EXPERIENCE = "EDIT_SINGLE_EXPERIENCE";
 
 //constants to use for fetching data
 
@@ -255,10 +257,54 @@ export const deleteExperienceAction = (userId, expId) => {
         console.log("exp we want to DELETE", data);
         dispatch({
           type: DELETE_EXPERIENCE,
-          payload: data,
+          payload: data._id,
         });
       } else {
         console.log("en error occured while fetching the experiences");
+      }
+    } catch (error) {
+      console.log(error);
+      console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    }
+  };
+};
+
+//gets the exp id when clicking on the pen icon
+export const getSingleExpIdAction = (exp) => {
+  return {
+    type: GET_SELECTEDEXP,
+    payload: exp,
+  };
+};
+
+//action for PUT method on single experience
+
+export const editExperienceAction = (updatedExperience, userId, expId) => {
+  const putUrl = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}`;
+  console.log("----------editing single experience-----------");
+  return async (dispatch) => {
+    const optionsPut = {
+      method: "PUT",
+      body: JSON.stringify(updatedExperience),
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjAxM2M5NmRmYjAwMTUyMWE1YmEiLCJpYXQiOjE2NzA4MzYyNDMsImV4cCI6MTY3MjA0NTg0M30.y7kED45MhN6V7jWF7PwyZ4DryRe6OJ6b9-so68M-zaE",
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const response = await fetch(putUrl, optionsPut);
+      if (response.ok) {
+        console.log("new experience added successfully!");
+        dispatch({
+          type: EDIT_SINGLE_EXPERIENCE,
+          payload: updatedExperience,
+        });
+      } else {
+        console.log(
+          "sorry, an error occured while trying to edd a new experience"
+        );
       }
     } catch (error) {
       console.log(error);

@@ -20,18 +20,19 @@ const ExperienceComponent = () => {
     (state) => state.experiences.newExperienceAdded
   );
 
+  let didWeDeleteAnExperience = useSelector(
+    (state) => state.experiences.deletedExp
+  );
+
   const experiencesArray = useSelector(
     (state) => state.experiences.experiences
   );
 
   useEffect(() => {
-    dispatch(getExperiencesAction(userId));
-  }, [userId]);
-
-  // const experienceArrayOrderdByDate = experiencesArray.sort((date1, date2) => {
-  //   return date1.getTime() - date2.getTime();
-  // });
-  // console.log("testing ordered array by date", experienceArrayOrderdByDate);
+    if (userId) {
+      dispatch(getExperiencesAction(userId));
+    }
+  }, [userId, didWeDeleteAnExperience]);
 
   useEffect(() => {
     if (userId && isNewExperienceAdded === true) {
