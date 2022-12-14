@@ -192,6 +192,7 @@ body {
   padding-left: 12px;
   padding-right: 12px;
 }
+
 body {
   background-color: #f3f2ef !important;
 }
@@ -699,6 +700,7 @@ p {
   border-radius: 50px !important;
 }
 
+
 /* ---------------Feed Page Center----------- */
 
 #feed-start-a-post-container {
@@ -743,4 +745,12 @@ p {
 
 .orange {
   color: orangered;
+  }
+
+/* FEED CLASSES */
+
+.hoverGreyBg:hover {
+  cursor: pointer;
+  background-color: rgb(237, 237, 237);
+
 }
