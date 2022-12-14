@@ -1,8 +1,9 @@
-import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
+import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 
-import * as Icon from "react-bootstrap-icons"
+import * as Icon from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 
-import SearchField from "./SearchField"
+import SearchField from "./SearchField";
 
 const CustomNavbar = () => {
   return (
@@ -18,13 +19,14 @@ const CustomNavbar = () => {
             <SearchField />
           </div>
           <Nav>
-            <div className="nav-link">
-              <div>
-                <Icon.HouseDoorFill />
+            <Link to={"/feed"}>
+              <div className="nav-link">
+                <div>
+                  <Icon.HouseDoorFill />
+                </div>
+                <div>Home</div>
               </div>
-              <div>Home</div>
-            </div>
-
+            </Link>
             <div className="nav-link">
               <div>
                 <Icon.PeopleFill />
@@ -84,7 +86,7 @@ const CustomNavbar = () => {
         </Container>
       </Navbar>
     </>
-  )
-}
+  );
+};
 
-export default CustomNavbar
+export default CustomNavbar;
