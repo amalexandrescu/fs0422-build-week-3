@@ -1,13 +1,16 @@
-export const GET_USERS = "GET_USERS";
-export const USER_SEARCH_SUBMITTED = "USER_SEARCH_SUBMITTED";
-export const SHOW_SEARCH_RESULTS = "SHOW_SEARCH_RESULTS";
-export const HIDE_SEARCH_RESULTS = "HIDE_SEARCH_RESULTS";
-export const EXPAND_MESSENGER = "EXPAND_MESSENGER";
-export const COLLAPSE_MESSENGER = "COLLAPSE_MESSENGER";
-export const GET_EXPERIENCES = "GET_EXPERIENCES";
-export const GET_MY_PROFILEDETAILS = "GET_MY_PROFILEDETAILS";
-export const GET_IS_FETCHED = "GET_IS_FETCHED";
-export const CHANGE_PROFILE_DETAILS = "CHANGE_PROFILE_DETAILS";
+
+export const GET_USERS = "GET_USERS"
+export const USER_SEARCH_SUBMITTED = "USER_SEARCH_SUBMITTED"
+export const SHOW_SEARCH_RESULTS = "SHOW_SEARCH_RESULTS"
+export const HIDE_SEARCH_RESULTS = "HIDE_SEARCH_RESULTS"
+export const EXPAND_MESSENGER = "EXPAND_MESSENGER"
+export const COLLAPSE_MESSENGER = "COLLAPSE_MESSENGER"
+export const GET_EXPERIENCES = "GET_EXPERIENCES"
+export const GET_MY_PROFILEDETAILS = "GET_MY_PROFILEDETAILS"
+export const GET_IS_FETCHED = "GET_IS_FETCHED"
+export const CHANGE_PROFILE_DETAILS = "CHANGE_PROFILE_DETAILS"
+export const OTHER_USER_SELECTED = "OTHER_USER_SELECTED"
+
 
 //constants to use for fetching data
 
@@ -176,5 +179,19 @@ export const changeProfileDetailsAction = (details) => {
     } catch (error) {
       console.log("🚀 error", error);
     }
+
+  }
+}
+
+// change state of selected user to get their profile
+
+export const otherUserProfileAction = (user) => {
+  return {
+    type: "OTHER_USER_SELECTED",
+    payload: user
+  }
+}
+
   };
 };
+

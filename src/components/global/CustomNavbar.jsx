@@ -1,12 +1,10 @@
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap"
 
 import * as Icon from "react-bootstrap-icons"
-import { useSelector } from "react-redux"
-import SearchDisplay from "./SearchDisplay"
+
 import SearchField from "./SearchField"
 
 const CustomNavbar = () => {
-  let showSearchResults = useSelector((state) => state.showUsers.show)
   return (
     <>
       <Navbar expand="lg" variant="light" bg="white">
@@ -85,7 +83,6 @@ const CustomNavbar = () => {
           </Nav>
         </Container>
       </Navbar>
-      {showSearchResults && <SearchDisplay />}
     </>
   )
 }
