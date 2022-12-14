@@ -8,10 +8,11 @@ export default function MainFeedSectionWithPosts() {
   //   reversing the array so we get the newest posts
   const allLatestPosts = allFeedPosts.slice(0).reverse()
   //   filtering out short posts
-  const filteredPosts = allLatestPosts.filter((post) => post.text.length > 10)
+  const filteredPosts = allLatestPosts.filter((post) => post.text.length > 25)
+  console.log("filtered length", filteredPosts.length)
   // getting 20 posts from the remaining array
-  const latestPostSlice = filteredPosts.slice(0, 20)
-  console.log("-----------latest 20 posts---------", latestPostSlice)
+  const latestPostSlice = filteredPosts.slice(0, 30)
+  console.log("-----------latest 30 posts---------", latestPostSlice)
 
   const dispatch = useDispatch()
 
