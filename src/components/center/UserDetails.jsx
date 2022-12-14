@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
-import { Dot, Pencil, XLg } from "react-bootstrap-icons";
+import { Dot, Linkedin, Pencil, XLg } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getMyProfileDetailsAction } from "../../redux/actions";
 import EditAddProfileSectionModal from "./EditAddProfileSectionModal";
@@ -14,6 +14,8 @@ const UserDetails = () => {
   let isFetched = useSelector((state) => state.myProfile.isFetched);
   console.log("🚀UserDetails ~ details", details);
   let dispatch = useDispatch();
+
+  let pathname = window.location.pathname;
 
   useEffect(() => {
     dispatch(getMyProfileDetailsAction());
@@ -37,7 +39,7 @@ const UserDetails = () => {
 
               {/* Edit Button User profile Header */}
               <div className="editButtonDiv d-flex justify-content-center align-items-center">
-                <Pencil className="text-dark" />
+                <Pencil className="text-dark" style={{ fontSize: "18px" }} />
               </div>
             </Row>
           </div>
@@ -45,7 +47,17 @@ const UserDetails = () => {
           <div className="bg-white" style={{ borderRadius: "10px" }}>
             {/* User Info Edit Button */}
             <Row className="justify-content-end">
-              <EditUserDetailsModal />
+              <div className="d-flex align-items-center cursor-on-hover">
+                <div className="d-flexjustify-content-center align-items-center pt-3 mr-2">
+                  {pathname === "/" ? (
+                    <Linkedin fontSize={"20px"} style={{ color: "#aa7520" }} />
+                  ) : (
+                    <></>
+                  )}
+                </div>
+
+                <EditUserDetailsModal />
+              </div>
             </Row>
 
             {/* User Info Content */}

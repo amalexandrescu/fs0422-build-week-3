@@ -70,7 +70,7 @@ function EditUserDetailsModal() {
         className="editButtonDivTwo d-flex justify-content-center align-items-center"
         onClick={handleShow}
       >
-        <Pencil className="text-dark" />
+        <Pencil className="text-dark" style={{ fontSize: "20px" }} />
       </div>
 
       <Modal show={show} onHide={handleClose}>

@@ -3,7 +3,7 @@ import { Pencil, Plus } from "react-bootstrap-icons";
 
 const Languages = () => {
   return (
-    <Row className="my-2 ">
+    <Row className="mt-2 ">
       <Col className="activityComponent pt-4 flex-nowrap bg-white">
         <Row className="px-4">
           <div className="col-6 d-flex flex-column align-items-start">
