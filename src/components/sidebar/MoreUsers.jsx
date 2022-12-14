@@ -17,7 +17,7 @@ export default function RecommendedUser({ user }) {
             <RxDotFilled />
             <span className="font-weight-light small-header-text"> 1st </span>
           </h6>
-          <div className="font-weight-light recommended-user-job-description-text">
+          <div className="font-weight-light recommended-user-job-description-text ">
             {user.title}
           </div>
         </div>{" "}

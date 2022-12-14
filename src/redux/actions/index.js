@@ -14,6 +14,7 @@ export const DELETE_EXPERIENCE = "DELETE_EXPERIENCE"
 
 export const SHOW_WRITE_A_POST = "SHOW_WRITE_A_POST"
 export const HIDE_WRITE_A_POST = "HIDE_WRITE_A_POST"
+export const GET_FEED_POSTS = " GET_FEED_POSTS"
 
 //constants to use for fetching data
 
@@ -277,5 +278,32 @@ export const showAddPostModalAction = () => {
 export const hideAddPostModalAction = () => {
   return {
     type: "HIDE_WRITE_A_POST"
+  }
+}
+
+// getting the posts for the feed
+const baseEndPointPosts = "https://striveschool-api.herokuapp.com/api/posts/"
+
+export const getFeedPostsAction = () => {
+  return async (dispatch) => {
+    console.log("----------------Fetching Feed Posts---------------------")
+
+    try {
+      let resp = await fetch(baseEndPointPosts, options)
+      if (resp.ok) {
+        let data = await resp.json()
+        let fetchedPosts = data
+
+        console.log("Users are ->", fetchedPosts)
+        dispatch({
+          type: GET_FEED_POSTS,
+          payload: fetchedPosts
+        })
+      } else {
+        console.log("error")
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
