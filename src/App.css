@@ -265,7 +265,6 @@ p {
 .firstComponent {
   border: 1px solid lightgrey;
   border-radius: 10px;
-  overflow: hidden;
   padding-inline: 0 !important;
 }
 
@@ -359,7 +358,8 @@ p {
 }
 
 .addProfileSectionDiv:hover {
-  border: 2px solid #0a66c2;
+  box-shadow: inset 0px 0px 0px 1px #0a66c2;
+  padding: -1px;
   background-color: #0a66c22a !important;
   box-sizing: border-box !important;
 }
@@ -375,7 +375,8 @@ p {
 
 .moreDiv:hover {
   background-color: rgba(128, 128, 128, 0.201) !important;
-  border: 2px solid grey !important;
+  box-shadow: inset 0px 0px 0px 2px grey !important;
+  padding: -1px;
   white-space: nowrap;
 }
 
@@ -436,7 +437,8 @@ p {
 
 .startAPostDiv:hover {
   background-color: #0a66c231;
-  border: 2px solid #0a66c2;
+  box-shadow: inset 0px 0px 0px 1px #0a66c2;
+  padding: -1px;
   font-size: 0.9em;
 }
 

@@ -48,7 +48,7 @@ const ExperienceComponent = () => {
                       <Icon.Plus />
                     </div>
                     <div className="d-flex justify-content-center align-items-center editButtonIconDiv mt-2 mr-2">
-                      <Icon.Pencil style={{ "font-size": "20px" }} />
+                      <Icon.Pencil style={{ fontSize: "20px" }} />
                       {/* //!HERE GOES THE MODAL TO EDIT FIRST EXPERIENCE */}
                     </div>
                     <div
@@ -146,7 +146,7 @@ const ExperienceComponent = () => {
                       </div>
                     </ListGroup.Item>
                     <div className="d-flex justify-content-center align-items-center editButtonIconDiv mt-2 mr-2">
-                      <Icon.Pencil style={{ "font-size": "20px" }} />
+                      <Icon.Pencil style={{ fontSize: "20px" }} />
                     </div>
                   </div>
                 </ListGroup>
@@ -180,7 +180,10 @@ const ExperienceComponent = () => {
                 </div>
                 <div className="d-flex editButtonIconDiv justify-content-center align-items-center edit-icon">
                   <Link to={"/editexperiences"}>
-                    <Icon.Pencil className="text-dark pb-1" />
+                    <Icon.Pencil
+                      className="text-dark pb-1"
+                      style={{ fontSize: "23px" }}
+                    />
                   </Link>
                 </div>
                 <div

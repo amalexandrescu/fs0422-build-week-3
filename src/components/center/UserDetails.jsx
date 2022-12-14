@@ -1,15 +1,21 @@
 import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
-import { Pencil, XLg } from "react-bootstrap-icons";
+import { Dot, Linkedin, Pencil, XLg } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getMyProfileDetailsAction } from "../../redux/actions";
+import EditAddProfileSectionModal from "./EditAddProfileSectionModal";
+import EditContactInfoModal from "./EditContactInfoModal";
 import EditUserDetailsModal from "./EditUserDetailsModal";
+import MoreDropDownButton from "./MoreDropdownButton";
+import OpenToDropDownButton from "./OpenToDropdownButton";
 
 const UserDetails = () => {
   let details = useSelector((state) => state.myProfile.detailsData);
   let isFetched = useSelector((state) => state.myProfile.isFetched);
   console.log("🚀UserDetails ~ details", details);
   let dispatch = useDispatch();
+
+  let pathname = window.location.pathname;
 
   useEffect(() => {
     dispatch(getMyProfileDetailsAction());
@@ -33,15 +39,25 @@ const UserDetails = () => {
 
               {/* Edit Button User profile Header */}
               <div className="editButtonDiv d-flex justify-content-center align-items-center">
-                <Pencil className="text-dark" />
+                <Pencil className="text-dark" style={{ fontSize: "18px" }} />
               </div>
             </Row>
           </div>
           {/* User Info Section*/}
-          <div className="bg-white">
+          <div className="bg-white" style={{ borderRadius: "10px" }}>
             {/* User Info Edit Button */}
             <Row className="justify-content-end">
-              <EditUserDetailsModal />
+              <div className="d-flex align-items-center cursor-on-hover">
+                <div className="d-flexjustify-content-center align-items-center pt-3 mr-2">
+                  {pathname === "/" ? (
+                    <Linkedin fontSize={"20px"} style={{ color: "#aa7520" }} />
+                  ) : (
+                    <></>
+                  )}
+                </div>
+
+                <EditUserDetailsModal />
+              </div>
             </Row>
 
             {/* User Info Content */}
@@ -53,27 +69,26 @@ const UserDetails = () => {
                   </h4>
 
                   <h6>{details.title}</h6>
-                  <p className="text-secondary my-1">
-                    {details.area} ·{" "}
-                    <a href="/">
-                      <b>Contact info</b>
-                    </a>
-                  </p>
+                  <div className="d-flex align-items-center">
+                    <p className="text-secondary my-1">
+                      {details.area} <Dot />{" "}
+                    </p>
+                    <div
+                      className="text-primary"
+                      style={{ "font-size": "0.8em", cursor: "pointer" }}
+                    >
+                      <EditContactInfoModal />
+                    </div>
+                  </div>
                   <a href="/">
-                    <p>385 connections</p>
+                    <p>500+ connections</p>
                   </a>
 
                   {/* Section 3 Links Pills */}
                   <div className="col d-flex justify-content-between px-0 my-2">
-                    <div className="openToDiv rounded-pill text-white py-1 px-3">
-                      <div> Open to</div>
-                    </div>
-                    <div className="addProfileSectionDiv bg-white rounded-pill py-1 px-3 mx-2">
-                      <div> Add profile section</div>
-                    </div>
-                    <div className="moreDiv bg-white rounded-pill py-1 px-3">
-                      <div> More</div>
-                    </div>
+                    <OpenToDropDownButton />
+                    <EditAddProfileSectionModal />
+                    <MoreDropDownButton />
                   </div>
                 </div>
               </Col>

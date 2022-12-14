@@ -1,4 +1,4 @@
-import { Container, Row, ListGroup } from "react-bootstrap";
+import { Row, ListGroup } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 
 const EducationComponent = () => {
