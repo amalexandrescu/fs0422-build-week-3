@@ -64,7 +64,7 @@ function EditAboutModal() {
         className="d-flex justify-content-center alignt-items-center editButtonIconDiv pt-2"
         onClick={handleShow}
       >
-        <Pencil />
+        <Pencil style={{ fontSize: "15px" }} />
       </div>
 
       <Modal show={show} onHide={handleClose}>
