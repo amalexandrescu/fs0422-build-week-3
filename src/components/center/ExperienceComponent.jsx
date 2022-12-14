@@ -22,6 +22,10 @@ const ExperienceComponent = () => {
     (state) => state.experiences.experiences
   );
 
+  useEffect(() => {
+    dispatch(getExperiencesAction(userId));
+  }, [userId]);
+
   // const experienceArrayOrderdByDate = experiencesArray.sort((date1, date2) => {
   //   return date1.getTime() - date2.getTime();
   // });
