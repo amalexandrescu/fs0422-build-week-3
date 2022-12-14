@@ -771,6 +771,11 @@ p {
   margin-bottom: 5px;
 }
 
+#like-section-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 /* FEED CLASSES */
 
 .hoverGreyBg:hover {
