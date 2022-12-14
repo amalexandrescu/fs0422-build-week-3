@@ -5,23 +5,27 @@ import ResourcesSinglePageComponent from "./components/center/ResourcesSinglePag
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import MyProfile from "./components/global/MyProfile"
 import CustomNavbar from "./components/global/CustomNavbar.jsx"
-// import { useDispatch } from "react-redux"
-// import { hideUserSearchAction } from "./redux/actions"
+import { useSelector, useDispatch } from "react-redux"
+import { showUserSearchAction } from "./redux/actions"
 import MessagingPopup from "./components/global/MessagingPopup"
-import { useSelector } from "react-redux"
+
 import SearchDisplay from "./components/global/SearchDisplay.jsx"
 
 function App() {
-  // const dispatch = useDispatch()
   let showSearchResults = useSelector((state) => state.showUsers.show)
+  const dispatch = useDispatch()
   return (
     <BrowserRouter>
-      <div
-        className="App"
-        // onClick={() => dispatch(hideUserSearchAction())}
-      >
+      <div className="App">
         <CustomNavbar />
-        {showSearchResults && <SearchDisplay />}
+        {showSearchResults && (
+          <>
+            {" "}
+            <SearchDisplay
+              onClick={() => dispatch(showUserSearchAction())}
+            />{" "}
+          </>
+        )}
         <Routes>
           <Route path="/" element={<MyProfile />} />
           <Route
