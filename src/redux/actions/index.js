@@ -10,6 +10,7 @@ export const GET_MY_PROFILEDETAILS = "GET_MY_PROFILEDETAILS";
 export const GET_IS_FETCHED = "GET_IS_FETCHED";
 export const CHANGE_PROFILE_DETAILS = "CHANGE_PROFILE_DETAILS";
 export const OTHER_USER_SELECTED = "OTHER_USER_SELECTED";
+export const DELETE_EXPERIENCE = "DELETE_EXPERIENCE";
 
 //constants to use for fetching data
 
@@ -230,5 +231,37 @@ export const otherUserProfileAction = (user) => {
   return {
     type: "OTHER_USER_SELECTED",
     payload: user,
+  };
+};
+
+//DELETE experience action
+
+export const deleteExperienceAction = (userId, expId) => {
+  const deleteExperienceUrl = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}`;
+
+  const deleteOptions = {
+    method: "DELETE",
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjAxM2M5NmRmYjAwMTUyMWE1YmEiLCJpYXQiOjE2NzA4MzYyNDMsImV4cCI6MTY3MjA0NTg0M30.y7kED45MhN6V7jWF7PwyZ4DryRe6OJ6b9-so68M-zaE",
+    },
+  };
+  console.log("deleteding experience - DELETE method");
+  return async (dispatch) => {
+    try {
+      let response = await fetch(deleteExperienceUrl, deleteOptions);
+      if (response.ok) {
+        let data = await response.json();
+        console.log("exp we want to DELETE", data);
+        dispatch({
+          type: DELETE_EXPERIENCE,
+          payload: data,
+        });
+      } else {
+        console.log("en error occured while fetching the experiences");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
