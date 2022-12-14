@@ -169,6 +169,29 @@ body {
 
 /* CUSTOM CLASSES */
 
+.p-feed {
+  padding: 12px;
+}
+.p-feed-left {
+  padding-left: 12px;
+}
+.p-feed-right {
+  padding-right: 12px;
+}
+.p-feed-top {
+  padding-top: 12px;
+}
+.p-feed-bottom {
+  padding-bottom: 12px;
+}
+.p-feed-y {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.p-feed-x {
+  padding-left: 12px;
+  padding-right: 12px;
+}
 body {
   background-color: #f3f2ef !important;
 }
@@ -674,4 +697,50 @@ p {
 
 .saveButtonExperiencesModal {
   border-radius: 50px !important;
+}
+
+/* ---------------Feed Page Center----------- */
+
+#feed-start-a-post-container {
+  background-color: white;
+  width: 100%;
+
+  border-radius: 10px;
+}
+
+#start-a-post-top {
+  display: flex;
+  align-items: center;
+}
+
+#start-a-post {
+  flex-grow: 1;
+  border: 1px solid rgb(170, 170, 170);
+  padding: 9px;
+  margin-right: 5px;
+  border-radius: 30px;
+}
+
+#start-a-post-lower {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5px;
+}
+
+.start-a-post-icon-text {
+  display: flex;
+  align-items: center;
+  padding: 10px 5px 10px 5px;
+  border-radius: 3px;
+}
+.start-a-post-icon-text span {
+  margin-left: 10px;
+}
+
+.indigo {
+  color: rgb(158, 41, 200);
+}
+
+.orange {
+  color: orangered;
 }
