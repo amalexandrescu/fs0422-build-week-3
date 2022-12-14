@@ -776,6 +776,34 @@ p {
   justify-content: space-evenly;
 }
 
+.feed-post-tiny-text {
+  font-size: 10px;
+}
+
+.small-height {
+  height: 14px;
+}
+
+.bolder {
+  font-weight: 600;
+}
+
+.feed-text-user-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30px;
+}
+.feed-text-name {
+  height: 12px;
+}
+
+.truncate-text {
+  width: 380px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /* FEED CLASSES */
 
 .hoverGreyBg:hover {
