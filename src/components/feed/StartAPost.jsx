@@ -1,12 +1,14 @@
-import React, { useState } from "react"
+import React from "react"
 import placeholder from "../../assets/v-team-logo.png"
 import { MdPhotoSizeSelectActual, MdOutlineArticle } from "react-icons/md"
 import { BsFillPlayBtnFill, BsBriefcaseFill } from "react-icons/bs"
-import { Modal, Button } from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux"
+import { showAddPostModalAction } from "../../redux/actions"
+import WritePostModal from "./WritePostModal"
+
 export default function StartAPost() {
-  const [writePost, setWritePost] = useState(false)
-  const showModal = () => setWritePost(!writePost)
-  const hideModal = () => setWritePost(false)
+  const showModal = useSelector((state) => state.showPostModal.show)
+  const dispatch = useDispatch()
 
   return (
     <>
@@ -18,7 +20,7 @@ export default function StartAPost() {
           <div
             id="start-a-post"
             className="gray-hover small-header-text"
-            onClick={showModal}
+            onClick={() => dispatch(showAddPostModalAction())}
           >
             Start a post
           </div>
@@ -49,22 +51,7 @@ export default function StartAPost() {
           </div>
         </div>
       </div>
-      {writePost && (
-        <Modal show={writePost} onHide={hideModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={hideModal}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={hideModal}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      )}
+      {showModal === true ? <WritePostModal /> : <div>Modal is hidden</div>}
     </>
   )
 }
