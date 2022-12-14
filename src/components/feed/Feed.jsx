@@ -1,9 +1,19 @@
-import { Col, Container, Row } from "react-bootstrap"
-import Center from "./Center"
-import Leftside from "./Leftside"
-import Rightside from "./Rightside"
+import { useEffect } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { getMyProfileDetailsAction } from "../../redux/actions";
+import Center from "./Center";
+import Leftside from "./Leftside";
+import Rightside from "./Rightside";
 
 const Feed = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMyProfileDetailsAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <Container className="mt-4">
       <Row>
@@ -24,7 +34,7 @@ const Feed = () => {
         </Col>
       </Row>
     </Container>
-  )
-}
+  );
+};
 
-export default Feed
+export default Feed;
