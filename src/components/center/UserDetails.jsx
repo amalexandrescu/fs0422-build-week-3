@@ -75,7 +75,7 @@ const UserDetails = () => {
                     </p>
                     <div
                       className="text-primary"
-                      style={{ "font-size": "0.8em", cursor: "pointer" }}
+                      style={{ fontSize: "0.8em", cursor: "pointer" }}
                     >
                       <EditContactInfoModal />
                     </div>
