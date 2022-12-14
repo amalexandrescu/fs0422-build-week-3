@@ -3,7 +3,7 @@ import { Pencil, Plus } from "react-bootstrap-icons";
 
 const Languages = () => {
   return (
-    <Row className="my-2 ">
+    <Row className="mt-2 ">
       <Col className="activityComponent pt-4 flex-nowrap bg-white">
         <Row className="px-4">
           <div className="col-6 d-flex flex-column align-items-start">
@@ -13,10 +13,12 @@ const Languages = () => {
           </div>
           <div className="col-6 d-flex justify-content-end">
             <div>
-              <div className="d-flex justify-content-between align-items-center">
-                <Plus style={{ fontSize: "30px" }} className="mr-2" />
-                <div className="editButtonDivThree d-flex justify-content-center align-items-center">
-                  <Pencil style={{ fontSize: "15px" }} />
+              <div className="d-flex cursor-on-hover">
+                <div className="d-flex editButtonIconDiv justify-content-center align-items-center mr-2 add-icon">
+                  <Plus />
+                </div>
+                <div className="d-flex editButtonIconDiv justify-content-center align-items-center edit-icon">
+                  <Pencil />
                 </div>
               </div>
             </div>

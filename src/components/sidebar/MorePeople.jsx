@@ -3,11 +3,14 @@ import RecommendedUser from "./RecommendedUser";
 import ShowMore from "./ShowMore";
 import { useSelector, useDispatch } from "react-redux";
 import { getUsersAction } from "../../redux/actions";
+
+
 export default function MorePeople({ heading }) {
-  let usersArray = useSelector((state) => state.users.usersFromFetch);
-  const usersRandom = [...usersArray].sort(() => 0.5 - Math.random());
-  const users = usersRandom.slice(0, 5);
-  const moreUsers = usersRandom.slice(5, 10);
+
+  let usersArray = useSelector((state) => state.users.usersFromFetch)
+
+  const users = usersArray.slice(2, 7)
+  const moreUsers = usersArray.slice(7, 12)
 
   const dispatch = useDispatch();
 
@@ -15,6 +18,7 @@ export default function MorePeople({ heading }) {
     dispatch(getUsersAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <>
       <div className="border side-component-border mt-2 bg-white">

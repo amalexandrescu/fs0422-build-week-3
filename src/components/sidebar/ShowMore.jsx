@@ -30,7 +30,7 @@ export default function ShowMore({ moreUsers }) {
           onClick={clickToShowUsers}
           className=" p-3 d-flex align-items-center justify-content-center show-more mt-n3"
         >
-          <span>Show More</span>
+          <span className="show-more">Show More</span>
           <span>
             <SlArrowDown className="ml-1" />
           </span>

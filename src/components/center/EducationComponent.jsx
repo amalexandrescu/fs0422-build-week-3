@@ -1,4 +1,4 @@
-import { Container, Row, ListGroup } from "react-bootstrap";
+import { Row, ListGroup } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 
 const EducationComponent = () => {
@@ -10,10 +10,10 @@ const EducationComponent = () => {
             Education
           </h5>
           <div className="d-flex cursor-on-hover">
-            <div className="d-flex justify-content-center align-items-center mr-2 add-icon">
+            <div className="d-flex editButtonIconDiv justify-content-center align-items-center mr-2 add-icon">
               <Icon.Plus />
             </div>
-            <div className="d-flex justify-content-center align-items-center edit-icon">
+            <div className="d-flex editButtonIconDiv justify-content-center align-items-center edit-icon">
               <Icon.Pencil />
             </div>
           </div>

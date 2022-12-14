@@ -8,15 +8,15 @@ export default function RecommendedUser({ user }) {
     <div className="recommended-user-container bg-white">
       <div className="d-flex recommended-user-content">
         <div className="border recommended-user-image">
-          <img src={user.image} alt={user.username} />
+          <img src={user.image} alt="" />
           {/* <Image src={user.image} /> */}
         </div>
         <div className="text-left">
           <h6 className="mb-0">
-            <span> {user.name} </span>
-            <span> {user.surname}</span>
+            <span className="small-header-text"> {user.name} </span>
+            <span className="small-header-text"> {user.surname}</span>
             <RxDotFilled />
-            <span className="font-weight-light"> 1st </span>
+            <span className="font-weight-light  small-header-text"> 1st </span>
           </h6>
           <div className="font-weight-light recommended-user-job-description-text">
             {user.title}

@@ -1,8 +1,8 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import SideComponentsMyProfile from "../sidebar/SideComponentsMyProfile";
-import LargeFooter from "./LargeFooter";
-import ProfilePageCenter from "../center/ProfilePageCenter";
+import React from "react"
+import { Container, Row, Col } from "react-bootstrap"
+import SideComponentsMyProfile from "../sidebar/SideComponentsMyProfile"
+import LargeFooter from "./LargeFooter"
+import ProfilePageCenter from "../center/ProfilePageCenter"
 
 export default function MyProfile() {
   return (
@@ -20,5 +20,5 @@ export default function MyProfile() {
       </Container>
       <LargeFooter />
     </>
-  );
+  )
 }

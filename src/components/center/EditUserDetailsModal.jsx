@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { Pencil, InfoSquareFill } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -46,7 +46,7 @@ function EditUserDetailsModal() {
       type: CHANGE_PROFILE_DETAILS,
       payload: {
         name: name,
-        surname: surname,
+        startDate: surname,
         email: email,
         bio: bio,
         title: title,
@@ -70,7 +70,7 @@ function EditUserDetailsModal() {
         className="editButtonDivTwo d-flex justify-content-center align-items-center"
         onClick={handleShow}
       >
-        <Pencil className="text-dark" />
+        <Pencil className="text-dark" style={{ fontSize: "20px" }} />
       </div>
 
       <Modal show={show} onHide={handleClose}>

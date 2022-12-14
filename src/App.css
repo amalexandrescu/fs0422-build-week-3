@@ -3,6 +3,11 @@
   pointer-events: none;
 }
 
+.App,
+body {
+  height: 100%;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -120,6 +125,15 @@
   background-color: rgb(231, 229, 229);
   box-shadow: inset 1px 1px 1px 0 rgba(0, 0, 0, 0.2),
     inset -1px -1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.show-more:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.small-header-text {
+  font-size: 14px;
 }
 
 /* Side Components USer Profile END */
@@ -251,7 +265,6 @@ p {
 .firstComponent {
   border: 1px solid lightgrey;
   border-radius: 10px;
-  overflow: hidden;
   padding-inline: 0 !important;
 }
 
@@ -307,6 +320,20 @@ p {
   background-color: rgba(211, 211, 211, 0.377) !important;
 }
 
+/* REUSABLE FOR ALL ICONS */
+
+.editButtonIconDiv {
+  background-color: white;
+  height: 35px !important;
+  aspect-ratio: 1/1 !important;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.editButtonIconDiv:hover {
+  background-color: rgba(211, 211, 211, 0.377) !important;
+}
+
 /* 3 Buttons */
 
 .openToDiv {
@@ -331,7 +358,8 @@ p {
 }
 
 .addProfileSectionDiv:hover {
-  border: 2px solid #0a66c2;
+  box-shadow: inset 0px 0px 0px 1px #0a66c2;
+  padding: -1px;
   background-color: #0a66c22a !important;
   box-sizing: border-box !important;
 }
@@ -347,7 +375,8 @@ p {
 
 .moreDiv:hover {
   background-color: rgba(128, 128, 128, 0.201) !important;
-  border: 2px solid grey !important;
+  box-shadow: inset 0px 0px 0px 2px grey !important;
+  padding: -1px;
   white-space: nowrap;
 }
 
@@ -408,7 +437,8 @@ p {
 
 .startAPostDiv:hover {
   background-color: #0a66c231;
-  border: 2px solid #0a66c2;
+  box-shadow: inset 0px 0px 0px 1px #0a66c2;
+  padding: -1px;
   font-size: 0.9em;
 }
 
@@ -458,6 +488,152 @@ p {
   color: #0a66c2;
 }
 
+/* ------------------SEARCH DROPDOWN ----------------- */
+#search-field {
+  width: 250px;
+  transition: width 0.5s ease-out;
+  box-shadow: none;
+  position: relative;
+}
+
+#search-field:focus {
+  width: 350px;
+  border: 2px solid #282c34;
+  transition-duration: 0.5s;
+}
+
+#search-results-float {
+  position: absolute;
+  left: 13%;
+  top: 50px;
+  z-index: 3;
+  border-radius: 5px;
+  width: 450px;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.search-results-text-wrapper {
+  max-width: 360px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-individual-user-display {
+  padding: 6px;
+  padding-inline: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.search-individual-user-display:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.search-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 62px;
+  z-index: 3;
+  border-radius: 5px;
+  width: 100%;
+  height: 300%;
+}
+
+.gray-hover:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* --------------messenger------------ */
+
+#messaging-popup-wrapper {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  width: 300px;
+  background-color: white;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: -3px -1px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#messaging-popup-wrapper-full {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  width: 300px;
+  height: auto;
+  background-color: white;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: -3px -1px 5px rgba(0, 0, 0, 0.2);
+  padding-bottom: 10px;
+}
+
+.top-messenger-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  padding-top: 8px;
+}
+
+.icon-wrapper-messenger {
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+}
+
+#messenger-search {
+  background-color: rgba(140, 172, 172, 0.2);
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: 10px;
+}
+#messenger-search:hover {
+  background-color: rgba(140, 172, 172, 0.2);
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+#messenger-search-text {
+  margin-right: 90px;
+}
+
+.messenger-hr {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#messenger-slider {
+  margin-right: 5px;
+}
+
+.message-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding: 5px;
+  height: 70px;
+}
+
+.message {
+  max-width: 180px;
+}
 /*----------------------------EXPERIENCE MODAL----------------------------*/
 
 .experience-dropdown {
