@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Modal, Row } from "react-bootstrap";
+import { Accordion, Button, Card, Form, Modal, Row } from "react-bootstrap";
 import { ChevronDown, ChevronUp } from "react-bootstrap-icons";
 
 import { useSelector } from "react-redux";
@@ -9,6 +9,9 @@ function EditAddProfileSectionModal() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [isCollapsed1, setIsCollapsed1] = useState(true);
+  const [isCollapsed2, setIsCollapsed2] = useState(false);
+  const [isCollapsed3, setIsCollapsed3] = useState(false);
 
   // Fetching variables
   let isFetched = useSelector((state) => state.myProfile.isFetched);
@@ -32,84 +35,304 @@ function EditAddProfileSectionModal() {
           </Modal.Title>
         </Modal.Header>
         {isFetched ? (
-          <Modal.Body>
-            <Form style={{ color: "grey", height: "52vh" }}>
-              <div className="d-flex justify-content-between align-items-center">
-                <h5 className="text-dark" style={{ "font-weight": "500" }}>
-                  Core
-                </h5>
-                <div className="d-flex justify-content-center align-items-center editButtonIconDiv ">
-                  <ChevronUp style={{ "font-size": "20px" }} />
-                </div>
-              </div>
-              <Row className="mt-2 text-dark">
-                <div className="col">
-                  <p
-                    className="mt-0"
-                    style={{ "font-size": "0.9em", color: "grey" }}
-                  >
-                    Start with the basics. Filling out these sections will help
-                    you be discovered by recruiters and people you may know
-                  </p>
-                </div>
-              </Row>
-              <Row className="text-dark">
-                <div className="col ">
-                  <p
-                    className="pb-3 font-weight-bold border-bottom"
-                    style={{ "font-size": "0.9em", color: "grey" }}
-                  >
-                    Add education
-                  </p>
-                </div>
-              </Row>
-              <Row className="text-dark">
-                <div className="col ">
-                  <p
-                    className="pb-3 font-weight-bold border-bottom"
-                    style={{ "font-size": "0.9em", color: "grey" }}
-                  >
-                    Add position
-                  </p>
-                </div>
-              </Row>
-              <Row className="text-dark">
-                <div className="col ">
-                  <p
-                    className="pb-3 font-weight-bold border-bottom"
-                    style={{ "font-size": "0.9em", color: "grey" }}
-                  >
-                    Add career break
-                  </p>
-                </div>
-              </Row>
-              <Row className="text-dark">
-                <div className="col ">
-                  <p
-                    className="pb-3 font-weight-bold border-bottom"
-                    style={{ "font-size": "0.9em", color: "grey" }}
-                  >
-                    Add skills
-                  </p>
-                </div>
-              </Row>
-              <div className="d-flex pb-2 border-bottom justify-content-between align-items-center">
-                <h5 className="text-dark" style={{ "font-weight": "500" }}>
-                  Recommended
-                </h5>
-                <div className="d-flex justify-content-center align-items-center editButtonIconDiv ">
-                  <ChevronDown style={{ "font-size": "20px" }} />
-                </div>
-              </div>
-              <div className="d-flex justify-content-between align-items-center">
-                <h5 className="text-dark py-3" style={{ "font-weight": "500" }}>
-                  Additional
-                </h5>
-                <div className="d-flex justify-content-center align-items-center editButtonIconDiv ">
-                  <ChevronDown style={{ "font-size": "20px" }} />
-                </div>
-              </div>
-            </Form>
+          <Modal.Body className="py-0 pr-2">
+            <Accordion defaultActiveKey="0">
+              <Card className="border-0">
+                <Accordion.Toggle
+                  as={Card.Header}
+                  eventKey="0"
+                  className="border-0 px-1 "
+                  style={{ backgroundColor: "white" }}
+                  onClick={() =>
+                    isCollapsed1
+                      ? setIsCollapsed1(false)
+                      : setIsCollapsed1(true)
+                  }
+                >
+                  <div className="d-flex justify-content-between align-items-center">
+                    <h5 className="text-dark" style={{ "font-weight": "500" }}>
+                      Core
+                    </h5>
+                    <div className="d-flex justify-content-center align-items-center editButtonIconDiv ">
+                      {isCollapsed1 ? (
+                        <ChevronUp style={{ "font-size": "20px" }} />
+                      ) : (
+                        <ChevronDown style={{ "font-size": "20px" }} />
+                      )}
+                    </div>
+                  </div>
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="0" className="border-0">
+                  <Card.Body className="py-1 px-1 border-0">
+                    <Row className=" text-dark">
+                      <div className="col">
+                        <p
+                          className="mt-0"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Start with the basics. Filling out these sections will
+                          help you be discovered by recruiters and people you
+                          may know
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="pb-3 pt-1 font-weight-bold border-bottom"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add education
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="pb-3 font-weight-bold border-bottom"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add position
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="pb-3 font-weight-bold border-bottom"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add career break
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="font-weight-bold"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add skills
+                        </p>
+                      </div>
+                    </Row>
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+              <Card className="border-0">
+                <Accordion.Toggle
+                  as={Card.Header}
+                  eventKey="1"
+                  className="border-0 px-1 "
+                  style={{ backgroundColor: "white" }}
+                  onClick={() =>
+                    isCollapsed2
+                      ? setIsCollapsed2(false)
+                      : setIsCollapsed2(true)
+                  }
+                >
+                  <div className="d-flex justify-content-between align-items-center">
+                    <h5 className="text-dark" style={{ "font-weight": "500" }}>
+                      Recommended
+                    </h5>
+                    <div className="d-flex justify-content-center align-items-center editButtonIconDiv ">
+                      {isCollapsed2 ? (
+                        <ChevronUp style={{ "font-size": "20px" }} />
+                      ) : (
+                        <ChevronDown style={{ "font-size": "20px" }} />
+                      )}
+                    </div>
+                  </div>
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="1" className="border-0">
+                  <Card.Body className="py-1 px-1 border-0">
+                    <Row className=" text-dark">
+                      <div className="col">
+                        <p
+                          className="mt-0"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Completing these sections will increase your
+                          credibility and give you access to more opportunities
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="pb-3 pt-1 font-weight-bold border-bottom"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add feature
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="pb-3 font-weight-bold border-bottom"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add licenses & certifications
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="pb-3 font-weight-bold border-bottom"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add courses
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="font-weight-bold"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add recommendations
+                        </p>
+                      </div>
+                    </Row>
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+              <Card className="border-0">
+                <Accordion.Toggle
+                  as={Card.Header}
+                  eventKey="2"
+                  className="border-0 px-1 "
+                  style={{ backgroundColor: "white" }}
+                  onClick={() =>
+                    isCollapsed3
+                      ? setIsCollapsed3(false)
+                      : setIsCollapsed3(true)
+                  }
+                >
+                  <div className="d-flex justify-content-between align-items-center">
+                    <h5 className="text-dark" style={{ "font-weight": "500" }}>
+                      Additional
+                    </h5>
+                    <div className="d-flex justify-content-center align-items-center editButtonIconDiv ">
+                      {isCollapsed3 ? (
+                        <ChevronUp style={{ "font-size": "20px" }} />
+                      ) : (
+                        <ChevronDown style={{ "font-size": "20px" }} />
+                      )}
+                    </div>
+                  </div>
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="2" className="border-0">
+                  <Card.Body className="py-1 px-1 border-0">
+                    <Row className=" text-dark">
+                      <div className="col">
+                        <p
+                          className="mt-0"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add even more personality to your profile. These
+                          sections will help your grow your network and build
+                          more relationships.
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="pb-3 pt-1 font-weight-bold border-bottom"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add volunteer experience
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="pb-3 font-weight-bold border-bottom"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add publications
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="pb-3 font-weight-bold border-bottom"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add patents
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="pb-3 font-weight-bold border-bottom"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add projects
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="pb-3 font-weight-bold border-bottom"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add honors & awards
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="pb-3 font-weight-bold border-bottom"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add test scores
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="pb-3 font-weight-bold border-bottom"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add languages
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="pb-3 font-weight-bold border-bottom"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add organizations
+                        </p>
+                      </div>
+                    </Row>
+                    <Row className="text-dark">
+                      <div className="col ">
+                        <p
+                          className="font-weight-bold"
+                          style={{ "font-size": "0.9em", color: "grey" }}
+                        >
+                          Add causes
+                        </p>
+                      </div>
+                    </Row>
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            </Accordion>
           </Modal.Body>
         ) : (
           <Modal.Body></Modal.Body>
