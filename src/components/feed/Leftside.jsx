@@ -1,7 +1,9 @@
+import FeedUserDetails from "./FeedUserDetails";
+
 const LeftSide = () => {
   return (
     <div>
-      <div>FeedUserDetails</div>
+      <FeedUserDetails />
       <div>FeedCompanyDetails</div>
       <div>FeedRecentHashtags</div>
     </div>

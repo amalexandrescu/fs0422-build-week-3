@@ -169,6 +169,30 @@ body {
 
 /* CUSTOM CLASSES */
 
+.p-feed {
+  padding: 12px;
+}
+.p-feed-left {
+  padding-left: 12px;
+}
+.p-feed-right {
+  padding-right: 12px;
+}
+.p-feed-top {
+  padding-top: 12px;
+}
+.p-feed-bottom {
+  padding-bottom: 12px;
+}
+.p-feed-y {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.p-feed-x {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
 body {
   background-color: #f3f2ef !important;
 }
@@ -674,4 +698,11 @@ p {
 
 .saveButtonExperiencesModal {
   border-radius: 50px !important;
+}
+
+/* FEED CLASSES */
+
+.hoverGreyBg:hover {
+  cursor: pointer;
+  background-color: rgb(237, 237, 237);
 }
