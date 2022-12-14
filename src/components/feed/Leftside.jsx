@@ -1,9 +1,13 @@
+import FeedCompanyDetails from "./FeedCompanyDetails";
+import FeedLeftAccordeon from "./FeedLeftAccordeon";
+import FeedUserDetails from "./FeedUserDetails";
+
 const LeftSide = () => {
   return (
     <div>
-      <div>FeedUserDetails</div>
-      <div>FeedCompanyDetails</div>
-      <div>FeedRecentHashtags</div>
+      <FeedUserDetails />
+      <FeedCompanyDetails />
+      <FeedLeftAccordeon />
     </div>
   );
 };
