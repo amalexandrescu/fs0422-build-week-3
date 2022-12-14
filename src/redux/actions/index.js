@@ -4,6 +4,7 @@ export const GET_EXPERIENCES = "GET_EXPERIENCES";
 export const GET_MY_PROFILEDETAILS = "GET_MY_PROFILEDETAILS";
 export const GET_IS_FETCHED = "GET_IS_FETCHED";
 export const CHANGE_PROFILE_DETAILS = "CHANGE_PROFILE_DETAILS";
+export const UPDATE_STATE_OF_EXPERIENCES = "UPDATE_STATE_OF_EXPERIENCES";
 
 //constants to use for fetching data
 
@@ -166,6 +167,10 @@ export const addExperienceAction = (experience, userId) => {
       const response = await fetch(postUrl, optionsPost);
       if (response.ok) {
         console.log("new experience added successfully!");
+        dispatch({
+          type: UPDATE_STATE_OF_EXPERIENCES,
+          payload: true,
+        });
       } else {
         console.log(
           "sorry, an error occured while trying to add a new experience"

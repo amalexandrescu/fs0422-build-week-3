@@ -4,20 +4,41 @@ import * as Icon from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import ExperienceModal from "./ExperienceModal";
 import { getExperiencesAction } from "../../redux/actions";
+import { UPDATE_STATE_OF_EXPERIENCES } from "../../redux/actions";
+import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
 const ExperienceComponent = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   // let userId = "";
   let userId = useSelector((state) => state.myProfile.detailsData._id);
   console.log("user id from exp comp", userId);
+  let isNewExperienceAdded = useSelector(
+    (state) => state.experiences.newExperienceAdded
+  );
+
+  const experiencesArray = useSelector(
+    (state) => state.experiences.experiences
+  );
+
+  // const experienceArrayOrderdByDate = experiencesArray.sort((date1, date2) => {
+  //   return date1.getTime() - date2.getTime();
+  // });
+  // console.log("testing ordered array by date", experienceArrayOrderdByDate);
 
   useEffect(() => {
-    if (userId) {
+    if (userId && isNewExperienceAdded === true) {
       dispatch(getExperiencesAction(userId));
+      dispatch({
+        type: UPDATE_STATE_OF_EXPERIENCES,
+        payload: false,
+      });
     }
-  }, [userId]);
+  }, [userId, isNewExperienceAdded]);
 
   const [plusButton, setPlusButton] = useState(false);
+
   return (
     <Row className="my-2">
       <div className="col experience-container-design p-4 normal-cursor-on-hover">
@@ -69,7 +90,53 @@ const ExperienceComponent = () => {
           </div>
         </div>
         <div className=" ">
-          <ListGroup variant="flush" className="px-0 text-left">
+          {experiencesArray.length !== 0 ? (
+            <ListGroup variant="flush" className="px-0 text-left">
+              <ListGroup.Item className="px-0">
+                <h6 className="font-weight-bold">
+                  {experiencesArray[experiencesArray.length - 1].role}
+                </h6>
+                <div>
+                  {experiencesArray[experiencesArray.length - 1].company}
+                  {/* <span>
+                    <Icon.Dot />
+                  </span>{" "}
+                  Freelance */}
+                </div>
+                <div className="light-grey-color">
+                  {experiencesArray[experiencesArray.length - 1].endDate !==
+                  null
+                    ? `${moment(
+                        experiencesArray[experiencesArray.length - 1].startDate
+                      ).format("MMMM YYYY")} - ${moment(
+                        experiencesArray[experiencesArray.length - 1].endDate
+                      ).format("MMMM YYYY")}`
+                    : `${moment(
+                        experiencesArray[experiencesArray.length - 1].startDate
+                      ).format("MMMM YYYY")} - Present`}
+                </div>
+                <div className="light-grey-color">
+                  {experiencesArray[experiencesArray.length - 1].area}
+                </div>
+              </ListGroup.Item>
+              <ListGroup.Item className="px-0 text-center pb-0">
+                <div
+                  className="d-flex align-items-center justify-content-center"
+                  // onClick={() => {
+                  //   navigate("/details/experiences");
+                  // }}
+                >
+                  <div className="cursor-on-hover">
+                    Show all {experiencesArray.length} experiences
+                  </div>
+                  <Icon.ArrowRight className="font-weight-bold ml-2 cursor-on-hover" />
+                </div>
+              </ListGroup.Item>
+            </ListGroup>
+          ) : (
+            "nope"
+          )}
+          {/* <ListGroup variant="flush" className="px-0 text-left">
             <ListGroup.Item className="px-0">
               <h6 className="font-weight-bold">Multidiscipliary Creative</h6>
               <div>
@@ -125,8 +192,8 @@ const ExperienceComponent = () => {
               <div className="light-grey-color">
                 Manchester Area, United Kingdom
               </div>
-            </ListGroup.Item>
-          </ListGroup>
+            </ListGroup.Item> */}
+          {/* </ListGroup> */}
         </div>
       </div>
     </Row>

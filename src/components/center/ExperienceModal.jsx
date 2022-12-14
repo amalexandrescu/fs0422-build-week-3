@@ -66,7 +66,7 @@ const ExperienceModal = () => {
           ? `${experience.endYear}-${experience.endMonth}-${day}`
           : null,
       description: experience.description,
-      area: experience.location,
+      area: experience.area,
     };
     // dispatch({
     //   type: POST_EXPERIENCE,
