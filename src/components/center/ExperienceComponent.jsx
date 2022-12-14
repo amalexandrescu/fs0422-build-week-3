@@ -8,6 +8,7 @@ import { getExperiencesAction } from "../../redux/actions";
 import { UPDATE_STATE_OF_EXPERIENCES } from "../../redux/actions";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
+import SingleExperience from "./SingleExperience";
 
 const ExperienceComponent = () => {
   const navigate = useNavigate();
@@ -109,84 +110,16 @@ const ExperienceComponent = () => {
               </div>
               <div className="ml-5 ">
                 <ListGroup variant="flush" className="px-0 text-left">
-                  <ListGroup.Item className="px-0">
-                    <h6 className="font-weight-bold">
-                      Multidiscipliary Creative
-                    </h6>
-                    <div>
-                      Alkha Studio{" "}
-                      <span>
-                        <Icon.Dot />
-                      </span>{" "}
-                      Freelance
-                    </div>
-                    <div className="light-grey-color">Sept 2017 - Present</div>
-                    <div className="light-grey-color">
-                      Manchester Area, United Kingdom
-                    </div>
-                  </ListGroup.Item>
-                  <div className="col px-0 d-flex justify-content-between">
-                    <ListGroup.Item className="px-0 border-0">
-                      <h6 className="font-weight-bold">
-                        The University of Salford
-                      </h6>
-                      <div className="light-grey-color mb-2">3 yrs</div>
-                      <h6 className="font-weight-bold">
-                        Student Representative
-                      </h6>
-                      <div className="light-grey-color mb-4">
-                        Sept 2019 - Aug 2020{" "}
-                        <span>
-                          <Icon.Dot />
-                        </span>
-                        1 yr
-                      </div>
-                      <h6 className="font-weight-bold">
-                        Interior Design Student
-                      </h6>
-                      <div className="light-grey-color mb-4">
-                        Sept 2017 - Jun 2020{" "}
-                        <span>
-                          <Icon.Dot />
-                        </span>
-                        2 yrs 10 mo
-                      </div>
-                      <h6 className="font-weight-bold">
-                        Student Representative
-                      </h6>
-                      <div className="light-grey-color">
-                        Oct 2017 - Oct 2018{" "}
-                        <span>
-                          <Icon.Dot />
-                        </span>
-                        1 yr 1 mo
-                      </div>
-                    </ListGroup.Item>
-                    <div className="d-flex justify-content-center align-items-center editButtonIconDiv mt-2 mr-2">
-                      <Icon.Pencil style={{ fontSize: "20px" }} />
-                    </div>
-                  </div>
-                  <div className="col border-top px-0 d-flex justify-content-between">
-                    <ListGroup.Item className="px-0 border-0">
-                      <h6 className="font-weight-bold">Interior Designer</h6>
-                      <div>
-                        AFL Architects{" "}
-                        <span>
-                          <Icon.Dot />
-                        </span>{" "}
-                        Freelance
-                      </div>
-                      <div className="light-grey-color">
-                        Sept 2017 - Present
-                      </div>
-                      <div className="light-grey-color">
-                        Manchester Area, United Kingdom
-                      </div>
-                    </ListGroup.Item>
-                    <div className="d-flex justify-content-center align-items-center editButtonIconDiv mt-2 mr-2">
-                      <Icon.Pencil style={{ fontSize: "20px" }} />
-                    </div>
-                  </div>
+                  {experiencesArray.length !== 0
+                    ? experiencesArray.map((experience) => {
+                        return (
+                          <SingleExperience
+                            key={experience._id}
+                            exp={experience}
+                          />
+                        );
+                      })
+                    : "No experience yet"}
                 </ListGroup>
               </div>
             </div>
