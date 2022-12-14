@@ -10,6 +10,7 @@ import { showUserSearchAction } from "./redux/actions"
 import MessagingPopup from "./components/global/MessagingPopup"
 
 import SearchDisplay from "./components/global/SearchDisplay.jsx"
+import OtherUser from "./components/global/OtherUser"
 
 function App() {
   let showSearchResults = useSelector((state) => state.showUsers.show)
@@ -33,6 +34,7 @@ function App() {
             element={<ResourcesSinglePageComponent />}
           />
           <Route path="/editexperiences" element={<ExperienceComponent />} />
+          <Route path="/profile/:id" element={<OtherUser />} />
         </Routes>
       </div>
       <MessagingPopup />
