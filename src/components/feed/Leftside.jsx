@@ -1,4 +1,5 @@
 import FeedCompanyDetails from "./FeedCompanyDetails";
+import FeedLeftAccordeon from "./FeedLeftAccordeon";
 import FeedUserDetails from "./FeedUserDetails";
 
 const LeftSide = () => {
@@ -6,7 +7,7 @@ const LeftSide = () => {
     <div>
       <FeedUserDetails />
       <FeedCompanyDetails />
-      <div>FeedRecentHashtags</div>
+      <FeedLeftAccordeon />
     </div>
   );
 };
