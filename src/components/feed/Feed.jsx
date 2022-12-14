@@ -1,7 +1,7 @@
-import { Col, Container, Row } from "react-bootstrap";
-import Center from "./Center";
-import Leftside from "./Leftside";
-import Rightside from "./Rightside";
+import { Col, Container, Row } from "react-bootstrap"
+import Center from "./Center"
+import Leftside from "./Leftside"
+import Rightside from "./Rightside"
 
 const Feed = () => {
   return (
@@ -13,7 +13,7 @@ const Feed = () => {
           </div>
         </Col>
         <Col xs={6} className={"pr-4 pl-0"}>
-          <div style={{ backgroundColor: "slategrey" }}>
+          <div>
             <Center />
           </div>
         </Col>
@@ -24,7 +24,7 @@ const Feed = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default Feed;
+export default Feed

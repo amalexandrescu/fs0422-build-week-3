@@ -1,5 +1,11 @@
-const Center = () => {
-  return <div>Center</div>;
-};
+import StartAPost from "./StartAPost"
 
-export default Center;
+const Center = () => {
+  return (
+    <>
+      <StartAPost />
+    </>
+  )
+}
+
+export default Center
