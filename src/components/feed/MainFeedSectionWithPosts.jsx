@@ -18,8 +18,10 @@ export default function MainFeedSectionWithPosts() {
   //   reversing the array so we get the newest posts
   const allLatestPosts = allFeedPosts.slice(0).reverse()
   console.log(allLatestPosts.length, "allLatestPosts")
-  //   filtering out short posts
-  const userPresent = allLatestPosts.filter((post) => {
+
+  const longerPosts = allLatestPosts.filter((post) => post.text.length > 10)
+
+  const userPresent = longerPosts.filter((post) => {
     return post.user !== null
   })
   console.log(userPresent.length, "user present")
@@ -28,10 +30,14 @@ export default function MainFeedSectionWithPosts() {
   const latestPostSlice = userPresent.slice(0, length)
 
   const increaseCurrentLength = (e) => {
-    setLength(length + 25)
+    const increment = 500
+    setLength(length + increment)
     console.log(length)
 
-    if (length.length >= userPresent.length) {
+    if (
+      length.length >= userPresent.length ||
+      userPresent.length - length.length < increment
+    ) {
       alert("you have read all the posts!")
     }
   }
