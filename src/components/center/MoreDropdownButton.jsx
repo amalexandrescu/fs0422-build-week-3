@@ -21,10 +21,7 @@ export default function MoreDropDownButton() {
         <Dropdown.Menu as={CustomMenuMoreButton}>
           <Dropdown.Item eventKey="1" className="dropdown">
             <div className="d-flex align-items-center">
-              <Arrow90degRight
-                height={"20px"}
-                style={{ "-webkit-text-stroke": "2px" }}
-              />
+              <Arrow90degRight height={"20px"} />
               <p className="m-0 ml-2" style={{ color: "grey" }}>
                 Send profile in a message
               </p>

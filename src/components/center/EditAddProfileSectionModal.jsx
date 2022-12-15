@@ -30,7 +30,7 @@ function EditAddProfileSectionModal() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title className="text-dark" style={{ "font-weight": "500" }}>
+          <Modal.Title className="text-dark" style={{ fontWeight: "500" }}>
             Add to profile
           </Modal.Title>
         </Modal.Header>
@@ -132,7 +132,7 @@ function EditAddProfileSectionModal() {
                   }
                 >
                   <div className="d-flex justify-content-between align-items-center">
-                    <h5 className="text-dark" style={{ "font-weight": "500" }}>
+                    <h5 className="text-dark" style={{ fontWeight: "500" }}>
                       Recommended
                     </h5>
                     <div className="d-flex justify-content-center align-items-center editButtonIconDiv ">
@@ -213,7 +213,7 @@ function EditAddProfileSectionModal() {
                   }
                 >
                   <div className="d-flex justify-content-between align-items-center">
-                    <h5 className="text-dark" style={{ "font-weight": "500" }}>
+                    <h5 className="text-dark" style={{ fontWeight: "500" }}>
                       Additional
                     </h5>
                     <div className="d-flex justify-content-center align-items-center editButtonIconDiv ">
