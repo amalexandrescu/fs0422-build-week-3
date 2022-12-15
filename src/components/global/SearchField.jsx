@@ -42,7 +42,7 @@ export default function SearchField() {
 
   return (
     <div className="my-auto">
-      <Nav className="me-auto d-sm-none d-lg-block">
+      <Nav className="me-auto d-none d-lg-block">
         <Form className="d-flex" onSubmit={handleSubmit}>
           <Form.Control
             id="search-field"

@@ -3,12 +3,13 @@ import CustomToggleOpenToButton from "../../customToggleElements/CustomToggleOpe
 import CustomMenuOpenToButton from "../../customToggleElements/CustomMenuOpenToButton";
 
 export default function OpenToDropDownButton() {
+  let pathname = window.location.pathname;
   return (
-    <div className="d-flex ml-0">
+    <div className={pathname === "/me" ? "d-flex ml-0" : "d-flex ml-0 mr-2"}>
       <Dropdown>
         <Dropdown.Toggle as={CustomToggleOpenToButton}>
           <div className="openToDiv rounded-pill text-white py-1 px-3">
-            <div> Open to</div>
+            <div>{pathname === "/me" ? "Open to" : "Message"} </div>
           </div>
         </Dropdown.Toggle>
 

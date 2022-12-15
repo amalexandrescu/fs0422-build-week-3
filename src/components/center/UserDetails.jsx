@@ -8,6 +8,7 @@ import EditContactInfoModal from "./EditContactInfoModal";
 import EditUserDetailsModal from "./EditUserDetailsModal";
 import MoreDropDownButton from "./MoreDropdownButton";
 import OpenToDropDownButton from "./OpenToDropdownButton";
+import * as Icon from "react-bootstrap-icons";
 
 const UserDetails = ({ profileData }) => {
   let details = useSelector((state) => state.myProfile.detailsData);
@@ -49,7 +50,14 @@ const UserDetails = ({ profileData }) => {
                     : "d-none"
                 }
               >
-                <Pencil className="text-dark" style={{ fontSize: "18px" }} />
+                {pathname === "/me" && (
+                  <Pencil
+                    className="text-dark"
+                    style={{ fontSize: "18px" }}
+                    // className="text-dark"
+                    // style={{ fontSize: "18px" }}
+                  />
+                )}
               </div>
             </Row>
           </div>
@@ -95,7 +103,13 @@ const UserDetails = ({ profileData }) => {
                   </a>
 
                   {/* Section 3 Links Pills */}
-                  <div className="col d-flex justify-content-between px-0 my-2">
+                  <div
+                    className={
+                      pathname === "/me"
+                        ? "col d-flex justify-content-between px-0 my-2"
+                        : "col d-flex justify-content-start px-0 my-2"
+                    }
+                  >
                     <OpenToDropDownButton />
                     <EditAddProfileSectionModal />
                     <MoreDropDownButton />
@@ -105,7 +119,13 @@ const UserDetails = ({ profileData }) => {
             </Row>
 
             {/* Open to work section */}
-            <Row className="justify-content-between mx-4 pb-4 flex-nowrap">
+            <Row
+              className={
+                pathname === "/me"
+                  ? "justify-content-between mx-4 pb-4 flex-nowrap"
+                  : "d-none"
+              }
+            >
               {/* Left side */}
               <div className="col-6 d-flex openToWorkDiv px-2 py-2 mr-1">
                 <div className="col-11  d-flex flex-column px-0">
@@ -128,7 +148,13 @@ const UserDetails = ({ profileData }) => {
               </div>
 
               {/* Right side */}
-              <div className="col-6 d-flex shareHiringDiv px-2 py-2 ml-1">
+              <div
+                className={
+                  pathname === "/me"
+                    ? "col-6 d-flex shareHiringDiv px-2 py-2 ml-1"
+                    : "d-none"
+                }
+              >
                 <div className="col-11  d-flex flex-column px-0">
                   <p className=" d-flex mb-0 openToWorkParagraph">
                     Share that you're hiring and attract qualified candidates

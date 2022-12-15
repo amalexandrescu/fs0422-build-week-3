@@ -14,6 +14,7 @@ import moment from "moment";
 import SingleExperience from "./SingleExperience";
 
 const ExperienceComponent = ({ profileData }) => {
+  let pathname = window.location.pathname;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // let userId = "";
@@ -71,7 +72,10 @@ const ExperienceComponent = ({ profileData }) => {
               <div className="d-flex justify-content-between">
                 <div className="d-flex">
                   <div className="editButtonIconDiv d-flex justify-content-center align-items-center">
-                    <Link to={-1}>
+                    <Link
+                      to={-1}
+                      className="text-decoration-none text-secondary"
+                    >
                       <Icon.ArrowLeft
                         style={{ fontSize: "25px" }}
                         className="text-dark"
@@ -147,7 +151,13 @@ const ExperienceComponent = ({ profileData }) => {
                 <h5 className="text-left mb-0 normal-cursor-on-hover font-weight-bold">
                   Experience
                 </h5>
-                <div className="d-flex text-center cursor-on-hover">
+                <div
+                  className={
+                    pathname === "/me"
+                      ? "d-flex text-center cursor-on-hover"
+                      : "d-none"
+                  }
+                >
                   <div
                     className={
                       plusButton === true

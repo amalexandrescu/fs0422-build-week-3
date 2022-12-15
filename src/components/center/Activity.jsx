@@ -2,6 +2,7 @@ import { Row, Col } from "react-bootstrap";
 import { ArrowRight } from "react-bootstrap-icons";
 
 const Activity = ({ profileData }) => {
+  let pathname = window.location.pathname;
   return (
     <Row className="my-2 ">
       <Col className="activityComponent pt-4 flex-nowrap bg-white">
@@ -28,7 +29,11 @@ const Activity = ({ profileData }) => {
               />
             </div>
           </div>
-          <div className="col-6 d-flex justify-content-end">
+          <div
+            className={
+              pathname === "/me" ? "col-6 d-flex justify-content-end" : "d-none"
+            }
+          >
             <div>
               <div className="startAPostDiv d-flex justify-content-center align-items-center rounded-pill">
                 <a href="/" className="mb-0 px-3 py-1">

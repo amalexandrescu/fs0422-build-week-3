@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { Pencil, InfoSquareFill } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
+import * as Icon from "react-bootstrap-icons";
 
 import {
   changeProfileDetailsAction,
@@ -96,6 +97,7 @@ function EditUserDetailsModal() {
       console.log(error);
     }
   };
+  let pathname = window.location.pathname;
 
   return (
     <>
@@ -104,7 +106,12 @@ function EditUserDetailsModal() {
         className="editButtonDivTwo d-flex justify-content-center align-items-center"
         onClick={handleShow}
       >
-        <Pencil className="text-dark" style={{ fontSize: "20px" }} />
+        {pathname === "/me" && (
+          <Pencil className="text-dark" style={{ fontSize: "20px" }} />
+        )}
+        {pathname !== "/me" && (
+          <Icon.BellFill className="text-dark" style={{ fontSize: "20px" }} />
+        )}
       </div>
 
       <Modal show={show} onHide={handleClose}>

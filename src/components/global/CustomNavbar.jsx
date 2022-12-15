@@ -31,42 +31,42 @@ const CustomNavbar = () => {
             <SearchField />
           </div>
 
-          <Nav className="rightSideNavbarContainer d-flex align-items-center justify-content-center flex-sm-row mx-sm-auto mx-md-none">
+          <Nav className="rightSideNavbarContainer d-flex align-items-center justify-content-center flex-row mx-auto mx-md-none">
             <Link to={"/"}>
-              <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-sm-2 mr-md-none">
+              <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none">
                 <div>
                   <Icon.HouseDoorFill className="mr-sm-3 mr-md-0" />
                 </div>
-                <div className="d-sm-none d-md-block">Home</div>
+                <div className="d-none d-md-block">Home</div>
               </div>
             </Link>
 
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-sm-2 mr-md-none">
+            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none">
               <div>
                 <Icon.PeopleFill className="mr-sm-3 mr-md-0" />
               </div>
-              <div className="d-sm-none d-md-block">My Network</div>
+              <div className="d-none d-md-block">My Network</div>
             </div>
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-sm-2 mr-md-none">
+            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none">
               <div>
                 <Icon.BriefcaseFill className="mr-sm-3 mr-md-0" />
               </div>
-              <div className="d-sm-none d-md-block">Jobs</div>
+              <div className="d-none d-md-block">Jobs</div>
             </div>
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-sm-2 mr-md-none">
+            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none">
               <div>
                 <Icon.ChatRightDotsFill className="mr-sm-3 mr-md-0" />
               </div>
-              <div className="d-sm-none d-md-block">Messaging</div>
+              <div className="d-none d-md-block">Messaging</div>
             </div>
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-sm-2 mr-md-none">
+            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none">
               <div>
                 <Icon.BellFill className="mr-sm-3 mr-md-0" />
               </div>
-              <div className="d-sm-none d-md-block">Notifications</div>
+              <div className="d-none d-md-block">Notifications</div>
             </div>
             <div
-              className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-sm-2 mr-md-none position-relative"
+              className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none position-relative"
               onClick={() => {
                 if (meSelected === false) {
                   setMeSelected(true);
@@ -75,7 +75,7 @@ const CustomNavbar = () => {
                 }
               }}
             >
-              <div className="me-icon-container d-sm-flex my-sm-auto d-md-block my-md-0">
+              <div className="me-icon-container d-sm-flex my-auto d-md-block my-md-0">
                 <img
                   src={userImage}
                   alt=""
@@ -83,8 +83,8 @@ const CustomNavbar = () => {
                 />
               </div>
               <div className="d-flex justify-content-center align-items-center">
-                <div className="d-sm-none d-md-block">Me</div>
-                <Icon.CaretDownFill className="d-sm-none d-md-block" />
+                <div className="d-none d-md-block">Me</div>
+                <Icon.CaretDownFill className="d-none d-md-block" />
                 <div
                   className={
                     meSelected === false
@@ -139,20 +139,20 @@ const CustomNavbar = () => {
                 </div>
               </div>
             </div>
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center border-left cursor-on-hover ml-sm-2 ml-md-none pl-sm-2 pl-md-none">
-              <div className="d-sm-lex my-sm-auto d-md-block my-md-0">
+            <div className="nav-link d-flex flex-column justify-content-around align-items-center border-left cursor-on-hover ml-0 ml-sm-2 ml-md-none pl-4 pl-sm-2 pl-md-none">
+              <div className="d-sm-lex my-auto d-md-block my-md-0">
                 <Icon.Grid3x3GapFill className="mr-sm-3 mr-md-0" />
               </div>
               <div className="d-flex justify-content-center align-items-center">
-                <div className="d-sm-none d-md-block">Work</div>
-                <Icon.CaretDownFill className="d-sm-none d-md-block" />
+                <div className="d-none d-md-block">Work</div>
+                <Icon.CaretDownFill className="d-none d-md-block" />
               </div>
             </div>
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover ml-sm-2 ml-md-none">
+            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover ml-4 ml-sm-2 ml-md-none">
               <div>
                 <Icon.CardChecklist />
               </div>
-              <div className="d-sm-none d-md-block">Learning</div>
+              <div className="d-none d-md-block">Learning</div>
             </div>
           </Nav>
         </Container>

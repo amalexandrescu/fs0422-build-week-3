@@ -7,19 +7,31 @@ import ExperienceComponent from "../center/ExperienceComponent";
 import EducationComponent from "../center/EducationComponent";
 import Languages from "../center/Languages";
 import Activity from "../center/Activity";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { getCurrentUserAction } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
 const RandomUserProfilePage = ({ randomUserDetails }) => {
   let pathname = window.location.pathname;
   console.log("pathname", pathname);
+  const dispatch = useDispatch();
+
+  const params = useParams();
+  const currentUserId = params.id;
+  console.log("-------------params-------", params);
+  useEffect(() => {
+    dispatch(getCurrentUserAction(currentUserId));
+  }, []);
 
   return (
     <Container className="profilePageCenterContainer px-0">
       <UserDetails profileData={randomUserDetails} />
-      <AnalyticsComponent profileData={randomUserDetails} />
-      <ResourcesComponent profileData={randomUserDetails} />
       <AboutComponent profileData={randomUserDetails} />
       <Activity profileData={randomUserDetails} />
       <ExperienceComponent profileData={randomUserDetails} />
+      <AnalyticsComponent profileData={randomUserDetails} />
+      <ResourcesComponent profileData={randomUserDetails} />
       <EducationComponent profileData={randomUserDetails} />
       <Languages profileData={randomUserDetails} />
     </Container>

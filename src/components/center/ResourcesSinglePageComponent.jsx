@@ -1,6 +1,6 @@
 import { Container, Row, ListGroup, Badge } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const ResourcesSinglePageComponent = () => {
   const navigate = useNavigate();
@@ -9,13 +9,10 @@ const ResourcesSinglePageComponent = () => {
       {/* <Row> */}
       <div className="resources-container-design p-4">
         <div className="d-flex">
-          <div
-            className="d-flex justify-content-center align-items-center mr-2 cursor-on-hover"
-            onClick={() => {
-              navigate("/me");
-            }}
-          >
-            <Icon.ArrowLeft />
+          <div className="d-flex justify-content-center align-items-center mr-2 cursor-on-hover">
+            <Link to={-1} className="text-decoration-none text-secondary">
+              <Icon.ArrowLeft />
+            </Link>
           </div>
           <h5 className=" d-flex justify-content-center align-items-centertext-left mb-0 normal-cursor-on-hover font-weight-bold">
             Resources
