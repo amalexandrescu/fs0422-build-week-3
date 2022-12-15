@@ -42,7 +42,7 @@ const FeedAddTo = () => {
           </div>
 
           <div
-            className="rounded-pill text-dark d-flex align-items-center mb-2"
+            className="rounded-pill text-dark d-flex align-items-center mb-2 connect-button"
             style={{
               fontSize: "16px",
               fontWeight: "500",
@@ -96,7 +96,7 @@ const FeedAddTo = () => {
           </div>
 
           <div
-            className="rounded-pill text-dark d-flex align-items-center mb-2"
+            className="rounded-pill text-dark d-flex align-items-center mb-2 connect-button"
             style={{
               fontSize: "16px",
               fontWeight: "500",
@@ -148,7 +148,7 @@ const FeedAddTo = () => {
           </div>
 
           <div
-            className="rounded-pill text-dark d-flex align-items-center mb-2"
+            className="rounded-pill text-dark d-flex align-items-center mb-2 connect-button"
             style={{
               fontSize: "16px",
               fontWeight: "500",

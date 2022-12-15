@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 import RandomUserProfilePage from "../randomUser/RandomUserProfilePage";
 import SideComponentsMyProfile from "../sidebar/SideComponentsMyProfile";
 import LargeFooter from "./LargeFooter";
 import ProfilePageCenter from "../center/ProfilePageCenter";
+import { useNavigate } from "react-router-dom";
 
 export default function OtherUser() {
   const otherUser = useSelector((state) => state.otherUser.selectedUser);
+  let details = useSelector((state) => state.myProfile.detailsData);
+  const navigate = useNavigate();
+
+  const params = window.location.pathname;
+
+  if (details._id && params === `/profile/${details._id}`) {
+    navigate("/me");
+  }
 
   return (
     <>

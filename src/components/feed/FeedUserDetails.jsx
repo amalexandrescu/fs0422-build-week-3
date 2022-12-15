@@ -25,7 +25,7 @@ const FeedUserDetails = () => {
       </div>
       {/* Profile image */}
       <div className="d-flex justify-content-center">
-        <Link to={"/"}>
+        <Link to={"/me"}>
           <div
             className="rounded-circle"
             style={{
