@@ -1,30 +1,30 @@
-import React from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { BiSearch } from "react-icons/bi"
-import { BsDot } from "react-icons/bs"
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { BiSearch } from "react-icons/bi";
+import { BsDot } from "react-icons/bs";
 import {
   hideUserSearchAction,
-  otherUserProfileAction
-} from "../../redux/actions/index"
-import { Link } from "react-router-dom"
+  otherUserProfileAction,
+} from "../../redux/actions/index";
+import { Link } from "react-router-dom";
 
 export default function SearchDisplay() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const selectedUser = useSelector((state) => state.otherUser.selectedUser)
-  console.log("selectedUser", selectedUser)
+  const selectedUser = useSelector((state) => state.otherUser.selectedUser);
+  console.log("selectedUser", selectedUser);
 
   let usersFromSearch = useSelector(
     (state) => state.usersFromSearchFilter.searchResults
-  )
+  );
   const handleClick = (user) => {
-    dispatch(hideUserSearchAction())
-    console.log("handle click user --->", user)
-    dispatch(otherUserProfileAction(user))
-  }
+    dispatch(hideUserSearchAction());
+    console.log("handle click user --->", user);
+    dispatch(otherUserProfileAction(user));
+  };
 
-  let firstTen = usersFromSearch.slice(0, 10)
-  console.log("usersFromSearch", usersFromSearch)
+  let firstTen = usersFromSearch.slice(0, 10);
+  console.log("usersFromSearch", usersFromSearch);
 
   return (
     <div>
@@ -38,9 +38,8 @@ export default function SearchDisplay() {
         ) : (
           <>
             {firstTen.map((user) => (
-              <Link to={`/profile/${user._id}`}>
+              <Link to={`/profile/${user._id}`} key={user._id}>
                 <div
-                  key={user._id}
                   className="search-individual-user-display"
                   onClick={handleClick.bind(null, user)}
                 >
@@ -71,5 +70,5 @@ export default function SearchDisplay() {
         )}
       </div>
     </div>
-  )
+  );
 }
