@@ -1,5 +1,6 @@
 import { BookmarkFill } from "react-bootstrap-icons";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const FeedUserDetails = () => {
   let details = useSelector((state) => state.myProfile.detailsData);
@@ -24,26 +25,28 @@ const FeedUserDetails = () => {
       </div>
       {/* Profile image */}
       <div className="d-flex justify-content-center">
-        <div
-          className="rounded-circle"
-          style={{
-            width: "72px",
-            aspectRatio: "1/1",
-            overflow: "hidden",
-            transform: "translate3d(0px, -35px, 0px)",
-            border: "2px solid white",
-          }}
-        >
-          {isFetched ? (
-            <img
-              src={details.image}
-              alt="User Profilepic"
-              style={{ width: "100%", objectFit: "cover" }}
-            />
-          ) : (
-            <></>
-          )}
-        </div>
+        <Link to={"/"}>
+          <div
+            className="rounded-circle"
+            style={{
+              width: "72px",
+              aspectRatio: "1/1",
+              overflow: "hidden",
+              transform: "translate3d(0px, -35px, 0px)",
+              border: "2px solid white",
+            }}
+          >
+            {isFetched ? (
+              <img
+                src={details.image}
+                alt="User Profilepic"
+                style={{ width: "100%", objectFit: "cover" }}
+              />
+            ) : (
+              <></>
+            )}
+          </div>
+        </Link>
         {/* Name and Position */}
       </div>
       <div style={{ transform: "translate3d(0px, -20px, 0px)" }}>
