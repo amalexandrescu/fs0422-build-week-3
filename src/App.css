@@ -875,7 +875,17 @@ p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.post-image-wrapper {
+  max-width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
 
+.feed-post-image {
+  max-width: 100%;
+}
 /* --------editing posts section-------- */
 .editing-feed-post-wrapper {
   margin-top: 10px;
