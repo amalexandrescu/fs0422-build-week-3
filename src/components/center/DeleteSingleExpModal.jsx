@@ -15,7 +15,12 @@ const DeleteSingleExpModal = ({ outerModalClose }) => {
 
   return (
     <>
-      <div onClick={handleShow} className="cursor-on-hover">
+      <div
+        onClick={() => {
+          handleShow();
+        }}
+        className="cursor-on-hover"
+      >
         Delete
       </div>
       <Modal
@@ -39,6 +44,8 @@ const DeleteSingleExpModal = ({ outerModalClose }) => {
             onClick={() => {
               outerModalClose();
               if (userId && expId) {
+                console.log("userId from  onclick delete", userId);
+                console.log("expId from  onclick delete", expId);
                 dispatch(deleteExperienceAction(userId, expId));
               }
             }}

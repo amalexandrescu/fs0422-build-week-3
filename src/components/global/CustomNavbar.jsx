@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  Container,
-  Navbar,
-  Nav,
-  NavDropdown,
-  ListGroup,
-  Button,
-} from "react-bootstrap";
+import { Container, Navbar, Nav, ListGroup, Button } from "react-bootstrap";
 
 import * as Icon from "react-bootstrap-icons";
 import { useSelector } from "react-redux";
@@ -37,147 +30,126 @@ const CustomNavbar = () => {
             </div>
             <SearchField />
           </div>
-          <Nav className="rightSideNavbarContainer d-flex align-items-center justify-content-center">
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover">
+          <Nav className="rightSideNavbarContainer d-flex align-items-center justify-content-center flex-sm-row mx-sm-auto mx-md-none">
+            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-sm-2 mr-md-none">
               <div>
-                <Icon.HouseDoorFill />
+                <Icon.HouseDoorFill className="mr-sm-3 mr-md-0" />
               </div>
-              <div>Home</div>
+              <div className="d-sm-none d-md-block">Home</div>
             </div>
 
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover">
+            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-sm-2 mr-md-none">
               <div>
-                <Icon.PeopleFill />
+                <Icon.PeopleFill className="mr-sm-3 mr-md-0" />
               </div>
-              <div>My Network</div>
+              <div className="d-sm-none d-md-block">My Network</div>
             </div>
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover">
+            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-sm-2 mr-md-none">
               <div>
-                <Icon.BriefcaseFill />
+                <Icon.BriefcaseFill className="mr-sm-3 mr-md-0" />
               </div>
-              <div>Jobs</div>
+              <div className="d-sm-none d-md-block">Jobs</div>
             </div>
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover">
+            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-sm-2 mr-md-none">
               <div>
-                <Icon.ChatRightDotsFill />
+                <Icon.ChatRightDotsFill className="mr-sm-3 mr-md-0" />
               </div>
-              <div>Messaging</div>
+              <div className="d-sm-none d-md-block">Messaging</div>
             </div>
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover">
+            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-sm-2 mr-md-none">
               <div>
-                <Icon.BellFill />
+                <Icon.BellFill className="mr-sm-3 mr-md-0" />
               </div>
-              <div>Notifications</div>
-            </div>
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover">
-              <div className="me-icon-container ">
-                <img src={userImage} alt="" />
-              </div>
-              <div className="d-flex justify-content-center align-items-center">
-                <div>Me</div>
-                <Icon.CaretDownFill
-                  onClick={() => {
-                    if (meSelected === false) {
-                      setMeSelected(true);
-                    } else {
-                      setMeSelected(false);
-                    }
-                  }}
-                />
-              </div>
+              <div className="d-sm-none d-md-block">Notifications</div>
             </div>
             <div
-              className={
-                meSelected === false
-                  ? "d-flex justify-content-between me-dropdown-list invisible"
-                  : "d-flex justify-content-between me-dropdown-list visible"
-              }
+              className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-sm-2 mr-md-none position-relative"
+              onClick={() => {
+                if (meSelected === false) {
+                  setMeSelected(true);
+                } else {
+                  setMeSelected(false);
+                }
+              }}
             >
-              <ListGroup>
-                <ListGroup.Item>
-                  <div className="d-flex mb-2">
-                    <div className="me-dropdown-image">
-                      <img src={userImage} alt="profile-image" />
-                    </div>
-                    <div className="ml-2 underline-on-hover">
-                      <div className="me-dropdown-big-element">
-                        {userName} {userSurname}
-                      </div>
-                      <div>{userTitle}</div>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-center">
-                    <Button
-                      className="me-dropdown-button"
-                      onClick={() => {
-                        navigate("/");
-                        setMeSelected(false);
-                      }}
-                    >
-                      View Profile
-                    </Button>
-                  </div>
-                </ListGroup.Item>
-                <ListGroup.Item className="underline-on-hover">
-                  <div className="me-dropdown-big-element">Account</div>
-                  <div>Settings & Privacy</div>
-                  <div>Help</div>
-                  <div>Language</div>
-                </ListGroup.Item>
-                <ListGroup.Item className="underline-on-hover">
-                  <div className="me-dropdown-big-element">Manage</div>
-                  <div>Posts & Activity</div>
-                  <div>Job Posting Account</div>
-                </ListGroup.Item>
-                <ListGroup.Item className="underline-on-hover">
-                  <div>Sing Out</div>
-                </ListGroup.Item>
-              </ListGroup>
-            </div>
-            {/* <div className="d-flex flex-column justify-content-center align-items-center">
-              <div className="me-icon-container ">
-                <img src="" alt="" />
-              </div>
-              <NavDropdown title="Me" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="">Action</NavDropdown.Item>
-                <NavDropdown.Item href="">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="">Separated link</NavDropdown.Item>
-              </NavDropdown>
-            </div> */}
-
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center border-left cursor-on-hover">
-              <div>
-                <Icon.Grid3x3GapFill />
+              <div className="me-icon-container d-sm-flex my-sm-auto d-md-block my-md-0">
+                <img
+                  src={userImage}
+                  alt=""
+                  className="d-flex align-items-center justify-content-center"
+                />
               </div>
               <div className="d-flex justify-content-center align-items-center">
-                <div>Work</div>
-                <Icon.CaretDownFill />
+                <div className="d-sm-none d-md-block">Me</div>
+                <Icon.CaretDownFill className="d-sm-none d-md-block" />
+                <div
+                  className={
+                    meSelected === false
+                      ? "d-flex justify-content-between me-dropdown-list invisible"
+                      : "d-flex justify-content-between me-dropdown-list visible"
+                  }
+                >
+                  <ListGroup style={{ width: "350px" }}>
+                    <ListGroup.Item>
+                      <div className="d-flex mb-2">
+                        <div className="me-dropdown-image">
+                          <img
+                            src={userImage}
+                            alt=""
+                            className="d-flex align-items-center justify-content-center"
+                          />
+                        </div>
+                        <div className="ml-2 underline-on-hover">
+                          <div className="me-dropdown-big-element">
+                            {userName} {userSurname}
+                          </div>
+                          <div>{userTitle}</div>
+                        </div>
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <Button
+                          className="me-dropdown-button"
+                          onClick={() => {
+                            navigate("/");
+                            setMeSelected(false);
+                          }}
+                        >
+                          View Profile
+                        </Button>
+                      </div>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="underline-on-hover">
+                      <div className="me-dropdown-big-element">Account</div>
+                      <div>Settings & Privacy</div>
+                      <div>Help</div>
+                      <div>Language</div>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="underline-on-hover">
+                      <div className="me-dropdown-big-element">Manage</div>
+                      <div>Posts & Activity</div>
+                      <div>Job Posting Account</div>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="underline-on-hover">
+                      <div>Sing Out</div>
+                    </ListGroup.Item>
+                  </ListGroup>
+                </div>
               </div>
             </div>
-
-            {/* <div className="border-left work-dropdown-navbar-container my-auto">
-              <div className="text-center">
-                <Icon.Grid3x3GapFill />
+            <div className="nav-link d-flex flex-column justify-content-around align-items-center border-left cursor-on-hover ml-sm-2 ml-md-none pl-sm-2 pl-md-none">
+              <div className="d-sm-lex my-sm-auto d-md-block my-md-0">
+                <Icon.Grid3x3GapFill className="mr-sm-3 mr-md-0" />
               </div>
-              <NavDropdown
-                title="Work"
-                id="collasible-nav-dropdown"
-                className="text-center"
-              >
-                <NavDropdown.Item href="">Action</NavDropdown.Item>
-                <NavDropdown.Item href="">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="">Separated link</NavDropdown.Item>
-              </NavDropdown>
-            </div> */}
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover">
+              <div className="d-flex justify-content-center align-items-center">
+                <div className="d-sm-none d-md-block">Work</div>
+                <Icon.CaretDownFill className="d-sm-none d-md-block" />
+              </div>
+            </div>
+            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover ml-sm-2 ml-md-none">
               <div>
                 <Icon.CardChecklist />
               </div>
-              <div>Learning</div>
+              <div className="d-sm-none d-md-block">Learning</div>
             </div>
           </Nav>
         </Container>

@@ -113,7 +113,6 @@ const ExperienceModal = () => {
           <Modal.Title>Add experience</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* <div className="overflow-auto"> */}
           <Form className="experiencesModal">
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Title*</Form.Label>
@@ -156,7 +155,6 @@ const ExperienceModal = () => {
                 type="checkbox"
                 className="d-inline-block checkboxInput mr-2"
                 checked={checked}
-                // onClick={handleCheckbox}
                 onChange={(e) => {
                   if (checked === true) {
                     setDisabledInput(false);
@@ -167,7 +165,6 @@ const ExperienceModal = () => {
                     setDisabledInput(true);
                   }
                   setChecked(e.target.checked);
-                  // }
                 }}
               />
               <Form.Label className="mb-0">
@@ -261,7 +258,6 @@ const ExperienceModal = () => {
               />
             </Form.Group>
           </Form>
-          {/* </div> */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

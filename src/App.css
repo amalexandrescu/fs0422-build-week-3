@@ -677,7 +677,7 @@ p {
   border-radius: 50px !important;
 }
 
-/**/
+/*-----------------------UPDATING NAVBAR-----------------------*/
 
 .rightSideNavbarContainer {
   height: 45px !important;
@@ -694,8 +694,8 @@ p {
 
 .me-dropdown-list {
   position: absolute;
-  top: 70px;
-  right: 275px;
+  right: -15px;
+  top: 60px;
 }
 
 .me-dropdown-big-element {
@@ -742,4 +742,8 @@ p {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+.rightSideNavbarContainer .nav-link {
+  font-size: 13px;
 }

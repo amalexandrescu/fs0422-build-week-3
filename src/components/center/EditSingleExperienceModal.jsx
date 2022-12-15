@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { getSingleExpIdAction } from "../../redux/actions";
+import {
+  getSingleExpIdAction,
+  editExperienceAction,
+  getExperiencesAction,
+} from "../../redux/actions";
 import DeleteSingleExpModal from "./DeleteSingleExpModal";
 import moment from "moment";
 
@@ -14,6 +18,20 @@ const EditSingleExperienceModal = ({ exp }) => {
     checked && checked === true ? true : false
   );
   console.log("disabledInput", disabledInput);
+
+  const isExperienceEdited = useSelector(
+    (state) => state.experiences.experienceEdited
+  );
+
+  useEffect(() => {
+    if (userId) {
+      dispatch(getExperiencesAction(userId));
+      dispatch({
+        type: "CHANGE_STATUS_EDITED_EXP",
+        payload: false,
+      });
+    }
+  }, [isExperienceEdited]);
 
   const dispatch = useDispatch();
   const selectedExperience = useSelector(
@@ -50,10 +68,11 @@ const EditSingleExperienceModal = ({ exp }) => {
   });
 
   const onChangeHandler = (value, fieldToSet) => {
-    setExperience({
-      ...experience,
+    setExperience((state) => ({
+      // ...experience,
+      ...state,
       [fieldToSet]: value,
-    });
+    }));
   };
 
   const onSubmitHandler = (e) => {
@@ -80,25 +99,16 @@ const EditSingleExperienceModal = ({ exp }) => {
 
     console.log("updated experience", updatedExperience);
 
-    // dispatch(editExperienceAction(updatedExperience, userId, exp._id));
-    setExperience({
-      role: "",
-      company: "",
-      startDate: "",
-      endDate: "",
-      description: "",
-      area: "",
-      startYear: "",
-      endYear: "",
-      startMonth: "",
-      endMonth: "",
-    });
+    dispatch(editExperienceAction(updatedExperience, userId, exp._id));
+
     handleClose();
   };
 
+  console.log("exp", exp);
+  console.log("experience", experience);
+
   return (
     <>
-      {/* <> */}
       <div onClick={handleShow}>
         <Icon.Pencil
           className="edit-icon"
@@ -185,7 +195,8 @@ const EditSingleExperienceModal = ({ exp }) => {
                     as="select"
                     className="monthSelectInput"
                     required
-                    value={moment(experience.startDate).format("MM")}
+                    // value={moment(experience.startDate).format("MM")}
+                    value={experience.startMonth}
                     onChange={(e) =>
                       onChangeHandler(e.target.value, "startMonth")
                     }
@@ -210,7 +221,7 @@ const EditSingleExperienceModal = ({ exp }) => {
                     max={2022}
                     placeholder="Year"
                     className="yearSelectInput"
-                    value={moment(experience.startDate).format("YYYY")}
+                    value={experience.startYear}
                     onChange={(e) =>
                       onChangeHandler(e.target.value, "startYear")
                     }
@@ -219,85 +230,45 @@ const EditSingleExperienceModal = ({ exp }) => {
               </Form.Group>
               <Form.Group className="d-flex flex-column ">
                 <Form.Label>End date</Form.Label>
-                {/* <div className="d-flex flex-row justify-content-between">
-                  {exp.endDate === null ? (
-                    <>
-                      <Form.Control
-                        as="select"
-                        disabled={true}
-                        className="monthSelectInput"
-                        value={""}
-                        onChange={(e) => {
-                          onChangeHandler(e.target.value, "endMonth");
-                        }}
-                      >
-                        <option>Month</option>
-                        <option>01</option>
-                        <option>02</option>
-                        <option>03</option>
-                        <option>04</option>
-                        <option>05</option>
-                        <option>06</option>
-                        <option>07</option>
-                        <option>08</option>
-                        <option>09</option>
-                        <option>10</option>
-                        <option>11</option>
-                        <option>12</option>
-                      </Form.Control>
-                      <Form.Control
-                        type="number"
-                        min={1900}
-                        max={2022}
-                        placeholder="Year"
-                        className="yearSelectInput"
-                        disabled={true}
-                        value={moment(exp.endDate).format("YYYY")}
-                        onChange={(e) =>
-                          onChangeHandler(e.target.value, "endYear")
-                        }
-                      ></Form.Control>
-                    </>
-                  ) : (
-                    <>
-                      <Form.Control
-                        as="select"
-                        disabled={disabledInput}
-                        className="monthSelectInput"
-                        value={moment(exp.endDate).format("MM")}
-                        onChange={(e) => {
-                          onChangeHandler(e.target.value, "endMonth");
-                        }}
-                      >
-                        <option>Month</option>
-                        <option>01</option>
-                        <option>02</option>
-                        <option>03</option>
-                        <option>04</option>
-                        <option>05</option>
-                        <option>06</option>
-                        <option>07</option>
-                        <option>08</option>
-                        <option>09</option>
-                        <option>10</option>
-                        <option>11</option>
-                        <option>12</option>
-                      </Form.Control>
-                      <Form.Control
-                        type="number"
-                        min={1900}
-                        max={2022}
-                        placeholder="Year"
-                        className="yearSelectInput"
-                        disabled={disabledInput}
-                        value={moment(exp.endDate).format("YYYY")}
-                        onChange={(e) =>
-                          onChangeHandler(e.target.value, "endYear")
-                        }
-                      ></Form.Control>
-                    </>
-                  )}
-                </div> */}
+                <div className="d-flex flex-row justify-content-between">
+                  <>
+                    <Form.Control
+                      as="select"
+                      disabled={disabledInput}
+                      className="monthSelectInput"
+                      value={experience.endMonth}
+                      onChange={(e) => {
+                        onChangeHandler(e.target.value, "endMonth");
+                      }}
+                    >
+                      <option>Month</option>
+                      <option>01</option>
+                      <option>02</option>
+                      <option>03</option>
+                      <option>04</option>
+                      <option>05</option>
+                      <option>06</option>
+                      <option>07</option>
+                      <option>08</option>
+                      <option>09</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                    </Form.Control>
+                    <Form.Control
+                      type="number"
+                      min={1900}
+                      max={2022}
+                      placeholder="Year"
+                      className="yearSelectInput"
+                      disabled={disabledInput}
+                      value={experience.endYear}
+                      onChange={(e) =>
+                        onChangeHandler(e.target.value, "endYear")
+                      }
+                    ></Form.Control>
+                  </>
+                </div>
               </Form.Group>
               <Form.Group>
                 <Form.Label>Description</Form.Label>
@@ -315,13 +286,11 @@ const EditSingleExperienceModal = ({ exp }) => {
         </Modal.Body>
         <Modal.Footer className="d-flex justify-content-between">
           <DeleteSingleExpModal outerModalClose={handleClose} />
-          {/* <div onClick={handleClose} className="text-secondary pointer"></div> */}
           <Button variant="primary" onClick={onSubmitHandler}>
             Edit
           </Button>
         </Modal.Footer>
       </Modal>
-      {/* </> */}
     </>
   );
 };

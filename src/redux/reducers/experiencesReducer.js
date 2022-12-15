@@ -3,6 +3,7 @@ import {
   UPDATE_STATE_OF_EXPERIENCES,
   DELETE_EXPERIENCE,
   GET_SELECTEDEXP,
+  EDIT_SINGLE_EXPERIENCE,
 } from "../actions";
 
 const initialState = {
@@ -11,10 +12,22 @@ const initialState = {
   seeAllExperiencesButtonClicked: false,
   clickedExp: "",
   deletedExp: false,
+  experienceEdited: false,
 };
 
 const experiencesReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "CHANGE_STATUS_EDITED_EXP":
+      return {
+        ...state,
+        experienceEdited: action.payload,
+      };
+    case EDIT_SINGLE_EXPERIENCE:
+      return {
+        ...state,
+        experienceEdited: true,
+      };
+
     case GET_SELECTEDEXP:
       return {
         ...state,

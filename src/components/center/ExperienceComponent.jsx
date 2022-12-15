@@ -4,7 +4,10 @@ import * as Icon from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ExperienceModal from "./ExperienceModal";
-import { getExperiencesAction } from "../../redux/actions";
+import {
+  getExperiencesAction,
+  getMyProfileDetailsAction,
+} from "../../redux/actions";
 import { UPDATE_STATE_OF_EXPERIENCES } from "../../redux/actions";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
@@ -27,6 +30,16 @@ const ExperienceComponent = () => {
   const experiencesArray = useSelector(
     (state) => state.experiences.experiences
   );
+
+  useEffect(() => {
+    dispatch(getMyProfileDetailsAction());
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+      dispatch(getExperiencesAction(userId));
+    }
+  }, []);
 
   useEffect(() => {
     if (userId) {
@@ -87,10 +100,10 @@ const ExperienceComponent = () => {
                     >
                       <Icon.Plus />
                     </div>
-                    <div className="d-flex justify-content-center align-items-center editButtonIconDiv mt-2 mr-2">
-                      <Icon.Pencil style={{ fontSize: "20px" }} />
-                      {/* //!HERE GOES THE MODAL TO EDIT FIRST EXPERIENCE */}
-                    </div>
+                    {/* <div className="d-flex justify-content-center align-items-center editButtonIconDiv mt-2 mr-2"> */}
+                    {/* <Icon.Pencil style={{ fontSize: "20px" }} /> */}
+                    {/* //!HERE GOES THE MODAL TO EDIT FIRST EXPERIENCE */}
+                    {/* </div> */}
                     <div
                       className={
                         plusButton === true

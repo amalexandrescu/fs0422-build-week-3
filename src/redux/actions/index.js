@@ -253,18 +253,15 @@ export const deleteExperienceAction = (userId, expId) => {
     try {
       let response = await fetch(deleteExperienceUrl, deleteOptions);
       if (response.ok) {
-        let data = await response.json();
-        console.log("exp we want to DELETE", data);
         dispatch({
           type: DELETE_EXPERIENCE,
-          payload: data._id,
+          payload: expId,
         });
       } else {
         console.log("en error occured while fetching the experiences");
       }
-    } catch (error) {
-      console.log(error);
-      console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    } catch (e) {
+      console.log(e);
     }
   };
 };
