@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { Pencil, InfoSquareFill } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   changeProfileDetailsAction,
   CHANGE_PROFILE_DETAILS,
@@ -27,7 +28,8 @@ function EditUserDetailsModal() {
   const [bio, setBio] = useState(`${details.bio}`);
   const [title, setTitle] = useState(`${details.title}`);
   const [area, setArea] = useState(`${details.area}`);
-  const [image, setImage] = useState(`${details.image}`);
+  const [image, setImage] = useState(null);
+  const [imageUploaded, setImageUploaded] = useState(false);
 
   const changedDetails = {
     name: name,
@@ -36,7 +38,7 @@ function EditUserDetailsModal() {
     bio: bio,
     title: title,
     area: area,
-    image: image,
+    // image: image,
   };
 
   const onSubmitHandler = (e) => {
@@ -51,16 +53,48 @@ function EditUserDetailsModal() {
         bio: bio,
         title: title,
         area: area,
-        image: image,
       },
     });
 
     dispatch(changeProfileDetailsAction(changedDetails));
     handleClose();
+
+    if (imageUploaded === true) {
+      submitFileData();
+      setImageUploaded(false);
+    }
   };
 
   const onChangeHandler = (value, fieldToSet) => {
     fieldToSet(value);
+  };
+
+  // File upload
+
+  const submitFileData = async () => {
+    const formData = new FormData();
+
+    formData.append("profile", image);
+
+    const optionsPost = {
+      method: "POST",
+      body: formData,
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjAxM2M5NmRmYjAwMTUyMWE1YmEiLCJpYXQiOjE2NzA4MzYyNDMsImV4cCI6MTY3MjA0NTg0M30.y7kED45MhN6V7jWF7PwyZ4DryRe6OJ6b9-so68M-zaE",
+      },
+    };
+
+    try {
+      let res = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/6396f013c96dfb001521a5ba/picture",
+        optionsPost
+      );
+      console.log(res);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -147,13 +181,23 @@ function EditUserDetailsModal() {
                     onChange={(e) => onChangeHandler(e.target.value, setArea)}
                   />
                 </Form.Group>
-                <Form.Group controlId="exampleForm.ControlInput1">
+                {/* <Form.Group controlId="exampleForm.ControlInput1">
                   <Form.Label>Image-Url*</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="https//:"
                     value={image}
                     onChange={(e) => onChangeHandler(e.target.value, setImage)}
+                  />
+                </Form.Group> */}
+                <Form.Group>
+                  <Form.Label>Upload your Avatar</Form.Label>
+                  <Form.File
+                    onChange={(e) => {
+                      setImage(e.target.files[0]);
+                      setImageUploaded(true);
+                    }}
+                    name="profile"
                   />
                 </Form.Group>
               </Form>

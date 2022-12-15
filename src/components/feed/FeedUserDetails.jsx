@@ -18,7 +18,7 @@ const FeedUserDetails = () => {
       {/* Header image */}
       <div style={{ height: "56px", overflow: "hidden" }}>
         <img
-          src="https://images.pexels.com/photos/1000366/pexels-photo-1000366.jpeg?cs=srgb&dl=pexels-steve-johnson-1000366.jpg&fm=jpg"
+          src="https://random.imagecdn.app/v1/image?width=1000&height=300"
           alt="User Header"
           style={{ width: "100%", objectFit: "cover", borderRadius: "10px" }}
         />
