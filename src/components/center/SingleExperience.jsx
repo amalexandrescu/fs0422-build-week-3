@@ -19,7 +19,11 @@ const SingleExperience = ({ exp }) => {
           objectFit: "cover",
         }}
       >
-        <img src={exp.image} style={{ height: "100%" }} alt="company" />
+        <img
+          src={exp.image ? exp.image : "https://placekitten.com/300/300"}
+          style={{ height: "100%" }}
+          alt="company"
+        />
       </div>
       <div className="col border-top px-0 d-flex justify-content-between">
         <ListGroup.Item className="px-0 border-0">

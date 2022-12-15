@@ -6,6 +6,7 @@ import {
   getSingleExpIdAction,
   editExperienceAction,
   getExperiencesAction,
+  submitFileData,
 } from "../../redux/actions";
 import DeleteSingleExpModal from "./DeleteSingleExpModal";
 import moment from "moment";
@@ -102,37 +103,12 @@ const EditSingleExperienceModal = ({ exp }) => {
     dispatch(editExperienceAction(updatedExperience, userId, exp._id));
 
     if (isImageUploaded === true) {
-      submitFileData();
+      // Adding picture to experience
+      dispatch(submitFileData(image, exp.user, exp._id));
       setIsImageUploaded(false);
     }
 
     handleClose();
-  };
-
-  const submitFileData = async () => {
-    const formData = new FormData();
-
-    formData.append("experience", image);
-
-    const optionsPost = {
-      method: "POST",
-      body: formData,
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjAxM2M5NmRmYjAwMTUyMWE1YmEiLCJpYXQiOjE2NzA4MzYyNDMsImV4cCI6MTY3MjA0NTg0M30.y7kED45MhN6V7jWF7PwyZ4DryRe6OJ6b9-so68M-zaE",
-      },
-    };
-
-    try {
-      let res = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${exp.user}/experiences/${exp._id}/picture`,
-        optionsPost
-      );
-      console.log(res);
-      window.location.reload();
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   return (

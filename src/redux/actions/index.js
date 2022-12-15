@@ -525,3 +525,31 @@ export const hideDeleteModalAction = () => {
     type: "HIDE_DELETE_MODAL",
   };
 };
+
+// Add Picture to Experience
+
+export const submitFileData = async (image, userId, expId) => {
+  const formData = new FormData();
+
+  formData.append("experience", image);
+
+  const optionsPost = {
+    method: "POST",
+    body: formData,
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjAxM2M5NmRmYjAwMTUyMWE1YmEiLCJpYXQiOjE2NzA4MzYyNDMsImV4cCI6MTY3MjA0NTg0M30.y7kED45MhN6V7jWF7PwyZ4DryRe6OJ6b9-so68M-zaE",
+    },
+  };
+
+  try {
+    let res = await fetch(
+      `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}/picture`,
+      optionsPost
+    );
+    console.log(res);
+    window.location.reload();
+  } catch (error) {
+    console.log(error);
+  }
+};
