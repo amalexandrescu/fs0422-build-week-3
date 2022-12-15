@@ -2,7 +2,7 @@ import { Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import EditAboutModal from "./EditAboutModal";
 
-const AboutComponent = () => {
+const AboutComponent = ({ profileData }) => {
   let details = useSelector((state) => state.myProfile.detailsData);
 
   return (
@@ -12,7 +12,7 @@ const AboutComponent = () => {
           <h5 className="text-left mb-0 font-weight-bold">About</h5>
           <EditAboutModal />
         </div>
-        <div className="text-left mt-3">{details.bio}</div>
+        <div className="text-left mt-3">{profileData.bio}</div>
       </div>
     </Row>
   );

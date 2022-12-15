@@ -1,7 +1,7 @@
 import { Row, ListGroup } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 
-const EducationComponent = () => {
+const EducationComponent = ({ profileData }) => {
   return (
     <Row className="my-2">
       <div className="col education-container-design p-4 normal-cursor-on-hover">
