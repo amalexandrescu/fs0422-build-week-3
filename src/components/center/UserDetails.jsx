@@ -44,7 +44,7 @@ const UserDetails = ({ profileData }) => {
               {/* Edit Button User profile Header */}
               <div
                 className={
-                  pathname === "/"
+                  pathname === "/me"
                     ? "editButtonDiv d-flex justify-content-center align-items-center"
                     : "d-none"
                 }
@@ -59,7 +59,7 @@ const UserDetails = ({ profileData }) => {
             <Row className="justify-content-end">
               <div className="d-flex align-items-center cursor-on-hover">
                 <div className="d-flexjustify-content-center align-items-center pt-3 mr-2">
-                  {pathname === "/" ? (
+                  {pathname === "/me" ? (
                     <Linkedin fontSize={"20px"} style={{ color: "#aa7520" }} />
                   ) : (
                     <></>

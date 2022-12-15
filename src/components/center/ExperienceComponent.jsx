@@ -71,7 +71,7 @@ const ExperienceComponent = ({ profileData }) => {
               <div className="d-flex justify-content-between">
                 <div className="d-flex">
                   <div className="editButtonIconDiv d-flex justify-content-center align-items-center">
-                    <Link to={"/"}>
+                    <Link to={-1}>
                       <Icon.ArrowLeft
                         style={{ fontSize: "25px" }}
                         className="text-dark"

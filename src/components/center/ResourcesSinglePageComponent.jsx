@@ -12,7 +12,7 @@ const ResourcesSinglePageComponent = () => {
           <div
             className="d-flex justify-content-center align-items-center mr-2 cursor-on-hover"
             onClick={() => {
-              navigate("/");
+              navigate("/me");
             }}
           >
             <Icon.ArrowLeft />
