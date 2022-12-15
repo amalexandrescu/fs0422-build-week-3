@@ -2,6 +2,7 @@ import { Row, ListGroup } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 
 const EducationComponent = ({ profileData }) => {
+  let pathname = window.location.pathname;
   return (
     <Row className="my-2">
       <div className="col education-container-design p-4 normal-cursor-on-hover">
@@ -9,7 +10,9 @@ const EducationComponent = ({ profileData }) => {
           <h5 className="text-left mb-0 normal-cursor-on-hover font-weight-bold">
             Education
           </h5>
-          <div className="d-flex cursor-on-hover">
+          <div
+            className={pathname === "/me" ? "d-flex cursor-on-hover" : "d-none"}
+          >
             <div className="d-flex editButtonIconDiv justify-content-center align-items-center mr-2 add-icon">
               <Icon.Plus />
             </div>

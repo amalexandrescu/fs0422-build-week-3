@@ -17,12 +17,18 @@ function EditAddProfileSectionModal() {
   let isFetched = useSelector((state) => state.myProfile.isFetched);
 
   // Changing Data via Modal submit
+  let pathname = window.location.pathname;
 
   return (
     <>
       {/* Button Open Modal */}
       <div
-        className="addProfileSectionDiv bg-white rounded-pill py-1 px-3 mx-2"
+        className={
+          pathname === "/me"
+            ? "addProfileSectionDiv bg-white rounded-pill py-1 px-3 mx-2"
+            : "d-none"
+        }
+        // "addProfileSectionDiv bg-white rounded-pill py-1 px-3 mx-2"
         onClick={handleShow}
       >
         <div> Add profile section</div>

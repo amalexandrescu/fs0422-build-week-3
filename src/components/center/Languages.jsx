@@ -2,6 +2,7 @@ import { Row, Col } from "react-bootstrap";
 import { Pencil, Plus } from "react-bootstrap-icons";
 
 const Languages = ({ profileData }) => {
+  let pathname = window.location.pathname;
   return (
     <Row className="mt-2 ">
       <Col className="activityComponent pt-4 flex-nowrap bg-white">
@@ -11,7 +12,11 @@ const Languages = ({ profileData }) => {
               <b>Languages</b>
             </h5>
           </div>
-          <div className="col-6 d-flex justify-content-end">
+          <div
+            className={
+              pathname === "/me" ? "col-6 d-flex justify-content-end" : "d-none"
+            }
+          >
             <div>
               <div className="d-flex cursor-on-hover">
                 <div className="d-flex editButtonIconDiv justify-content-center align-items-center mr-2 add-icon">

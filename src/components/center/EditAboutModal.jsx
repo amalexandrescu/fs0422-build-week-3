@@ -13,6 +13,8 @@ function EditAboutModal() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  let pathname = window.location.pathname;
+
   // Fetching variables
   let details = useSelector((state) => state.myProfile.detailsData);
   let isFetched = useSelector((state) => state.myProfile.isFetched);
@@ -61,7 +63,12 @@ function EditAboutModal() {
     <>
       {/* Button Open Modal */}
       <div
-        className="d-flex justify-content-center alignt-items-center editButtonIconDiv pt-2"
+        className={
+          pathname === "/me"
+            ? "d-flex justify-content-center alignt-items-center editButtonIconDiv pt-2"
+            : "d-none"
+        }
+        // className="d-flex justify-content-center alignt-items-center editButtonIconDiv pt-2"
         onClick={handleShow}
       >
         <Pencil style={{ fontSize: "20px" }} />

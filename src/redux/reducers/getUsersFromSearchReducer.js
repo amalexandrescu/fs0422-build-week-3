@@ -1,19 +1,19 @@
-import { USER_SEARCH_SUBMITTED } from "../actions"
+import { USER_SEARCH_SUBMITTED } from "../actions";
 
 const initialState = {
-  searchResults: []
-}
+  searchResults: [],
+};
 
 const getUsersFromSearchReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_SEARCH_SUBMITTED:
       return {
         ...state,
-        searchResults: action.payload
-      }
+        searchResults: action.payload,
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default getUsersFromSearchReducer
+export default getUsersFromSearchReducer;
