@@ -1,7 +1,6 @@
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { BsThreeDots } from "react-icons/bs"
-import placeholder from "../../assets/v-team-logo.png"
 import { getFeedPostsAction } from "../../redux/actions"
 import FeedPostLike from "./FeedPostLike"
 
