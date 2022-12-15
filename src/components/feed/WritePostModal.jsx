@@ -1,7 +1,10 @@
 import React, { useState } from "react"
 import { Modal, Button, Form } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { hideAddPostModalAction } from "../../redux/actions"
+import {
+  hideAddPostModalAction,
+  addingNewFeedPostAction
+} from "../../redux/actions"
 import placeholder from "../../assets/v-team-logo.png"
 import { AiFillCaretDown } from "react-icons/ai"
 import { ImEarth } from "react-icons/im"
@@ -9,10 +12,43 @@ import { ImEarth } from "react-icons/im"
 export default function WritePostModal() {
   const showModal = useSelector((state) => state.showPostModal.show)
   const dispatch = useDispatch()
+  const userId = useSelector((state) => state.myProfile.detailsData._id)
 
-  const [text, setText] = useState("")
+  // const [text, setText] = useState("")
+  // const onChangeHandler = (value, fieldToSet) => {
+  //   fieldToSet(value)
+  // }
+
+  const [newFeedPost, setNewFeedPost] = useState({
+    _id: userId,
+    text: "",
+    username: "",
+    createdAt: "",
+    updatedAt: "",
+    __v: 0
+  })
+
+  // the basic structure of the post
+  //   {
+  //     "_id": "5d93ac84b86e220017e76ae1", 				// server generated
+  //     "text": "this is a post text",  		// the only property you need to send
+  //     "username": "admin", 											// server generated
+  //     "createdAt": "2019-10-01T19:44:04.496Z", 	// server generated
+  //     "updatedAt": "2019-10-01T19:44:04.496Z", 	// server generated
+  //     "__v": 0 																	// server generated
+  // }
   const onChangeHandler = (value, fieldToSet) => {
-    fieldToSet(value)
+    setNewFeedPost({
+      ...newFeedPost,
+      [fieldToSet]: value
+    })
+  }
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault()
+    console.log(newFeedPost.text)
+    dispatch(hideAddPostModalAction())
+    dispatch(addingNewFeedPostAction(newFeedPost))
   }
 
   return (
@@ -41,6 +77,7 @@ export default function WritePostModal() {
       </div>
       <div id="feed-modal-form">
         <Form
+          onSubmit={onSubmitHandler}
           className="p-feed-left p-feed-right ml-2 mr-2"
           style={{ color: "grey", height: "20vh" }}
         >
@@ -49,18 +86,15 @@ export default function WritePostModal() {
               className="border-0"
               as="textarea"
               placeholder="What do you want to talk about?"
-              value={text}
+              value={newFeedPost.text}
               rows={5}
-              onChange={(e) => onChangeHandler(e.target.value, setText)}
+              onChange={(e) => onChangeHandler(e.target.value, "text")}
             />
           </Form.Group>
         </Form>
       </div>
       <Modal.Footer>
-        <Button
-          variant="primary"
-          onClick={() => dispatch(hideAddPostModalAction())}
-        >
+        <Button variant="primary" onClick={onSubmitHandler}>
           Post
         </Button>
       </Modal.Footer>
