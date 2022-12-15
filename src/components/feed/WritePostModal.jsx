@@ -12,20 +12,9 @@ import { ImEarth } from "react-icons/im"
 export default function WritePostModal() {
   const showModal = useSelector((state) => state.showPostModal.show)
   const dispatch = useDispatch()
-  const userId = useSelector((state) => state.myProfile.detailsData._id)
-
-  // const [text, setText] = useState("")
-  // const onChangeHandler = (value, fieldToSet) => {
-  //   fieldToSet(value)
-  // }
 
   const [newFeedPost, setNewFeedPost] = useState({
-    _id: userId,
-    text: "",
-    username: "",
-    createdAt: "",
-    updatedAt: "",
-    __v: 0
+    text: ""
   })
 
   // the basic structure of the post
