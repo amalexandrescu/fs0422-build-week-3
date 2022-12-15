@@ -13,15 +13,15 @@ import moment from "moment";
 const EditSingleExperienceModal = ({ exp }) => {
   const userId = useSelector((state) => state.myProfile.detailsData._id);
   const [checked, setChecked] = useState(exp.endDate === null ? true : false);
-  console.log("checked", checked);
   const [disabledInput, setDisabledInput] = useState(
     checked && checked === true ? true : false
   );
-  console.log("disabledInput", disabledInput);
-
   const isExperienceEdited = useSelector(
     (state) => state.experiences.experienceEdited
   );
+
+  const [image, setImage] = useState(null);
+  const [isImageUploaded, setIsImageUploaded] = useState(false);
 
   useEffect(() => {
     if (userId) {
@@ -101,11 +101,39 @@ const EditSingleExperienceModal = ({ exp }) => {
 
     dispatch(editExperienceAction(updatedExperience, userId, exp._id));
 
+    if (isImageUploaded === true) {
+      submitFileData();
+      setIsImageUploaded(false);
+    }
+
     handleClose();
   };
 
-  console.log("exp", exp);
-  console.log("experience", experience);
+  const submitFileData = async () => {
+    const formData = new FormData();
+
+    formData.append("experience", image);
+
+    const optionsPost = {
+      method: "POST",
+      body: formData,
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjAxM2M5NmRmYjAwMTUyMWE1YmEiLCJpYXQiOjE2NzA4MzYyNDMsImV4cCI6MTY3MjA0NTg0M30.y7kED45MhN6V7jWF7PwyZ4DryRe6OJ6b9-so68M-zaE",
+      },
+    };
+
+    try {
+      let res = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${exp.user}/experiences/${exp._id}/picture`,
+        optionsPost
+      );
+      console.log(res);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -279,6 +307,16 @@ const EditSingleExperienceModal = ({ exp }) => {
                   onChange={(e) =>
                     onChangeHandler(e.target.value, "description")
                   }
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Upload your Company Logo</Form.Label>
+                <Form.File
+                  onChange={(e) => {
+                    setImage(e.target.files[0]);
+                    setIsImageUploaded(true);
+                  }}
+                  name="profile"
                 />
               </Form.Group>
             </Form>

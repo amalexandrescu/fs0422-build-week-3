@@ -104,10 +104,7 @@ const ExperienceComponent = ({ profileData }) => {
                     >
                       <Icon.Plus />
                     </div>
-                    {/* <div className="d-flex justify-content-center align-items-center editButtonIconDiv mt-2 mr-2"> */}
-                    {/* <Icon.Pencil style={{ fontSize: "20px" }} /> */}
-                    {/* //!HERE GOES THE MODAL TO EDIT FIRST EXPERIENCE */}
-                    {/* </div> */}
+
                     <div
                       className={
                         plusButton === true
@@ -189,12 +186,6 @@ const ExperienceComponent = ({ profileData }) => {
                         : "invisible experience-dropdown light-grey-color p-3"
                     }
                   >
-                    {/* <div className="d-flex mb-1 add-position-experience-effect-on-hover">
-                <div className="mr-2">
-                  <Icon.BriefcaseFill />
-                </div>
-                <div>Add position</div>
-              </div> */}
                     <ExperienceModal />
                     <div className="d-flex">
                       <div className="mr-2">

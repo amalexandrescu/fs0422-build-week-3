@@ -1,20 +1,23 @@
-import React from "react"
-import { useDispatch, useSelector } from "react-redux"
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   expandMessengerAction,
-  collapseMessengerAction
-} from "../../redux/actions"
-import { BsThreeDots } from "react-icons/bs"
-import { BiSearch } from "react-icons/bi"
-import { FiEdit } from "react-icons/fi"
-import { SlArrowDown, SlArrowUp } from "react-icons/sl"
-import { FaSlidersH } from "react-icons/fa"
-import placeholder from "../../assets/v-team-logo.png"
-import UserMessages from "./UserMessages"
+  collapseMessengerAction,
+} from "../../redux/actions";
+import { BsThreeDots } from "react-icons/bs";
+import { BiSearch } from "react-icons/bi";
+import { FiEdit } from "react-icons/fi";
+import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+import { FaSlidersH } from "react-icons/fa";
+import placeholder from "../../assets/v-team-logo.png";
+import UserMessages from "./UserMessages";
 
 export default function MessagingPopup() {
-  let showMessages = useSelector((state) => state.messenger.showMessages)
-  const dispatch = useDispatch()
+  let showMessages = useSelector((state) => state.messenger.showMessages);
+  let details = useSelector((state) => state.myProfile.detailsData);
+  let isFetched = useSelector((state) => state.myProfile.isFetched);
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -23,7 +26,10 @@ export default function MessagingPopup() {
           <div className="top-messenger-wrapper ">
             <div className="d-flex align-items-center">
               <div className="border recommended-user-image ml-1 mr-2">
-                <img src={placeholder} alt="" />
+                <img
+                  src={isFetched ? details.image : placeholder}
+                  alt="avatar"
+                />
               </div>
               <div className="font-weight-bold small-header-text ">
                 Messaging
@@ -66,7 +72,7 @@ export default function MessagingPopup() {
           >
             <div className="d-flex align-items-center">
               <div className="border recommended-user-image ml-auto mr-2">
-                <img src={placeholder} alt="" />
+                <img src={isFetched ? details.image : placeholder} alt="" />
               </div>
               <div className="font-weight-bold  small-header-text">
                 Messaging
@@ -90,5 +96,5 @@ export default function MessagingPopup() {
         </>
       )}
     </>
-  )
+  );
 }

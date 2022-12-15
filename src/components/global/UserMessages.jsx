@@ -1,5 +1,5 @@
-import React from "react"
-import placeholder from "../../assets/v-team-logo.png"
+import React from "react";
+// import placeholder from "../../assets/v-team-logo.png";
 
 export default function UserMessages() {
   return (
@@ -7,7 +7,10 @@ export default function UserMessages() {
       <div className="message-wrapper gray-hover">
         <div className="d-flex align-items-center">
           <div className="border recommended-user-image ml-1">
-            <img src={placeholder} alt="" />
+            <img
+              src={"https://random.imagecdn.app/v1/image?width=300&height=300"}
+              alt="avatar"
+            />
           </div>
           <div className="message">
             <div className="small-header-text">Olaf Glad</div>
@@ -23,7 +26,7 @@ export default function UserMessages() {
       <div className="message-wrapper gray-hover">
         <div className="d-flex align-items-center">
           <div className="border recommended-user-image ml-1">
-            <img src={placeholder} alt="" />
+            <img src={"https://placekitten.com/300/300"} alt="avatar" />
           </div>
           <div className="message ">
             <div className="small-header-text">Akbar Rahimov</div>
@@ -39,7 +42,7 @@ export default function UserMessages() {
       <div className="message-wrapper gray-hover">
         <div className="d-flex align-items-center">
           <div className="border recommended-user-image ml-1">
-            <img src={placeholder} alt="" />
+            <img src={"https://picsum.photos/300"} alt="Avatar" />
           </div>
           <div className="message">
             <div className="small-header-text">Abiodun A</div>
@@ -53,5 +56,5 @@ export default function UserMessages() {
         </div>
       </div>
     </>
-  )
+  );
 }
