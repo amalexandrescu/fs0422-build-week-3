@@ -9,6 +9,8 @@ import setOtherUserReducer from "../reducers/setOtherUserReducer"
 
 import addPostModalReducer from "../reducers/addPostModalReducer"
 import getFeedPostsReducer from "../reducers/getFeedPostsReducer"
+import selectedFeedPostReducer from "../reducers/selectedFeedPostReducer"
+import editFeedPostModalReducer from "../reducers/editFeedPostModalReducer"
 
 // configureStore will set up the Redux Store for us!
 
@@ -23,7 +25,9 @@ const bigReducer = combineReducers({
   otherUser: setOtherUserReducer,
 
   showPostModal: addPostModalReducer,
-  feedPosts: getFeedPostsReducer
+  feedPosts: getFeedPostsReducer,
+  editThisPost: selectedFeedPostReducer,
+  editPostModal: editFeedPostModalReducer
 })
 
 const store = configureStore({
