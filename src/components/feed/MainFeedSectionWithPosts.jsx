@@ -1,7 +1,7 @@
-import React, { useEffect } from "react"
-import { Image } from "react-bootstrap"
+import React, { useEffect, useState } from "react"
+import { Image, Button } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { BsThreeDots } from "react-icons/bs"
+import { BsThreeDots, BsFillArrowDownCircleFill } from "react-icons/bs"
 import {
   editShowToggleAction,
   getFeedPostsAction,
@@ -17,10 +17,24 @@ export default function MainFeedSectionWithPosts() {
   const allFeedPosts = useSelector((state) => state.feedPosts.feedPostArray)
   //   reversing the array so we get the newest posts
   const allLatestPosts = allFeedPosts.slice(0).reverse()
+  console.log(allLatestPosts.length, "allLatestPosts")
   //   filtering out short posts
-  const filteredPosts = allLatestPosts.filter((post) => post.text.length > 10)
-  // getting 20 posts from the remaining array
-  const latestPostSlice = filteredPosts.slice(0, 40)
+  const userPresent = allLatestPosts.filter((post) => {
+    return post.user !== null
+  })
+  console.log(userPresent.length, "user present")
+
+  const [length, setLength] = useState(25)
+  const latestPostSlice = userPresent.slice(0, length)
+
+  const increaseCurrentLength = (e) => {
+    setLength(length + 25)
+    console.log(length)
+
+    if (length.length >= userPresent.length) {
+      alert("you have read all the posts!")
+    }
+  }
 
   const userId = useSelector((state) => state.myProfile.detailsData._id)
 
@@ -42,68 +56,84 @@ export default function MainFeedSectionWithPosts() {
     <>
       {allFeedPosts && (
         <>
-          {latestPostSlice.map((post) => (
-            <div key={post._id} className="feed-post border p-feed pb-1">
-              {post.user._id === userId ? (
-                <>
-                  <div className="d-flex justify-content-between mr-2 ml-2">
-                    <div></div>
-                    <div
-                      className="post-dots  gray-hover"
-                      onClick={myPostClickedHandler.bind(null, post)}
-                    >
-                      <BsThreeDots />
-                    </div>
-                  </div>
-                  {editOptions && <EditOwnPosts />}
-                </>
-              ) : (
-                <div className="d-flex justify-content-between mr-2 ml-2">
-                  <div></div>
-                  <div className="post-dots  gray-hover">
-                    <BsThreeDots />
-                  </div>
-                </div>
-              )}
-              <div className=" border-top mr-2 ml-2">
-                <div className="mt-3 d-flex ">
-                  <div className="border recommended-user-image">
-                    <img src={post.user.image} alt="" />
-                  </div>{" "}
-                  <div className="feed-text-user-wrapper">
-                    <div className="mb-0 small-header-text bolder feed-text-name">
-                      <span>{post.user.name}</span>
-                      <span>{post.user.surname}</span>
-                    </div>
-                    <div className="mb-1 small-height">
-                      <span className="feed-post-tiny-text truncate-text">
-                        {post.user.title}
-                      </span>
-                    </div>
-                    <div className="mb-1 small-height">
-                      <span className="feed-post-tiny-text  ">
-                        {post.user.createdAt}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <p className="mt-3 mb-3"> {post.text}</p>
+          <div>
+            {latestPostSlice.map((post) => (
+              <>
+                {" "}
+                {post.user._id && (
+                  <div key={post._id} className="feed-post border p-feed pb-1">
+                    {post.user._id === userId ? (
+                      <>
+                        <div className="d-flex justify-content-between mr-2 ml-2">
+                          <div></div>
+                          <div
+                            className="post-dots  gray-hover"
+                            onClick={myPostClickedHandler.bind(null, post)}
+                          >
+                            <BsThreeDots />
+                          </div>
+                        </div>
+                        {editOptions && <EditOwnPosts />}
+                      </>
+                    ) : (
+                      <div className="d-flex justify-content-between mr-2 ml-2">
+                        <div></div>
+                        <div className="post-dots  gray-hover">
+                          <BsThreeDots />
+                        </div>
+                      </div>
+                    )}
+                    <div className=" border-top mr-2 ml-2">
+                      <div className="mt-3 d-flex ">
+                        <div className="border recommended-user-image">
+                          <img src={post.user.image} alt="" />
+                        </div>{" "}
+                        <div className="feed-text-user-wrapper">
+                          <div className="mb-0 small-header-text bolder feed-text-name">
+                            <span>{post.user.name}</span>
+                            <span>{post.user.surname}</span>
+                          </div>
+                          <div className="mb-1 small-height">
+                            <span className="feed-post-tiny-text truncate-text">
+                              {post.user.title}
+                            </span>
+                          </div>
+                          <div className="mb-1 small-height">
+                            <span className="feed-post-tiny-text  ">
+                              {post.user.createdAt}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <p className="mt-3 mb-3"> {post.text}</p>
 
-                {post.image && (
-                  <div className="post-image-wrapper">
-                    {" "}
-                    <Image
-                      src={post.image}
-                      alt="user image"
-                      className="feed-post-image"
-                    />
+                      {post.image && (
+                        <div className="post-image-wrapper">
+                          {" "}
+                          <Image
+                            src={post.image}
+                            alt="user image"
+                            className="feed-post-image"
+                          />
+                        </div>
+                      )}
+                    </div>
+
+                    <FeedPostLike />
                   </div>
                 )}
-              </div>
-
-              <FeedPostLike />
+              </>
+            ))}
+            <div
+              className="d-flex justify-content-center m-5"
+              onClick={increaseCurrentLength}
+            >
+              <BsFillArrowDownCircleFill
+                className="text-primary"
+                style={{ fontSize: "30px", cursor: "pointer" }}
+              />
             </div>
-          ))}
+          </div>
         </>
       )}
     </>
