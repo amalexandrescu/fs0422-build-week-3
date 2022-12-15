@@ -2,7 +2,7 @@ import { Container, Row, ListGroup, Badge } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 
-const ResourcesComponent = () => {
+const ResourcesComponent = ({ profileData }) => {
   const navigate = useNavigate();
   return (
     <Row className="my-2">

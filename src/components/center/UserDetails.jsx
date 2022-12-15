@@ -9,18 +9,19 @@ import EditUserDetailsModal from "./EditUserDetailsModal";
 import MoreDropDownButton from "./MoreDropdownButton";
 import OpenToDropDownButton from "./OpenToDropdownButton";
 
-const UserDetails = () => {
+const UserDetails = ({ profileData }) => {
   let details = useSelector((state) => state.myProfile.detailsData);
   let isFetched = useSelector((state) => state.myProfile.isFetched);
   console.log("🚀UserDetails ~ details", details);
-  let dispatch = useDispatch();
+  // let dispatch = useDispatch();
 
   let pathname = window.location.pathname;
+  console.log("pathname", pathname);
 
-  useEffect(() => {
-    dispatch(getMyProfileDetailsAction());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getMyProfileDetailsAction());
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <Row className="mt-3">
@@ -34,14 +35,20 @@ const UserDetails = () => {
               {/* User profile Image */}
               <div className="profileImageDiv d-flex justify-content-center align-items-center">
                 <img
-                  src={details.image}
+                  src={profileData.image}
                   alt="User profile img"
                   className="profileImage"
                 />
               </div>
 
               {/* Edit Button User profile Header */}
-              <div className="editButtonDiv d-flex justify-content-center align-items-center">
+              <div
+                className={
+                  pathname === "/"
+                    ? "editButtonDiv d-flex justify-content-center align-items-center"
+                    : "d-none"
+                }
+              >
                 <Pencil className="text-dark" style={{ fontSize: "18px" }} />
               </div>
             </Row>
@@ -68,13 +75,13 @@ const UserDetails = () => {
               <Col>
                 <div className="col-6 d-flex flex-column align-items-start pb-2 px-4 userInfoDiv ">
                   <h4>
-                    {details.name} {details.surname}
+                    {profileData.name} {profileData.surname}
                   </h4>
 
-                  <h6>{details.title}</h6>
+                  <h6>{profileData.title}</h6>
                   <div className="d-flex align-items-center">
                     <p className="text-secondary my-1">
-                      {details.area} <Dot />{" "}
+                      {profileData.area} <Dot />{" "}
                     </p>
                     <div
                       className="text-primary"

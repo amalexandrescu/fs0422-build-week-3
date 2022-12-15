@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import SingleExperience from "./SingleExperience";
 
-const ExperienceComponent = () => {
+const ExperienceComponent = ({ profileData }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // let userId = "";

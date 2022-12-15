@@ -9,17 +9,17 @@ import AboutComponent from "./AboutComponent";
 import ExperienceComponent from "./ExperienceComponent";
 import EducationComponent from "./EducationComponent";
 
-const ProfilePageCenter = () => {
+const ProfilePageCenter = ({ profileDetails }) => {
   return (
     <Container className="profilePageCenterContainer px-0">
-      <UserDetails />
-      <AnalyticsComponent />
-      <ResourcesComponent />
-      <AboutComponent />
-      <Activity />
-      <ExperienceComponent />
-      <EducationComponent />
-      <Languages />
+      <UserDetails profileData={profileDetails} />
+      <AnalyticsComponent profileData={profileDetails} />
+      <ResourcesComponent profileData={profileDetails} />
+      <AboutComponent profileData={profileDetails} />
+      <Activity profileData={profileDetails} />
+      <ExperienceComponent profileData={profileDetails} />
+      <EducationComponent profileData={profileDetails} />
+      <Languages profileData={profileDetails} />
     </Container>
   );
 };

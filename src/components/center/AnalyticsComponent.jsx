@@ -1,7 +1,7 @@
 import { Row } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 
-const AnalyticsComponent = () => {
+const AnalyticsComponent = ({ profileData }) => {
   return (
     <Row className="my-2">
       <div className="analytics-container-design p-4">

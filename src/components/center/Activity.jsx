@@ -1,7 +1,7 @@
 import { Row, Col } from "react-bootstrap";
 import { ArrowRight } from "react-bootstrap-icons";
 
-const Activity = () => {
+const Activity = ({ profileData }) => {
   return (
     <Row className="my-2 ">
       <Col className="activityComponent pt-4 flex-nowrap bg-white">
@@ -14,7 +14,10 @@ const Activity = () => {
               2,957 Followers
             </a>
             <p className="lightGreyParagraph mt-2 mb-1">
-              <b>Alexander Spomer</b> has shared this <b>·</b> 1 month
+              <b>
+                {profileData.name} {profileData.surname}
+              </b>{" "}
+              has shared this <b>·</b> 1 month
             </p>
             <div className="activityPreviewDiv mb-3">
               <img

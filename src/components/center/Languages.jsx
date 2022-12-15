@@ -1,7 +1,7 @@
 import { Row, Col } from "react-bootstrap";
 import { Pencil, Plus } from "react-bootstrap-icons";
 
-const Languages = () => {
+const Languages = ({ profileData }) => {
   return (
     <Row className="mt-2 ">
       <Col className="activityComponent pt-4 flex-nowrap bg-white">
