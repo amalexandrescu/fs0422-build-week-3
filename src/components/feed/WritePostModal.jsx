@@ -1,22 +1,24 @@
-import React, { useState } from "react"
-import { Modal, Button, Form } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
+import React, { useState } from "react";
+import { Modal, Button, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import {
   hideAddPostModalAction,
   addingNewFeedPostAction,
-  getFeedPostsAction
-} from "../../redux/actions"
-import placeholder from "../../assets/v-team-logo.png"
-import { AiFillCaretDown } from "react-icons/ai"
-import { ImEarth } from "react-icons/im"
+  getFeedPostsAction,
+} from "../../redux/actions";
+import placeholder from "../../assets/v-team-logo.png";
+import { AiFillCaretDown } from "react-icons/ai";
+import { ImEarth } from "react-icons/im";
 
 export default function WritePostModal() {
-  const showModal = useSelector((state) => state.showPostModal.show)
-  const dispatch = useDispatch()
+  const showModal = useSelector((state) => state.showPostModal.show);
+  let details = useSelector((state) => state.myProfile.detailsData);
+  let isFetched = useSelector((state) => state.myProfile.isFetched);
+  const dispatch = useDispatch();
 
   const [newFeedPost, setNewFeedPost] = useState({
-    text: ""
-  })
+    text: "",
+  });
 
   // the basic structure of the post
   //   {
@@ -30,17 +32,17 @@ export default function WritePostModal() {
   const onChangeHandler = (value, fieldToSet) => {
     setNewFeedPost({
       ...newFeedPost,
-      [fieldToSet]: value
-    })
-  }
+      [fieldToSet]: value,
+    });
+  };
 
   const onSubmitHandler = (e) => {
-    e.preventDefault()
-    console.log(newFeedPost.text)
-    dispatch(hideAddPostModalAction())
-    dispatch(addingNewFeedPostAction(newFeedPost))
-    dispatch(getFeedPostsAction())
-  }
+    e.preventDefault();
+    console.log(newFeedPost.text);
+    dispatch(hideAddPostModalAction());
+    dispatch(addingNewFeedPostAction(newFeedPost));
+    dispatch(getFeedPostsAction());
+  };
 
   return (
     <Modal show={showModal} onHide={() => dispatch(hideAddPostModalAction())}>
@@ -50,7 +52,7 @@ export default function WritePostModal() {
       <div className="p-feed ml-2 d-flex">
         {" "}
         <div className="border recommended-user-image">
-          <img src={placeholder} alt="" />
+          <img src={isFetched ? details.image : placeholder} alt="avatar" />
         </div>
         <div>
           <div className="small-header-text font-weight-bold">
@@ -90,5 +92,5 @@ export default function WritePostModal() {
         </Button>
       </Modal.Footer>
     </Modal>
-  )
+  );
 }

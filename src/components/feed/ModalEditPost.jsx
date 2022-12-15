@@ -1,49 +1,51 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
-import { useDispatch, useSelector } from "react-redux"
-import placeholder from "../../assets/v-team-logo.png"
-import { Modal, Form, Button } from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux";
+import placeholder from "../../assets/v-team-logo.png";
+import { Modal, Form, Button } from "react-bootstrap";
 import {
   editMyFeedPostAction,
   editShowToggleAction,
   getFeedPostsAction,
   hideEditPostModalAction,
-  updateSelectedFeedPost
-} from "../../redux/actions"
-import { AiFillCaretDown } from "react-icons/ai"
-import { ImEarth } from "react-icons/im"
+  updateSelectedFeedPost,
+} from "../../redux/actions";
+import { AiFillCaretDown } from "react-icons/ai";
+import { ImEarth } from "react-icons/im";
 
 export default function ModalEditPost() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const showEditModal = useSelector(
     (state) => state.editPostModal.showEditModal
-  )
+  );
+  let details = useSelector((state) => state.myProfile.detailsData);
+  let isFetched = useSelector((state) => state.myProfile.isFetched);
 
-  const currentText = useSelector((state) => state.editThisPost.selectedPost)
-  console.log("currentText", currentText)
-  let textToEdit = currentText.text
-  console.log("textToEdit", textToEdit)
-  const postId = currentText._id
+  const currentText = useSelector((state) => state.editThisPost.selectedPost);
+  console.log("currentText", currentText);
+  let textToEdit = currentText.text;
+  console.log("textToEdit", textToEdit);
+  const postId = currentText._id;
 
   const onChangeHandler = (value, fieldToSet) => {
     setEditFeedPost({
       ...editFeedPost,
-      [fieldToSet]: value
-    })
-  }
+      [fieldToSet]: value,
+    });
+  };
   const [editFeedPost, setEditFeedPost] = useState({
-    text: textToEdit
-  })
+    text: textToEdit,
+  });
 
   const onSubmitHandler = (e) => {
-    e.preventDefault()
-    console.log(editFeedPost.text)
-    dispatch(hideEditPostModalAction())
-    dispatch(editMyFeedPostAction(editFeedPost, postId))
-    dispatch(updateSelectedFeedPost(editFeedPost))
-    dispatch(editShowToggleAction())
-    dispatch(getFeedPostsAction())
-  }
+    e.preventDefault();
+    console.log(editFeedPost.text);
+    dispatch(hideEditPostModalAction());
+    dispatch(editMyFeedPostAction(editFeedPost, postId));
+    dispatch(updateSelectedFeedPost(editFeedPost));
+    dispatch(editShowToggleAction());
+    dispatch(getFeedPostsAction());
+  };
 
   return (
     <Modal
@@ -56,7 +58,7 @@ export default function ModalEditPost() {
       <div className="p-feed ml-2 d-flex">
         {" "}
         <div className="border recommended-user-image">
-          <img src={placeholder} alt="" />
+          <img src={isFetched ? details.image : placeholder} alt="avatar" />
         </div>
         <div>
           <div className="small-header-text font-weight-bold">
@@ -96,5 +98,5 @@ export default function ModalEditPost() {
         </Button>
       </Modal.Footer>
     </Modal>
-  )
+  );
 }
