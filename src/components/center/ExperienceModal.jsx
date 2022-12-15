@@ -16,8 +16,6 @@ const ExperienceModal = () => {
   //this is for the end date experience inputs
   const [disabledInput, setDisabledInput] = useState("");
 
-  // "2019-06-16"
-
   const userId = useSelector((state) => state.myProfile.detailsData._id);
 
   const [day, setDay] = useState("01");
@@ -68,17 +66,7 @@ const ExperienceModal = () => {
       description: experience.description,
       area: experience.area,
     };
-    // dispatch({
-    //   type: POST_EXPERIENCE,
-    //   payload: {
-    //     role: experience.role,
-    //     company: experience.company,
-    //     startDate: `${experience.startYear}-${experience.startMonth}-${day}`,
-    //     endDate: `experience.endDate !== "" ? ${experience.endYear}-${experience.endMonth}-${day} : null`,
-    //     description: experience.description,
-    //     area: experience.location,
-    //   },
-    // });
+
     console.log("new experience", newExperience);
 
     dispatch(addExperienceAction(newExperience, userId));
@@ -125,7 +113,6 @@ const ExperienceModal = () => {
           <Modal.Title>Add experience</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* <div className="overflow-auto"> */}
           <Form className="experiencesModal">
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Title*</Form.Label>
@@ -168,7 +155,6 @@ const ExperienceModal = () => {
                 type="checkbox"
                 className="d-inline-block checkboxInput mr-2"
                 checked={checked}
-                // onClick={handleCheckbox}
                 onChange={(e) => {
                   if (checked === true) {
                     setDisabledInput(false);
@@ -179,7 +165,6 @@ const ExperienceModal = () => {
                     setDisabledInput(true);
                   }
                   setChecked(e.target.checked);
-                  // }
                 }}
               />
               <Form.Label className="mb-0">
@@ -273,7 +258,6 @@ const ExperienceModal = () => {
               />
             </Form.Group>
           </Form>
-          {/* </div> */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
