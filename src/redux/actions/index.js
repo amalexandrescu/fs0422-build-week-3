@@ -15,6 +15,7 @@ export const DELETE_EXPERIENCE = "DELETE_EXPERIENCE"
 export const SHOW_WRITE_A_POST = "SHOW_WRITE_A_POST"
 export const HIDE_WRITE_A_POST = "HIDE_WRITE_A_POST"
 export const GET_FEED_POSTS = " GET_FEED_POSTS"
+export const ADD_NEW_FEED_POST = "ADD_NEW_FEED_POST"
 
 //constants to use for fetching data
 
@@ -299,6 +300,32 @@ export const getFeedPostsAction = () => {
           type: GET_FEED_POSTS,
           payload: fetchedPosts
         })
+      } else {
+        console.log("error")
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+// adding new feed post
+export const addingNewFeedPostAction = (newFeedPost) => {
+  return async (dispatch) => {
+    console.log("----------------Adding New Feed Post---------------------")
+
+    try {
+      let resp = await fetch(baseEndPointPosts, {
+        method: "POST",
+        body: JSON.stringify(newFeedPost),
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjAxM2M5NmRmYjAwMTUyMWE1YmEiLCJpYXQiOjE2NzA4MzYyNDMsImV4cCI6MTY3MjA0NTg0M30.y7kED45MhN6V7jWF7PwyZ4DryRe6OJ6b9-so68M-zaE",
+          "Content-Type": "application/json"
+        }
+      })
+      if (resp.ok) {
+        alert("Post added")
       } else {
         console.log("error")
       }
