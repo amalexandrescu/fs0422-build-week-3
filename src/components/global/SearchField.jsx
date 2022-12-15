@@ -6,6 +6,7 @@ import {
   sendUserSearchAction,
   showUserSearchAction,
 } from "../../redux/actions";
+
 export default function SearchField() {
   const dispatch = useDispatch();
   const [query, setQuery] = useState("");
