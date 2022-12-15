@@ -18,7 +18,7 @@ const Feed = () => {
     <Container className="mt-4">
       <Row>
         <Col xs={3} className={"pr-4 pl-0"}>
-          <div className="">
+          <div>
             <Leftside />
           </div>
         </Col>
@@ -28,7 +28,7 @@ const Feed = () => {
           </div>
         </Col>
         <Col xs={3} className={"px-0"}>
-          <div style={{ backgroundColor: "slategrey" }}>
+          <div>
             <Rightside />
           </div>
         </Col>
