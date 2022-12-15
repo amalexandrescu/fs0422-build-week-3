@@ -237,7 +237,7 @@ body {
 }
 
 .cursor-on-hover {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 .normal-cursor-on-hover {
@@ -497,6 +497,7 @@ p {
   width: 15px;
   background-color: green;
   border-radius: 50%;
+  overflow: hidden;
 }
 
 .navbar-font-sizes {
@@ -700,6 +701,77 @@ p {
   border-radius: 50px !important;
 }
 
+
+/*-----------------------UPDATING NAVBAR-----------------------*/
+
+.rightSideNavbarContainer {
+  height: 45px !important;
+}
+
+.rightSideNavbarContainer .nav-link {
+  height: 45px;
+  padding-block: 0 !important;
+}
+
+.work-dropdown-navbar-container {
+  height: 100% !important;
+}
+
+.me-dropdown-list {
+  position: absolute;
+  right: -15px;
+  top: 60px;
+}
+
+.me-dropdown-big-element {
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.me-dropdown-button {
+  width: 200px;
+  height: 25px;
+  border-radius: 50px !important;
+  font-size: 15px;
+  background-color: white !important;
+  color: #0a66c2 !important;
+  padding-block: 0 !important;
+}
+
+.me-dropdown-button:hover {
+  background-color: #0a66c2 !important;
+  color: white !important;
+}
+
+.me-dropdown-list .underline-on-hover div:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.me-dropdown-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: green;
+  overflow: hidden;
+}
+
+.me-dropdown-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.me-icon-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.rightSideNavbarContainer .nav-link {
+  font-size: 13px;
+}
 /* ---------------Feed Page Center----------- */
 
 #feed-start-a-post-container {
