@@ -1,21 +1,37 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { BsThreeDots } from "react-icons/bs"
-import { getFeedPostsAction } from "../../redux/actions"
+import {
+  editShowToggleAction,
+  getFeedPostsAction,
+  saveSelectedFeedPostAction
+} from "../../redux/actions"
 import FeedPostLike from "./FeedPostLike"
+import EditOwnPosts from "./EditOwnPosts"
 
 export default function MainFeedSectionWithPosts() {
+  // const [showEdit, setShowEdit] = useState(false)
+  const editOptions = useSelector((state) => state.editPostModal.openDropdown)
+
   const allFeedPosts = useSelector((state) => state.feedPosts.feedPostArray)
   //   reversing the array so we get the newest posts
   const allLatestPosts = allFeedPosts.slice(0).reverse()
   //   filtering out short posts
-  const filteredPosts = allLatestPosts.filter((post) => post.text.length > 20)
-
+  const filteredPosts = allLatestPosts.filter((post) => post.text.length > 15)
   // getting 20 posts from the remaining array
   const latestPostSlice = filteredPosts.slice(0, 30)
-  console.log("-----------latest 30 posts---------", latestPostSlice)
+
+  const userId = useSelector((state) => state.myProfile.detailsData._id)
 
   const dispatch = useDispatch()
+
+  const myPostClickedHandler = (post) => {
+    console.log("my post is clicked")
+    dispatch(editShowToggleAction())
+    console.log(post)
+    // use this post when editing
+    dispatch(saveSelectedFeedPostAction(post))
+  }
 
   useEffect(() => {
     dispatch(getFeedPostsAction())
@@ -27,12 +43,27 @@ export default function MainFeedSectionWithPosts() {
         <>
           {latestPostSlice.map((post) => (
             <div key={post._id} className="feed-post border p-feed pb-1">
-              <div className="d-flex justify-content-between mr-2 ml-2">
-                <div></div>
-                <div>
-                  <BsThreeDots />
+              {post.user._id === userId ? (
+                <>
+                  <div className="d-flex justify-content-between mr-2 ml-2">
+                    <div></div>
+                    <div
+                      className="post-dots  gray-hover"
+                      onClick={myPostClickedHandler.bind(null, post)}
+                    >
+                      <BsThreeDots />
+                    </div>
+                  </div>
+                  {editOptions && <EditOwnPosts />}
+                </>
+              ) : (
+                <div className="d-flex justify-content-between mr-2 ml-2">
+                  <div></div>
+                  <div className="post-dots  gray-hover">
+                    <BsThreeDots />
+                  </div>
                 </div>
-              </div>
+              )}
               <div className=" border-top mr-2 ml-2">
                 <div className="mt-3 d-flex ">
                   <div className="border recommended-user-image">

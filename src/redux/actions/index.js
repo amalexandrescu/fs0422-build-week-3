@@ -18,6 +18,15 @@ export const HIDE_WRITE_A_POST = "HIDE_WRITE_A_POST"
 export const GET_FEED_POSTS = " GET_FEED_POSTS"
 export const ADD_NEW_FEED_POST = "ADD_NEW_FEED_POST"
 
+export const SAVE_SELECTED_FEED_POST = "SAVE_SELECTED_FEED_POST"
+export const SHOW_EDIT_POST_MODAL = "SHOW_EDIT_POST_MODAL"
+export const HIDE_EDIT_POST_MODAL = "HIDE_EDIT_POST_MODAL"
+export const UPDATE_CHANGED_TEXT = "UPDATE_CHANGED_TEXT"
+export const SHOW_EDIT_DROPDOWN = "SHOW_EDIT_DROPDOWN"
+export const HIDE_EDIT_DROPDOWN = "HIDE_EDIT_DROPDOWN"
+
+
+
 
 //constants to use for fetching data
 
@@ -375,5 +384,77 @@ export const editExperienceAction = (updatedExperience, userId, expId) => {
     } catch (error) {
       console.log(error)
     }
+  }
+}
+
+// saving the selected feed post
+
+export const saveSelectedFeedPostAction = (post) => {
+  return {
+    type: "SAVE_SELECTED_FEED_POST",
+    payload: post
+  }
+}
+
+// show the edit post modal
+
+export const showEditPostModalAction = () => {
+  return {
+    type: "SHOW_EDIT_POST_MODAL"
+  }
+}
+export const hideEditPostModalAction = () => {
+  return {
+    type: "HIDE_EDIT_POST_MODAL"
+  }
+}
+
+// edit feed post action
+export const editMyFeedPostAction = (editFeedPost, postId) => {
+  console.log(
+    "-------------------editing feed post------------------",
+    editFeedPost
+  )
+  return async (dispatch) => {
+    const optionsPut = {
+      method: "PUT",
+      body: JSON.stringify(editFeedPost),
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjAxM2M5NmRmYjAwMTUyMWE1YmEiLCJpYXQiOjE2NzA4MzYyNDMsImV4cCI6MTY3MjA0NTg0M30.y7kED45MhN6V7jWF7PwyZ4DryRe6OJ6b9-so68M-zaE",
+        "Content-Type": "application/json"
+      }
+    }
+    console.log("-------------CHANGING My Feed Post-----------------")
+    try {
+      let response = await fetch(baseEndPointPosts + postId, optionsPut)
+      if (response.ok) {
+        console.log("Post content successfully updated ->", response)
+      } else {
+        console.log("Error changing your post content")
+      }
+    } catch (error) {
+      console.log("🚀 error", error)
+    }
+  }
+}
+
+// update the text that is stored in the selected feed post
+export const updateSelectedFeedPost = (editFeedPost) => {
+  return {
+    type: "UPDATE_CHANGED_TEXT",
+    payload: editFeedPost
+  }
+}
+
+//show and hide the edit options
+export const editShowToggleAction = () => {
+  return {
+    type: "SHOW_EDIT_DROPDOWN"
+  }
+}
+export const hideShowAction = () => {
+  return {
+    type: "HIDE_EDIT_DROPDOWN"
   }
 }
