@@ -15,6 +15,8 @@ export default function MainFeedSectionWithPosts() {
   const latestPostSlice = filteredPosts.slice(0, 30)
   console.log("-----------latest 30 posts---------", latestPostSlice)
 
+  const userId = useSelector((state) => state.myProfile.detailsData._id)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -27,12 +29,25 @@ export default function MainFeedSectionWithPosts() {
         <>
           {latestPostSlice.map((post) => (
             <div key={post._id} className="feed-post border p-feed pb-1">
-              <div className="d-flex justify-content-between mr-2 ml-2">
-                <div></div>
-                <div>
-                  <BsThreeDots />
+              {post.user._id === userId ? (
+                <div className="d-flex justify-content-between mr-2 ml-2">
+                  <div></div>
+                  <div>match</div>
+
+                  <div>
+                    <BsThreeDots />
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="d-flex justify-content-between mr-2 ml-2">
+                  <div></div>
+                  <div> no match</div>
+
+                  <div>
+                    <BsThreeDots />
+                  </div>
+                </div>
+              )}
               <div className=" border-top mr-2 ml-2">
                 <div className="mt-3 d-flex ">
                   <div className="border recommended-user-image">
