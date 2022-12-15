@@ -9,7 +9,11 @@ import {
 import { FaRegCommentDots } from "react-icons/fa"
 import { IoIosLink } from "react-icons/io"
 import { useDispatch, useSelector } from "react-redux"
-import { showEditPostModalAction } from "../../redux/actions"
+import {
+  showDeleteModalAction,
+  showEditPostModalAction
+} from "../../redux/actions"
+import ModalDeletePost from "./ModalDeletePost"
 import ModalEditPost from "./ModalEditPost"
 
 export default function EditOwnPosts() {
@@ -17,9 +21,18 @@ export default function EditOwnPosts() {
   const showEditModal = useSelector(
     (state) => state.editPostModal.showEditModal
   )
+
+  const showDeleteModal = useSelector(
+    (state) => state.editPostModal.deleteModal
+  )
   const onEditClickHandler = () => {
     dispatch(showEditPostModalAction())
     console.log("edit button clicked")
+  }
+
+  const onDeleteClickHandler = () => {
+    dispatch(showDeleteModalAction())
+    console.log("delete button clicked")
   }
 
   return (
@@ -54,7 +67,7 @@ export default function EditOwnPosts() {
         </div>
         Edit post
       </div>
-      <div className="gray-hover p-feed d-flex">
+      <div className="gray-hover p-feed d-flex" onClick={onDeleteClickHandler}>
         <div className="mr-2 d-flex align-items-center">
           <BsTrashFill />
         </div>
@@ -73,6 +86,7 @@ export default function EditOwnPosts() {
         Who can see this post?
       </div>
       {showEditModal && <ModalEditPost />}
+      {showDeleteModal && <ModalDeletePost />}
     </div>
   )
 }
