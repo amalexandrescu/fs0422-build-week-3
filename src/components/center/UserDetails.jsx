@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Dot, Linkedin, Pencil, XLg } from "react-bootstrap-icons";
-import { useDispatch, useSelector } from "react-redux";
-import { getMyProfileDetailsAction } from "../../redux/actions";
+import { useSelector } from "react-redux";
+
 import EditAddProfileSectionModal from "./EditAddProfileSectionModal";
 import EditContactInfoModal from "./EditContactInfoModal";
 import EditUserDetailsModal from "./EditUserDetailsModal";
@@ -13,15 +13,8 @@ const UserDetails = ({ profileData }) => {
   let details = useSelector((state) => state.myProfile.detailsData);
   let isFetched = useSelector((state) => state.myProfile.isFetched);
   console.log("🚀UserDetails ~ details", details);
-  // let dispatch = useDispatch();
 
   let pathname = window.location.pathname;
-  console.log("pathname", pathname);
-
-  // useEffect(() => {
-  //   dispatch(getMyProfileDetailsAction());
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   return (
     <Row className="mt-3">
@@ -54,7 +47,7 @@ const UserDetails = ({ profileData }) => {
             </Row>
           </div>
           {/* User Info Section*/}
-          <div className="bg-white">
+          <div className="bg-white" style={{ borderRadius: "0 0 10px 10px" }}>
             {/* User Info Edit Button */}
             <Row className="justify-content-end">
               <div className="d-flex align-items-center cursor-on-hover">

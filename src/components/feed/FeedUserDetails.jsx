@@ -20,7 +20,11 @@ const FeedUserDetails = () => {
         <img
           src="https://random.imagecdn.app/v1/image?width=1000&height=300"
           alt="User Header"
-          style={{ width: "100%", objectFit: "cover", borderRadius: "10px" }}
+          style={{
+            width: "100%",
+            objectFit: "cover",
+            // borderRadius: "0 0 10px 10px",
+          }}
         />
       </div>
       {/* Profile image */}
@@ -34,13 +38,14 @@ const FeedUserDetails = () => {
               overflow: "hidden",
               transform: "translate3d(0px, -35px, 0px)",
               border: "2px solid white",
+              objectFit: "cover",
             }}
           >
             {isFetched ? (
               <img
                 src={details.image}
                 alt="User Profilepic"
-                style={{ width: "100%", objectFit: "cover" }}
+                style={{ height: "100%" }}
               />
             ) : (
               <></>

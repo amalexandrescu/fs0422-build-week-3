@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as Icon from "react-bootstrap-icons";
-import { Button, Modal, Form, InputGroup } from "react-bootstrap";
+import { Button, Modal, Form } from "react-bootstrap";
 
-import { addExperienceAction, POST_EXPERIENCE } from "../../redux/actions";
+import { addExperienceAction } from "../../redux/actions";
 
 const ExperienceModal = () => {
   //this is for the modal

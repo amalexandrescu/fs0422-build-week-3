@@ -1,21 +1,23 @@
-import React from "react"
-import placeholder from "../../assets/v-team-logo.png"
-import { MdPhotoSizeSelectActual, MdOutlineArticle } from "react-icons/md"
-import { BsFillPlayBtnFill, BsBriefcaseFill } from "react-icons/bs"
-import { useDispatch, useSelector } from "react-redux"
-import { showAddPostModalAction } from "../../redux/actions"
-import WritePostModal from "./WritePostModal"
+import React from "react";
+import placeholder from "../../assets/v-team-logo.png";
+import { MdPhotoSizeSelectActual, MdOutlineArticle } from "react-icons/md";
+import { BsFillPlayBtnFill, BsBriefcaseFill } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { showAddPostModalAction } from "../../redux/actions";
+import WritePostModal from "./WritePostModal";
 
 export default function StartAPost() {
-  const showModal = useSelector((state) => state.showPostModal.show)
-  const dispatch = useDispatch()
+  const showModal = useSelector((state) => state.showPostModal.show);
+  let details = useSelector((state) => state.myProfile.detailsData);
+  let isFetched = useSelector((state) => state.myProfile.isFetched);
+  const dispatch = useDispatch();
 
   return (
     <>
       <div id="feed-start-a-post-container" className="border p-feed">
         <div id="start-a-post-top">
           <div className="border recommended-user-image mr-1">
-            <img src={placeholder} alt="" />
+            <img src={isFetched ? details.image : placeholder} alt="Avatar" />
           </div>
           <div
             id="start-a-post"
@@ -53,5 +55,5 @@ export default function StartAPost() {
       </div>
       {showModal === true ? <WritePostModal /> : null}
     </>
-  )
+  );
 }

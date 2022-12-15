@@ -87,7 +87,7 @@ function EditUserDetailsModal() {
 
     try {
       let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/6396f013c96dfb001521a5ba/picture",
+        `https://striveschool-api.herokuapp.com/api/profile/${details._id}/picture`,
         optionsPost
       );
       console.log(res);
