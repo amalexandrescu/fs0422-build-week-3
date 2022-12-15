@@ -199,32 +199,57 @@ const ExperienceComponent = ({ profileData }) => {
               <div className=" ">
                 {experiencesArray.length !== 0 ? (
                   <ListGroup variant="flush" className="px-0 text-left">
-                    <ListGroup.Item className="px-0">
-                      <h6 className="font-weight-bold">
-                        {experiencesArray[experiencesArray.length - 1].role}
-                      </h6>
-                      <div>
-                        {experiencesArray[experiencesArray.length - 1].company}
+                    <div className="d-flex align-items-start">
+                      <div
+                        className="d-flex mr-2 mt-3 justify-content-start align-items-start rounded-circle"
+                        style={{
+                          height: "45px",
+                          aspectRatio: "1/1",
+                          objectFit: "cover",
+                          overflow: "hidden",
+                        }}
+                      >
+                        <img
+                          src={
+                            experiencesArray[experiencesArray.length - 1].image
+                              ? experiencesArray[experiencesArray.length - 1]
+                                  .image
+                              : "https://placekitten.com/300/300"
+                          }
+                          style={{ height: "100%" }}
+                          alt="company"
+                        />
                       </div>
-                      <div className="light-grey-color">
-                        {experiencesArray[experiencesArray.length - 1]
-                          .endDate !== null
-                          ? `${moment(
-                              experiencesArray[experiencesArray.length - 1]
-                                .startDate
-                            ).format("MMMM YYYY")} - ${moment(
-                              experiencesArray[experiencesArray.length - 1]
-                                .endDate
-                            ).format("MMMM YYYY")}`
-                          : `${moment(
-                              experiencesArray[experiencesArray.length - 1]
-                                .startDate
-                            ).format("MMMM YYYY")} - Present`}
-                      </div>
-                      <div className="light-grey-color">
-                        {experiencesArray[experiencesArray.length - 1].area}
-                      </div>
-                    </ListGroup.Item>
+                      <ListGroup.Item className="px-0 border-0">
+                        <h6 className="font-weight-bold">
+                          {experiencesArray[experiencesArray.length - 1].role}
+                        </h6>
+                        <div>
+                          {
+                            experiencesArray[experiencesArray.length - 1]
+                              .company
+                          }
+                        </div>
+                        <div className="light-grey-color">
+                          {experiencesArray[experiencesArray.length - 1]
+                            .endDate !== null
+                            ? `${moment(
+                                experiencesArray[experiencesArray.length - 1]
+                                  .startDate
+                              ).format("MMMM YYYY")} - ${moment(
+                                experiencesArray[experiencesArray.length - 1]
+                                  .endDate
+                              ).format("MMMM YYYY")}`
+                            : `${moment(
+                                experiencesArray[experiencesArray.length - 1]
+                                  .startDate
+                              ).format("MMMM YYYY")} - Present`}
+                        </div>
+                        <div className="light-grey-color">
+                          {experiencesArray[experiencesArray.length - 1].area}
+                        </div>
+                      </ListGroup.Item>
+                    </div>
                     <ListGroup.Item className="px-0 text-center pb-0">
                       <div className="d-flex align-items-center justify-content-center">
                         <div
