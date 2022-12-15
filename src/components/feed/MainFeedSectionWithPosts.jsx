@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import { Image } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { BsThreeDots } from "react-icons/bs"
 import {
@@ -19,7 +20,7 @@ export default function MainFeedSectionWithPosts() {
   //   filtering out short posts
   const filteredPosts = allLatestPosts.filter((post) => post.text.length > 10)
   // getting 20 posts from the remaining array
-  const latestPostSlice = filteredPosts.slice(0, 30)
+  const latestPostSlice = filteredPosts.slice(0, 40)
 
   const userId = useSelector((state) => state.myProfile.detailsData._id)
 
@@ -87,6 +88,17 @@ export default function MainFeedSectionWithPosts() {
                   </div>
                 </div>
                 <p className="mt-3 mb-3"> {post.text}</p>
+
+                {post.image && (
+                  <div className="post-image-wrapper">
+                    {" "}
+                    <Image
+                      src={post.image}
+                      alt="user image"
+                      className="feed-post-image"
+                    />
+                  </div>
+                )}
               </div>
 
               <FeedPostLike />
