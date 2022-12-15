@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 
 import { useDispatch, useSelector } from "react-redux"
 import placeholder from "../../assets/v-team-logo.png"
@@ -6,6 +6,7 @@ import { Modal, Form, Button } from "react-bootstrap"
 import {
   editMyFeedPostAction,
   editShowToggleAction,
+  getFeedPostsAction,
   hideEditPostModalAction,
   updateSelectedFeedPost
 } from "../../redux/actions"
@@ -41,11 +42,8 @@ export default function ModalEditPost() {
     dispatch(editMyFeedPostAction(editFeedPost, postId))
     dispatch(updateSelectedFeedPost(editFeedPost))
     dispatch(editShowToggleAction())
+    dispatch(getFeedPostsAction())
   }
-
-  //   useEffect(() => {
-  //     dispatch(hideEditPostModalAction())
-  //   }, [])
 
   return (
     <Modal

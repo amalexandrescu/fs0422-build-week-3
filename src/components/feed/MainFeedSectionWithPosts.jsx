@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { BsThreeDots } from "react-icons/bs"
 import {
@@ -17,7 +17,7 @@ export default function MainFeedSectionWithPosts() {
   //   reversing the array so we get the newest posts
   const allLatestPosts = allFeedPosts.slice(0).reverse()
   //   filtering out short posts
-  const filteredPosts = allLatestPosts.filter((post) => post.text.length > 15)
+  const filteredPosts = allLatestPosts.filter((post) => post.text.length > 10)
   // getting 20 posts from the remaining array
   const latestPostSlice = filteredPosts.slice(0, 30)
 

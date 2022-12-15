@@ -3,7 +3,8 @@ import { Modal, Button, Form } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import {
   hideAddPostModalAction,
-  addingNewFeedPostAction
+  addingNewFeedPostAction,
+  getFeedPostsAction
 } from "../../redux/actions"
 import placeholder from "../../assets/v-team-logo.png"
 import { AiFillCaretDown } from "react-icons/ai"
@@ -38,6 +39,7 @@ export default function WritePostModal() {
     console.log(newFeedPost.text)
     dispatch(hideAddPostModalAction())
     dispatch(addingNewFeedPostAction(newFeedPost))
+    dispatch(getFeedPostsAction())
   }
 
   return (
