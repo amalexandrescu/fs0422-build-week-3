@@ -26,7 +26,10 @@ const UserDetails = () => {
     <Row className="mt-3">
       {isFetched ? (
         <Col className="firstComponent">
-          <div className="headerImageDiv">
+          <div
+            className="headerImageDiv"
+            style={{ borderRadius: "10px 10px 0 0" }}
+          >
             <Row className="justify-content-between">
               {/* User profile Image */}
               <div className="profileImageDiv d-flex justify-content-center align-items-center">
@@ -44,7 +47,7 @@ const UserDetails = () => {
             </Row>
           </div>
           {/* User Info Section*/}
-          <div className="bg-white" style={{ borderRadius: "10px" }}>
+          <div className="bg-white">
             {/* User Info Edit Button */}
             <Row className="justify-content-end">
               <div className="d-flex align-items-center cursor-on-hover">

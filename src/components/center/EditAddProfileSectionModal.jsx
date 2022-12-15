@@ -50,14 +50,14 @@ function EditAddProfileSectionModal() {
                   }
                 >
                   <div className="d-flex justify-content-between align-items-center">
-                    <h5 className="text-dark" style={{ "font-weight": "500" }}>
+                    <h5 className="text-dark" style={{ fontWeight: "500" }}>
                       Core
                     </h5>
                     <div className="d-flex justify-content-center align-items-center editButtonIconDiv ">
                       {isCollapsed1 ? (
-                        <ChevronUp style={{ "font-size": "20px" }} />
+                        <ChevronUp style={{ fontSize: "20px" }} />
                       ) : (
-                        <ChevronDown style={{ "font-size": "20px" }} />
+                        <ChevronDown style={{ fontSize: "20px" }} />
                       )}
                     </div>
                   </div>
@@ -68,7 +68,7 @@ function EditAddProfileSectionModal() {
                       <div className="col">
                         <p
                           className="mt-0"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Start with the basics. Filling out these sections will
                           help you be discovered by recruiters and people you
@@ -80,7 +80,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="pb-3 pt-1 font-weight-bold border-bottom"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add education
                         </p>
@@ -90,7 +90,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="pb-3 font-weight-bold border-bottom"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add position
                         </p>
@@ -100,7 +100,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="pb-3 font-weight-bold border-bottom"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add career break
                         </p>
@@ -110,7 +110,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="font-weight-bold"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add skills
                         </p>
@@ -137,9 +137,9 @@ function EditAddProfileSectionModal() {
                     </h5>
                     <div className="d-flex justify-content-center align-items-center editButtonIconDiv ">
                       {isCollapsed2 ? (
-                        <ChevronUp style={{ "font-size": "20px" }} />
+                        <ChevronUp style={{ fontSize: "20px" }} />
                       ) : (
-                        <ChevronDown style={{ "font-size": "20px" }} />
+                        <ChevronDown style={{ fontSize: "20px" }} />
                       )}
                     </div>
                   </div>
@@ -150,7 +150,7 @@ function EditAddProfileSectionModal() {
                       <div className="col">
                         <p
                           className="mt-0"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Completing these sections will increase your
                           credibility and give you access to more opportunities
@@ -161,7 +161,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="pb-3 pt-1 font-weight-bold border-bottom"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add feature
                         </p>
@@ -171,7 +171,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="pb-3 font-weight-bold border-bottom"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add licenses & certifications
                         </p>
@@ -181,7 +181,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="pb-3 font-weight-bold border-bottom"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add courses
                         </p>
@@ -191,7 +191,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="font-weight-bold"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add recommendations
                         </p>
@@ -218,9 +218,9 @@ function EditAddProfileSectionModal() {
                     </h5>
                     <div className="d-flex justify-content-center align-items-center editButtonIconDiv ">
                       {isCollapsed3 ? (
-                        <ChevronUp style={{ "font-size": "20px" }} />
+                        <ChevronUp style={{ fontSize: "20px" }} />
                       ) : (
-                        <ChevronDown style={{ "font-size": "20px" }} />
+                        <ChevronDown style={{ fontSize: "20px" }} />
                       )}
                     </div>
                   </div>
@@ -231,7 +231,7 @@ function EditAddProfileSectionModal() {
                       <div className="col">
                         <p
                           className="mt-0"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add even more personality to your profile. These
                           sections will help your grow your network and build
@@ -243,7 +243,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="pb-3 pt-1 font-weight-bold border-bottom"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add volunteer experience
                         </p>
@@ -253,7 +253,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="pb-3 font-weight-bold border-bottom"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add publications
                         </p>
@@ -263,7 +263,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="pb-3 font-weight-bold border-bottom"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add patents
                         </p>
@@ -273,7 +273,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="pb-3 font-weight-bold border-bottom"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add projects
                         </p>
@@ -283,7 +283,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="pb-3 font-weight-bold border-bottom"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add honors & awards
                         </p>
@@ -293,7 +293,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="pb-3 font-weight-bold border-bottom"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add test scores
                         </p>
@@ -303,7 +303,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="pb-3 font-weight-bold border-bottom"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add languages
                         </p>
@@ -313,7 +313,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="pb-3 font-weight-bold border-bottom"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add organizations
                         </p>
@@ -323,7 +323,7 @@ function EditAddProfileSectionModal() {
                       <div className="col ">
                         <p
                           className="font-weight-bold"
-                          style={{ "font-size": "0.9em", color: "grey" }}
+                          style={{ fontSize: "0.9em", color: "grey" }}
                         >
                           Add causes
                         </p>

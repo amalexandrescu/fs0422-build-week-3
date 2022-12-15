@@ -1,9 +1,11 @@
+
 import { useState } from "react";
 import { Container, Navbar, Nav, ListGroup, Button } from "react-bootstrap";
-
 import * as Icon from "react-bootstrap-icons";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 import SearchField from "./SearchField";
 
@@ -30,15 +32,19 @@ const CustomNavbar = () => {
             </div>
             <SearchField />
           </div>
+
           <Nav className="rightSideNavbarContainer d-flex align-items-center justify-content-center flex-sm-row mx-sm-auto mx-md-none">
+            <Link to={"/feed"}>
             <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-sm-2 mr-md-none">
               <div>
                 <Icon.HouseDoorFill className="mr-sm-3 mr-md-0" />
               </div>
               <div className="d-sm-none d-md-block">Home</div>
             </div>
+            </Link>
 
             <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-sm-2 mr-md-none">
+
               <div>
                 <Icon.PeopleFill className="mr-sm-3 mr-md-0" />
               </div>

@@ -169,6 +169,30 @@ body {
 
 /* CUSTOM CLASSES */
 
+.p-feed {
+  padding: 12px;
+}
+.p-feed-left {
+  padding-left: 12px;
+}
+.p-feed-right {
+  padding-right: 12px;
+}
+.p-feed-top {
+  padding-top: 12px;
+}
+.p-feed-bottom {
+  padding-bottom: 12px;
+}
+.p-feed-y {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.p-feed-x {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
 body {
   background-color: #f3f2ef !important;
 }
@@ -272,8 +296,8 @@ p {
   cursor: pointer;
   width: 100%;
   height: 25vh;
-  object-fit: cover;
   background-image: url("https://images.pexels.com/photos/1000366/pexels-photo-1000366.jpeg?cs=srgb&dl=pexels-steve-johnson-1000366.jpg&fm=jpg");
+  background-size: cover;
 }
 
 .profileImageDiv {
@@ -544,7 +568,7 @@ p {
 
 .gray-hover:hover {
   cursor: pointer;
-  background-color: lightgrey;
+  background-color: rgb(221, 220, 220);
 }
 
 .pointer {
@@ -677,6 +701,7 @@ p {
   border-radius: 50px !important;
 }
 
+
 /*-----------------------UPDATING NAVBAR-----------------------*/
 
 .rightSideNavbarContainer {
@@ -746,4 +771,114 @@ p {
 
 .rightSideNavbarContainer .nav-link {
   font-size: 13px;
+}
+/* ---------------Feed Page Center----------- */
+
+#feed-start-a-post-container {
+  background-color: white;
+  width: 100%;
+
+  border-radius: 10px;
+}
+
+#start-a-post-top {
+  display: flex;
+  align-items: center;
+}
+
+#start-a-post {
+  flex-grow: 1;
+  border: 1px solid rgb(170, 170, 170);
+  padding: 9px;
+  margin-right: 5px;
+  border-radius: 30px;
+}
+
+#start-a-post-lower {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5px;
+}
+
+.start-a-post-icon-text {
+  display: flex;
+  align-items: center;
+  padding: 10px 5px 10px 5px;
+  border-radius: 3px;
+}
+.start-a-post-icon-text span {
+  margin-left: 10px;
+}
+
+.indigo {
+  color: rgb(158, 41, 200);
+}
+
+.orange {
+  color: orangered;
+}
+
+#select-viewing-options {
+  margin-top: 2px;
+  border: 1px solid rgb(170, 170, 170);
+  border-radius: 20px;
+  padding: 3px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100px;
+}
+
+#feed-modal-form {
+  width: 100%;
+  height: auto;
+}
+.form-border-none {
+  border: none;
+}
+
+.feed-post {
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+#like-section-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.feed-post-tiny-text {
+  font-size: 10px;
+}
+
+.small-height {
+  height: 14px;
+}
+
+.bolder {
+  font-weight: 600;
+}
+
+.feed-text-user-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30px;
+}
+.feed-text-name {
+  height: 12px;
+}
+
+.truncate-text {
+  width: 380px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* FEED CLASSES */
+
+.hoverGreyBg:hover {
+  cursor: pointer;
+  background-color: rgb(237, 237, 237) !important;
 }

@@ -7,6 +7,9 @@ import experiencesReducer from "../reducers/experiencesReducer"
 import myProfileReducer from "../reducers/myProfileReducer"
 import setOtherUserReducer from "../reducers/setOtherUserReducer"
 
+import addPostModalReducer from "../reducers/addPostModalReducer"
+import getFeedPostsReducer from "../reducers/getFeedPostsReducer"
+
 // configureStore will set up the Redux Store for us!
 
 const bigReducer = combineReducers({
@@ -17,7 +20,10 @@ const bigReducer = combineReducers({
   messenger: expandMesengerReducer,
   experiences: experiencesReducer,
   myProfile: myProfileReducer,
-  otherUser: setOtherUserReducer
+  otherUser: setOtherUserReducer,
+
+  showPostModal: addPostModalReducer,
+  feedPosts: getFeedPostsReducer
 })
 
 const store = configureStore({
