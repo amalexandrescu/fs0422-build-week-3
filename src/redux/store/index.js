@@ -10,8 +10,15 @@ import addPostModalReducer from "../reducers/addPostModalReducer";
 import getFeedPostsReducer from "../reducers/getFeedPostsReducer";
 import selectedFeedPostReducer from "../reducers/selectedFeedPostReducer";
 import editFeedPostModalReducer from "../reducers/editFeedPostModalReducer";
+import localStorage from "redux-persist/lib/storage";
+import { persistReducer, persistStore } from "redux-persist";
 
 // configureStore will set up the Redux Store for us!
+
+const persistConfig = {
+  key: "root",
+  storage: localStorage,
+};
 
 const bigReducer = combineReducers({
   // cart: cartReducer,
@@ -29,11 +36,13 @@ const bigReducer = combineReducers({
   editPostModal: editFeedPostModalReducer,
 });
 
-const store = configureStore({
-  reducer: bigReducer, // here there's place for just 1 value!
+const persistedReducer = persistReducer(persistConfig, bigReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer, // here there's place for just 1 value!
 });
 
-export default store;
+export const persistor = persistStore(store);
 
 // now the store is ready! let's INJECT IT into our REACT APP!
 // we do it in the src/index.js file
