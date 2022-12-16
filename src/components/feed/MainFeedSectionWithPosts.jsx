@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Image, Button } from "react-bootstrap"
+import { Image } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { BsThreeDots, BsFillArrowDownCircleFill } from "react-icons/bs"
 import {
@@ -126,7 +126,7 @@ export default function MainFeedSectionWithPosts() {
                             width: "100%",
                             height: "300px",
                             overflow: "hidden",
-                            objectFit: "cover",
+                            objectFit: "cover"
                           }}
                         >
                           <Image
