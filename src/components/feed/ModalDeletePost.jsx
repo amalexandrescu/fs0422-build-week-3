@@ -1,31 +1,33 @@
-import React from "react"
-import { Modal, Button } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
+import React from "react";
+import { Modal, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import {
   deleteMyFeedPostAction,
   hideDeleteModalAction,
   getFeedPostsAction,
   hideEditPostModalAction,
-  editShowToggleAction
-} from "../../redux/actions"
+  editShowToggleAction,
+} from "../../redux/actions";
 
 export default function ModalDeletePost() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const deleteFeedPost = useSelector((state) => state.editThisPost.selectedPost)
-  const postId = deleteFeedPost._id
+  const deleteFeedPost = useSelector(
+    (state) => state.editThisPost.selectedPost
+  );
+  const postId = deleteFeedPost._id;
 
   const onDeleteHandler = () => {
-    console.log("sending for deletion")
-    dispatch(hideEditPostModalAction())
-    dispatch(deleteMyFeedPostAction(deleteFeedPost, postId))
-    dispatch(editShowToggleAction())
-    dispatch(getFeedPostsAction())
-  }
+    console.log("sending for deletion");
+    dispatch(hideEditPostModalAction());
+    dispatch(deleteMyFeedPostAction(deleteFeedPost, postId));
+    dispatch(editShowToggleAction());
+    dispatch(getFeedPostsAction());
+  };
 
   const showDeleteModal = useSelector(
     (state) => state.editPostModal.deleteModal
-  )
+  );
 
   return (
     <Modal
@@ -54,5 +56,5 @@ export default function ModalDeletePost() {
         </Button>
       </Modal.Footer>
     </Modal>
-  )
+  );
 }
