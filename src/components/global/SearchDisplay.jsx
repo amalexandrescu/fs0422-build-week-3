@@ -1,30 +1,30 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { BiSearch } from "react-icons/bi";
-import { BsDot } from "react-icons/bs";
+import React from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { BiSearch } from "react-icons/bi"
+import { BsDot } from "react-icons/bs"
 import {
   hideUserSearchAction,
-  otherUserProfileAction,
-} from "../../redux/actions/index";
-import { Link } from "react-router-dom";
+  otherUserProfileAction
+} from "../../redux/actions/index"
+import { Link } from "react-router-dom"
 
 export default function SearchDisplay() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const selectedUser = useSelector((state) => state.otherUser.selectedUser);
-  console.log("selectedUser", selectedUser);
+  const selectedUser = useSelector((state) => state.otherUser.selectedUser)
+  console.log("selectedUser", selectedUser)
 
   let usersFromSearch = useSelector(
     (state) => state.usersFromSearchFilter.searchResults
-  );
+  )
   const handleClick = (user) => {
-    dispatch(hideUserSearchAction());
-    console.log("handle click user --->", user);
-    dispatch(otherUserProfileAction(user));
-  };
+    dispatch(hideUserSearchAction())
+    console.log("handle click user --->", user)
+    dispatch(otherUserProfileAction(user))
+  }
 
-  let firstTen = usersFromSearch.slice(0, 10);
-  console.log("usersFromSearch", usersFromSearch);
+  let firstTen = usersFromSearch.slice(0, 10)
+  console.log("usersFromSearch", usersFromSearch)
 
   return (
     <div>
@@ -34,13 +34,15 @@ export default function SearchDisplay() {
       ></div>
       <div id="search-results-float" className=" bg-white border">
         {usersFromSearch.length === 0 ? (
-          <div>Search for users</div>
+          <div className="search-individual-user-display mt-2">
+            Search for users
+          </div>
         ) : (
           <>
             {firstTen.map((user) => (
               <Link to={`/profile/${user._id}`} key={user._id}>
                 <div
-                  className="search-individual-user-display"
+                  className="search-individual-user-display mt-2"
                   onClick={handleClick.bind(null, user)}
                 >
                   {console.log("logging user in search--->", user)}
@@ -70,5 +72,5 @@ export default function SearchDisplay() {
         )}
       </div>
     </div>
-  );
+  )
 }
