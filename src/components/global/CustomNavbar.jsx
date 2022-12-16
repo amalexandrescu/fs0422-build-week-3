@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { Container, Navbar, Nav, ListGroup, Button } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import SearchField from "./SearchField";
 
 const CustomNavbar = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [meSelected, setMeSelected] = useState(false);
 

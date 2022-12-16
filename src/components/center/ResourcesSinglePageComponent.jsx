@@ -10,6 +10,7 @@ const ResourcesSinglePageComponent = () => {
       <div className="resources-container-design p-4">
         <div className="d-flex">
           <div className="d-flex justify-content-center align-items-center mr-2 cursor-on-hover">
+            {/* this goes back to the previous page depending not just back to profile page */}
             <Link to={-1} className="text-decoration-none text-secondary">
               <Icon.ArrowLeft />
             </Link>

@@ -13,13 +13,10 @@ import { getCurrentUserAction } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 
 const RandomUserProfilePage = ({ randomUserDetails }) => {
-  let pathname = window.location.pathname;
-  console.log("pathname", pathname);
   const dispatch = useDispatch();
 
   const params = useParams();
   const currentUserId = params.id;
-  console.log("-------------params-------", params);
   useEffect(() => {
     dispatch(getCurrentUserAction(currentUserId));
   }, []);
@@ -39,16 +36,3 @@ const RandomUserProfilePage = ({ randomUserDetails }) => {
 };
 
 export default RandomUserProfilePage;
-
-{
-  /* <Container className="profilePageCenterContainer px-0">
-      <UserDetails />
-      <AnalyticsComponent />
-      <ResourcesComponent />
-      <AboutComponent />
-      <Activity />
-      <ExperienceComponent />
-      <EducationComponent />
-      <Languages />
-    </Container> */
-}

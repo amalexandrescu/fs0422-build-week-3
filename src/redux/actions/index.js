@@ -96,7 +96,6 @@ export const hideUserSearchAction = () => {
 
 export const getExperiencesAction = (userId) => {
   const experiencesUrl = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`;
-  console.log("userID", userId);
   const getOptions = {
     method: "GET",
     headers: {
@@ -104,16 +103,11 @@ export const getExperiencesAction = (userId) => {
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjAxM2M5NmRmYjAwMTUyMWE1YmEiLCJpYXQiOjE2NzA4MzYyNDMsImV4cCI6MTY3MjA0NTg0M30.y7kED45MhN6V7jWF7PwyZ4DryRe6OJ6b9-so68M-zaE",
     },
   };
-  console.log("fetching experiences - GET method");
   return async (dispatch) => {
     try {
       let response = await fetch(experiencesUrl, getOptions);
       if (response.ok) {
         let data = await response.json();
-        console.log(
-          "data from ----------experiences--------- fetch with GET method",
-          data
-        );
         dispatch({
           type: GET_EXPERIENCES,
           payload: data,
@@ -211,7 +205,6 @@ export const changeProfileDetailsAction = (details) => {
 
 export const addExperienceAction = (experience, userId) => {
   const postUrl = `https://striveschool-api.herokuapp.com/api/profile/:${userId}/experiences`;
-  console.log("----------add experience-----------");
   return async (dispatch) => {
     const optionsPost = {
       method: "POST",
@@ -226,7 +219,6 @@ export const addExperienceAction = (experience, userId) => {
     try {
       const response = await fetch(postUrl, optionsPost);
       if (response.ok) {
-        console.log("new experience added successfully!");
         dispatch({
           type: UPDATE_STATE_OF_EXPERIENCES,
           payload: true,
@@ -346,7 +338,7 @@ export const addingNewFeedPostAction = (newFeedPost) => {
 };
 
 //gets the exp id when clicking on the pen icon
-export const getSingleExpIdAction = (exp) => {
+export const getSingleExpAction = (exp) => {
   return {
     type: GET_SELECTEDEXP,
     payload: exp,
@@ -357,7 +349,6 @@ export const getSingleExpIdAction = (exp) => {
 
 export const editExperienceAction = (updatedExperience, userId, expId) => {
   const putUrl = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}`;
-  console.log("----------editing single experience-----------");
   return async (dispatch) => {
     const optionsPut = {
       method: "PUT",
@@ -372,7 +363,6 @@ export const editExperienceAction = (updatedExperience, userId, expId) => {
     try {
       const response = await fetch(putUrl, optionsPut);
       if (response.ok) {
-        console.log("new experience added successfully!");
         dispatch({
           type: EDIT_SINGLE_EXPERIENCE,
           payload: updatedExperience,

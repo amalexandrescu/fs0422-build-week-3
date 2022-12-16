@@ -2,12 +2,8 @@ import { ListGroup } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 import moment from "moment";
 import EditSingleExperienceModal from "./EditSingleExperienceModal";
-import { useDispatch } from "react-redux";
-import { getSingleExpIdAction } from "../../redux/actions";
 
 const SingleExperience = ({ exp }) => {
-  const dispatch = useDispatch();
-
   return (
     <div className="d-flex align-items-start">
       <div
@@ -39,13 +35,7 @@ const SingleExperience = ({ exp }) => {
           <div className="light-grey-color">{exp.area}</div>
         </ListGroup.Item>
         <div className="d-flex justify-content-center align-items-center editButtonIconDiv mt-2 mr-2">
-          <EditSingleExperienceModal
-            exp={exp}
-            onClick={() => {
-              // console.log("hello");
-              // dispatch(getSingleExpIdAction(exp));
-            }}
-          />
+          <EditSingleExperienceModal exp={exp} />
         </div>
       </div>
     </div>
