@@ -36,7 +36,11 @@ export default function SearchDisplay() {
         ) : (
           <>
             {firstTen.map((user) => (
-              <Link to={`/profile/${user._id}`} key={user._id}>
+              <Link
+                to={`/profile/${user._id}`}
+                key={user._id}
+                className="text-dark"
+              >
                 <div
                   className="search-individual-user-display mt-2"
                   onClick={handleClick.bind(null, user)}

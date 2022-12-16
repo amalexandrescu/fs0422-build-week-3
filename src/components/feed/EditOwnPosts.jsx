@@ -16,11 +16,13 @@ import {
 import ModalDeletePost from "./ModalDeletePost"
 import ModalEditPost from "./ModalEditPost"
 
-export default function EditOwnPosts() {
+export default function EditOwnPosts({ id }) {
   const dispatch = useDispatch()
   const showEditModal = useSelector(
     (state) => state.editPostModal.showEditModal
   )
+  const editOptions = useSelector((state) => state.editPostModal.openDropdown)
+  console.log("edit Options in edit post popup", editOptions)
 
   const showDeleteModal = useSelector(
     (state) => state.editPostModal.deleteModal
