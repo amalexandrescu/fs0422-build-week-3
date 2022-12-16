@@ -25,9 +25,14 @@ export default function EditOwnPosts() {
   const showDeleteModal = useSelector(
     (state) => state.editPostModal.deleteModal
   )
+
+  // let editingPost = useSelector((state) => state.editPostModal.showEditModal)
+
   const onEditClickHandler = () => {
-    dispatch(showEditPostModalAction())
+    // dispatch(showEditPostModalAction())
     console.log("edit button clicked")
+    // if (editingPost.includes(post))(
+    //   dispatch(showEditPostModalAction())
   }
 
   const onDeleteClickHandler = () => {

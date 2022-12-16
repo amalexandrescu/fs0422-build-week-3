@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react"
-import { Image, Button } from "react-bootstrap"
+import { Image } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { BsThreeDots, BsFillArrowDownCircleFill } from "react-icons/bs"
+import {
+  BsThreeDots,
+  BsFillArrowDownCircleFill,
+  BsThreeDotsVertical
+} from "react-icons/bs"
 import {
   editShowToggleAction,
   getFeedPostsAction,
+  hideShowAction,
   saveSelectedFeedPostAction
 } from "../../redux/actions"
 import FeedPostLike from "./FeedPostLike"
@@ -45,13 +50,23 @@ export default function MainFeedSectionWithPosts() {
   const userId = useSelector((state) => state.myProfile.detailsData._id)
 
   const dispatch = useDispatch()
+  // fixing the edit popout
+  let editingPost = useSelector((state) => state.editPostModal.showEditModal)
+  // fixing the edit popout
 
   const myPostClickedHandler = (post) => {
     console.log("my post is clicked")
-    dispatch(editShowToggleAction())
+    dispatch(editShowToggleAction(post))
     console.log(post)
     // use this post when editing
     dispatch(saveSelectedFeedPostAction(post))
+  }
+
+  const myPostUnClickedHandler = (post) => {
+    console.log("my post is UNclicked")
+    dispatch(editShowToggleAction(post))
+    dispatch(hideShowAction(post))
+    console.log("removing post", post)
   }
 
   // back to top button
@@ -78,12 +93,28 @@ export default function MainFeedSectionWithPosts() {
                       <>
                         <div className="d-flex justify-content-between mr-2 ml-2">
                           <div></div>
-                          <div
-                            className="post-dots  gray-hover"
-                            onClick={myPostClickedHandler.bind(null, post)}
-                          >
-                            <BsThreeDots />
-                          </div>
+                          {editingPost.includes(post) ? (
+                            <>
+                              <div
+                                className="post-dots  gray-hover"
+                                onClick={myPostUnClickedHandler.bind(
+                                  null,
+                                  post
+                                )}
+                              >
+                                <BsThreeDotsVertical />
+                              </div>{" "}
+                            </>
+                          ) : (
+                            <>
+                              <div
+                                className="post-dots  gray-hover"
+                                onClick={myPostClickedHandler.bind(null, post)}
+                              >
+                                <BsThreeDots />
+                              </div>{" "}
+                            </>
+                          )}
                         </div>
                         {editOptions && <EditOwnPosts />}
                       </>
@@ -126,7 +157,7 @@ export default function MainFeedSectionWithPosts() {
                             width: "100%",
                             height: "300px",
                             overflow: "hidden",
-                            objectFit: "cover",
+                            objectFit: "cover"
                           }}
                         >
                           <Image

@@ -1,87 +1,87 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
-import { useDispatch, useSelector } from "react-redux";
-import placeholder from "../../assets/v-team-logo.png";
-import { Modal, Form, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux"
+import placeholder from "../../assets/v-team-logo.png"
+import { Modal, Form, Button } from "react-bootstrap"
 import {
   editMyFeedPostAction,
   editShowToggleAction,
   getFeedPostsAction,
   hideEditPostModalAction,
-  updateSelectedFeedPost,
-} from "../../redux/actions";
-import { AiFillCaretDown } from "react-icons/ai";
-import { ImEarth } from "react-icons/im";
+  updateSelectedFeedPost
+} from "../../redux/actions"
+import { AiFillCaretDown } from "react-icons/ai"
+import { ImEarth } from "react-icons/im"
 
 export default function ModalEditPost() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const showEditModal = useSelector(
     (state) => state.editPostModal.showEditModal
-  );
-  let details = useSelector((state) => state.myProfile.detailsData);
-  let isFetched = useSelector((state) => state.myProfile.isFetched);
+  )
+  let details = useSelector((state) => state.myProfile.detailsData)
+  let isFetched = useSelector((state) => state.myProfile.isFetched)
 
-  const currentText = useSelector((state) => state.editThisPost.selectedPost);
-  console.log("currentText", currentText);
-  let textToEdit = currentText.text;
-  console.log("textToEdit", textToEdit);
-  const postId = currentText._id;
+  const currentText = useSelector((state) => state.editThisPost.selectedPost)
+  console.log("currentText", currentText)
+  let textToEdit = currentText.text
+  console.log("textToEdit", textToEdit)
+  const postId = currentText._id
 
   // Uploading image for POST
-  const [image, setImage] = useState(null);
-  const [imageUploaded, setImageUploaded] = useState(false);
+  const [image, setImage] = useState(null)
+  const [imageUploaded, setImageUploaded] = useState(false)
 
   const onChangeHandler = (value, fieldToSet) => {
     setEditFeedPost({
       ...editFeedPost,
-      [fieldToSet]: value,
-    });
-  };
+      [fieldToSet]: value
+    })
+  }
   const [editFeedPost, setEditFeedPost] = useState({
-    text: textToEdit,
-  });
+    text: textToEdit
+  })
 
   const onSubmitHandler = (e) => {
-    e.preventDefault();
-    console.log(editFeedPost.text);
-    dispatch(hideEditPostModalAction());
-    dispatch(editMyFeedPostAction(editFeedPost, postId));
-    dispatch(updateSelectedFeedPost(editFeedPost));
-    dispatch(editShowToggleAction());
-    dispatch(getFeedPostsAction());
+    e.preventDefault()
+    console.log(editFeedPost.text)
+    dispatch(hideEditPostModalAction())
+    dispatch(editMyFeedPostAction(editFeedPost, postId))
+    dispatch(updateSelectedFeedPost(editFeedPost))
+    dispatch(editShowToggleAction())
+    dispatch(getFeedPostsAction())
 
     if (imageUploaded === true) {
-      submitFileData();
-      setImageUploaded(false);
+      submitFileData()
+      setImageUploaded(false)
     }
-  };
+  }
 
   const submitFileData = async () => {
-    const formData = new FormData();
+    const formData = new FormData()
 
-    formData.append("post", image);
+    formData.append("post", image)
 
     const optionsPost = {
       method: "POST",
       body: formData,
       headers: {
         Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjAxM2M5NmRmYjAwMTUyMWE1YmEiLCJpYXQiOjE2NzA4MzYyNDMsImV4cCI6MTY3MjA0NTg0M30.y7kED45MhN6V7jWF7PwyZ4DryRe6OJ6b9-so68M-zaE",
-      },
-    };
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjAxM2M5NmRmYjAwMTUyMWE1YmEiLCJpYXQiOjE2NzA4MzYyNDMsImV4cCI6MTY3MjA0NTg0M30.y7kED45MhN6V7jWF7PwyZ4DryRe6OJ6b9-so68M-zaE"
+      }
+    }
 
     try {
       let res = await fetch(
         `https://striveschool-api.herokuapp.com/api/posts/${postId}`,
         optionsPost
-      );
-      console.log(res);
-      console.log("sucessfully updated");
-      window.location.reload();
+      )
+      console.log(res)
+      console.log("sucessfully updated")
+      window.location.reload()
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
   return (
     <Modal
@@ -129,8 +129,8 @@ export default function ModalEditPost() {
             <Form.Label>Upload your Avatar</Form.Label>
             <Form.File
               onChange={(e) => {
-                setImage(e.target.files[0]);
-                setImageUploaded(true);
+                setImage(e.target.files[0])
+                setImageUploaded(true)
               }}
             />
           </Form.Group>
@@ -142,5 +142,5 @@ export default function ModalEditPost() {
         </Button>
       </Modal.Footer>
     </Modal>
-  );
+  )
 }

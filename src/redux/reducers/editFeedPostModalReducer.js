@@ -8,7 +8,7 @@ import {
 } from "../actions"
 
 const initialState = {
-  showEditModal: false,
+  showEditModal: [],
   openDropdown: false,
   deleteModal: false
 }
@@ -18,12 +18,14 @@ const editFeedPostModalReducer = (state = initialState, action) => {
     case HIDE_EDIT_POST_MODAL:
       return {
         ...state,
-        showEditModal: false
+        showEditModal: state.showEditModal.filter(
+          (post) => post !== action.payload
+        )
       }
     case SHOW_EDIT_POST_MODAL:
       return {
         ...state,
-        showEditModal: true
+        showEditModal: [state.showEditModal, action.payload]
       }
 
     case SHOW_EDIT_DROPDOWN:
