@@ -5,7 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 const ResourcesSinglePageComponent = () => {
   const navigate = useNavigate();
   return (
-    <Container className="profilePageCenterContainer px-0">
+    <Container className="profilePageCenterContainer px-0 mt-4">
       {/* <Row> */}
       <div className="resources-container-design p-4">
         <div className="d-flex">

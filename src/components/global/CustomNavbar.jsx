@@ -207,12 +207,12 @@ const CustomNavbar = () => {
           </Nav>
         </Container>
       </Navbar>
-      <div
+      {/* <div
         onClick={() => {
           setMeSelected(false);
         }}
         className="containerTest"
-      ></div>
+      ></div> */}
     </>
   );
 };
