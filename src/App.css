@@ -886,6 +886,26 @@ p {
 .feed-post-image {
   max-width: 100%;
 }
+
+#back-to-top {
+  padding: 3px;
+  margin: 0;
+  text-align: right;
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 90px;
+  right: -100px;
+  z-index: 4;
+}
+#back-to-top:hover {
+  text-decoration: underline;
+}
+
+#feed-main-container {
+  position: relative;
+}
 /* --------editing posts section-------- */
 .editing-feed-post-wrapper {
   margin-top: 10px;
