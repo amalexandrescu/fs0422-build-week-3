@@ -1,4 +1,4 @@
-import { Container, Row, ListGroup, Badge } from "react-bootstrap";
+import { Row, ListGroup, Badge } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 

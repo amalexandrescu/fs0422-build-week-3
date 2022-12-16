@@ -19,7 +19,7 @@ const ExperienceComponent = ({ profileData }) => {
   const dispatch = useDispatch();
 
   let userId = useSelector((state) => state.myProfile.detailsData._id);
-  console.log("user id from exp comp", userId);
+
   //checks if a new experience has been added
   let isNewExperienceAdded = useSelector(
     (state) => state.experiences.newExperienceAdded
@@ -67,7 +67,6 @@ const ExperienceComponent = ({ profileData }) => {
   const [plusButton, setPlusButton] = useState(false);
 
   const location = window.location.pathname;
-  console.log("🚀 ~ ExperienceComponent ~ location", location);
 
   return (
     <>

@@ -22,9 +22,7 @@ export default function ModalEditPost() {
   let isFetched = useSelector((state) => state.myProfile.isFetched);
 
   const currentText = useSelector((state) => state.editThisPost.selectedPost);
-  console.log("currentText", currentText);
   let textToEdit = currentText.text;
-  console.log("textToEdit", textToEdit);
   const postId = currentText._id;
 
   // Uploading image for POST
@@ -75,8 +73,7 @@ export default function ModalEditPost() {
         `https://striveschool-api.herokuapp.com/api/posts/${postId}`,
         optionsPost
       );
-      console.log(res);
-      console.log("sucessfully updated");
+      console.log("sucessfully updated " + res);
       window.location.reload();
     } catch (error) {
       console.log(error);

@@ -1,10 +1,7 @@
 import { Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
 import EditAboutModal from "./EditAboutModal";
 
 const AboutComponent = ({ profileData }) => {
-  let details = useSelector((state) => state.myProfile.detailsData);
-
   return (
     <Row className="my-2">
       <div className="col about-container-design p-4 normal-cursor-on-hover">

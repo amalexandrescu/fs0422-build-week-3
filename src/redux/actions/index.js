@@ -493,6 +493,7 @@ export const getCurrentUserAction = (userId) => {
           type: GET_CURRENT_USER_DATA,
           payload: data,
         });
+        // window.location.reload();
       } else {
         console.log(
           "error while fetching current user data for random user page"
