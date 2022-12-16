@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react"
 import { Image } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
@@ -18,40 +17,35 @@ import {
 import FeedPostLike from "./FeedPostLike"
 import EditOwnPosts from "./EditOwnPosts"
 
-
 export default function MainFeedSectionWithPosts() {
   // const [showEdit, setShowEdit] = useState(false)
-  const editOptions = useSelector((state) => state.editPostModal.openDropdown);
+  const editOptions = useSelector((state) => state.editPostModal.openDropdown)
 
-  const allFeedPosts = useSelector((state) => state.feedPosts.feedPostArray);
+  const allFeedPosts = useSelector((state) => state.feedPosts.feedPostArray)
   //   reversing the array so we get the newest posts
 
   const allLatestPosts = allFeedPosts.slice(0).reverse()
 
-  const longerPosts = allLatestPosts.filter((post) => post.text.length > 10);
+  const longerPosts = allLatestPosts.filter((post) => post.text.length > 10)
 
   const userPresent = longerPosts.filter((post) => {
     return post.user !== null
   })
 
-
-  const [length, setLength] = useState(25);
-  const latestPostSlice = userPresent.slice(0, length);
+  const [length, setLength] = useState(25)
+  const latestPostSlice = userPresent.slice(0, length)
 
   const increaseCurrentLength = (e) => {
-
     const increment = 50
     setLength(length + increment)
-
 
     if (
       length.length >= userPresent.length ||
       userPresent.length - length.length < increment
     ) {
-      alert("you have read all the posts!");
+      alert("you have read all the posts!")
     }
-  };
-
+  }
 
   const userId = useSelector((state) => state.myProfile.detailsData._id)
   const savedPost = useSelector((state) => state.editThisPost.selectedPost)
@@ -76,29 +70,16 @@ export default function MainFeedSectionWithPosts() {
     console.log("edit Options unclick", editOptions)
   }
 
-  const userId = useSelector((state) => state.myProfile.detailsData._id);
-
-  const dispatch = useDispatch();
-
-  const myPostClickedHandler = (post) => {
-    console.log("my post is clicked");
-    dispatch(editShowToggleAction());
-    console.log(post);
-    // use this post when editing
-    dispatch(saveSelectedFeedPostAction(post));
-  };
-
-
   // back to top button
 
   const backToTop = () => {
-    window.scrollTo({ top: 0, behaviour: "smooth" });
-  };
+    window.scrollTo({ top: 0, behaviour: "smooth" })
+  }
 
   useEffect(() => {
-    dispatch(getFeedPostsAction());
+    dispatch(getFeedPostsAction())
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
   return (
     <>
       {allFeedPosts && (
@@ -114,12 +95,25 @@ export default function MainFeedSectionWithPosts() {
                         <div className="d-flex justify-content-between mr-2 ml-2">
                           <div></div>
                           {editOptions ? (
-                            <div
-                              className="post-dots  gray-hover"
-                              onClick={myPostUnClickedHandler.bind(null, post)}
-                            >
-                              <BsThreeDotsVertical />
-                            </div>
+                            editOptions &&
+                            (savedPost._id === post._id ? (
+                              <div
+                                className="post-dots  gray-hover"
+                                onClick={myPostUnClickedHandler.bind(
+                                  null,
+                                  post
+                                )}
+                              >
+                                <BsThreeDotsVertical />
+                              </div>
+                            ) : (
+                              <div
+                                className="post-dots  gray-hover"
+                                onClick={myPostClickedHandler.bind(null, post)}
+                              >
+                                <BsThreeDots />
+                              </div>
+                            ))
                           ) : (
                             <div
                               className="post-dots  gray-hover"
@@ -211,5 +205,5 @@ export default function MainFeedSectionWithPosts() {
         </>
       )}
     </>
-  );
+  )
 }
