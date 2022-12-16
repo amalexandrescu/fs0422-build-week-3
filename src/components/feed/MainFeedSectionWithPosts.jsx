@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { Image, Button } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { BsThreeDots, BsFillArrowDownCircleFill } from "react-icons/bs"
+import {
+  BsThreeDots,
+  BsFillArrowDownCircleFill,
+  BsThreeDotsVertical
+} from "react-icons/bs"
 import {
   editShowToggleAction,
   getFeedPostsAction,
@@ -64,6 +68,9 @@ export default function MainFeedSectionWithPosts() {
     dispatch(getFeedPostsAction())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  // fixing the edit tab
+
   return (
     <>
       {allFeedPosts && (
@@ -78,12 +85,21 @@ export default function MainFeedSectionWithPosts() {
                       <>
                         <div className="d-flex justify-content-between mr-2 ml-2">
                           <div></div>
-                          <div
-                            className="post-dots  gray-hover"
-                            onClick={myPostClickedHandler.bind(null, post)}
-                          >
-                            <BsThreeDots />
-                          </div>
+                          {editOptions ? (
+                            <div
+                              className="post-dots  gray-hover"
+                              onClick={myPostClickedHandler.bind(null, post)}
+                            >
+                              <BsThreeDotsVertical />
+                            </div>
+                          ) : (
+                            <div
+                              className="post-dots  gray-hover"
+                              onClick={myPostClickedHandler.bind(null, post)}
+                            >
+                              <BsThreeDots />
+                            </div>
+                          )}
                         </div>
                         {editOptions && <EditOwnPosts />}
                       </>
@@ -126,7 +142,7 @@ export default function MainFeedSectionWithPosts() {
                             width: "100%",
                             height: "300px",
                             overflow: "hidden",
-                            objectFit: "cover",
+                            objectFit: "cover"
                           }}
                         >
                           <Image
