@@ -113,7 +113,7 @@ export default function ModalEditPost() {
         <Form
           onSubmit={onSubmitHandler}
           className="p-feed-left p-feed-right ml-2 mr-2"
-          style={{ color: "grey", height: "20vh" }}
+          style={{ color: "grey", height: "30vh" }}
         >
           <Form.Group className="mb-3 " controlId="formPostText">
             <Form.Control
@@ -126,12 +126,13 @@ export default function ModalEditPost() {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Upload your Avatar</Form.Label>
+            <Form.Label>Upload your Image</Form.Label>
             <Form.File
               onChange={(e) => {
                 setImage(e.target.files[0]);
                 setImageUploaded(true);
               }}
+              name={"post"}
             />
           </Form.Group>
         </Form>
