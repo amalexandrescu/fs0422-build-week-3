@@ -196,7 +196,7 @@ const ExperienceComponent = ({ profileData }) => {
                   </div>
                 </div>
               </div>
-              <div className=" ">
+              <div>
                 {experiencesArray.length !== 0 ? (
                   <ListGroup variant="flush" className="px-0 text-left">
                     <div className="d-flex align-items-start">
@@ -251,7 +251,7 @@ const ExperienceComponent = ({ profileData }) => {
                       </ListGroup.Item>
                     </div>
                     <ListGroup.Item className="px-0 text-center pb-0">
-                      <div className="d-flex align-items-center justify-content-center">
+                      <div className="d-flex align-items-center justify-content-center border-top pt-4">
                         <div
                           className="cursor-on-hover"
                           onClick={() => {

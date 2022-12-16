@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Container, Navbar, Nav, ListGroup, Button } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-
 import SearchField from "./SearchField";
 
 const CustomNavbar = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [meSelected, setMeSelected] = useState(false);
 
@@ -22,7 +22,12 @@ const CustomNavbar = () => {
     <>
       <Navbar expand="lg" variant="light" bg="white" className="sticky-top">
         <Container className="d-flex justify-content-between align-items-center navbar-font-sizes">
-          <div className="d-flex">
+          <div
+            onClick={() => {
+              setMeSelected(false);
+            }}
+            className="d-flex"
+          >
             <div className="my-auto">
               <Navbar.Brand href="/">
                 <Icon.Linkedin className="navbar-logo-icon" />
@@ -32,7 +37,12 @@ const CustomNavbar = () => {
           </div>
 
           <Nav className="rightSideNavbarContainer d-flex align-items-center justify-content-center flex-row mx-auto mx-md-none">
-            <Link to={"/"}>
+            <Link
+              onClick={() => {
+                setMeSelected(false);
+              }}
+              to={"/"}
+            >
               <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none">
                 <div>
                   <Icon.HouseDoorFill className="mr-sm-3 mr-md-0" />
@@ -41,32 +51,52 @@ const CustomNavbar = () => {
               </div>
             </Link>
 
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none">
+            <div
+              onClick={() => {
+                setMeSelected(false);
+              }}
+              className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none"
+            >
               <div>
                 <Icon.PeopleFill className="mr-sm-3 mr-md-0" />
               </div>
               <div className="d-none d-md-block">My Network</div>
             </div>
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none">
+            <div
+              onClick={() => {
+                setMeSelected(false);
+              }}
+              className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none"
+            >
               <div>
                 <Icon.BriefcaseFill className="mr-sm-3 mr-md-0" />
               </div>
               <div className="d-none d-md-block">Jobs</div>
             </div>
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none">
+            <div
+              onClick={() => {
+                setMeSelected(false);
+              }}
+              className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none"
+            >
               <div>
                 <Icon.ChatRightDotsFill className="mr-sm-3 mr-md-0" />
               </div>
               <div className="d-none d-md-block">Messaging</div>
             </div>
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none">
+            <div
+              onClick={() => {
+                setMeSelected(false);
+              }}
+              className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none"
+            >
               <div>
                 <Icon.BellFill className="mr-sm-3 mr-md-0" />
               </div>
               <div className="d-none d-md-block">Notifications</div>
             </div>
             <div
-              className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none position-relative"
+              className=" test nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover mr-4 mr-sm-2 mr-md-none position-relative"
               onClick={() => {
                 if (meSelected === false) {
                   setMeSelected(true);
@@ -139,7 +169,12 @@ const CustomNavbar = () => {
                 </div>
               </div>
             </div>
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center border-left cursor-on-hover ml-0 ml-sm-2 ml-md-none pl-4 pl-sm-2 pl-md-none">
+            <div
+              onClick={() => {
+                setMeSelected(false);
+              }}
+              className="nav-link d-flex flex-column justify-content-around align-items-center border-left cursor-on-hover ml-0 ml-sm-2 ml-md-none pl-4 pl-sm-2 pl-md-none"
+            >
               <div className="d-sm-lex my-auto d-md-block my-md-0">
                 <Icon.Grid3x3GapFill className="mr-sm-3 mr-md-0" />
               </div>
@@ -148,15 +183,37 @@ const CustomNavbar = () => {
                 <Icon.CaretDownFill className="d-none d-md-block" />
               </div>
             </div>
-            <div className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover ml-4 ml-sm-2 ml-md-none">
-              <div>
+            <div
+              onClick={() => {
+                setMeSelected(false);
+              }}
+              className="nav-link d-flex flex-column justify-content-around align-items-center cursor-on-hover ml-4 ml-sm-2 ml-md-none"
+            >
+              <div
+                onClick={() => {
+                  setMeSelected(false);
+                }}
+              >
                 <Icon.CardChecklist />
               </div>
-              <div className="d-none d-md-block">Learning</div>
+              <div
+                onClick={() => {
+                  setMeSelected(false);
+                }}
+                className="d-none d-md-block"
+              >
+                Learning
+              </div>
             </div>
           </Nav>
         </Container>
       </Navbar>
+      <div
+        onClick={() => {
+          setMeSelected(false);
+        }}
+        className="containerTest"
+      ></div>
     </>
   );
 };

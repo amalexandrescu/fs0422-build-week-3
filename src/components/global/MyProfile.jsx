@@ -24,9 +24,6 @@ export default function MyProfile() {
               <ProfilePageCenter profileDetails={details} />
             </Col>
           )}
-          {/* <Col lg={9}>
-            <ProfilePageCenter />
-          </Col> */}
           <Col lg={3} className=" mt-3 p-0 ">
             {" "}
             <SideComponentsMyProfile />

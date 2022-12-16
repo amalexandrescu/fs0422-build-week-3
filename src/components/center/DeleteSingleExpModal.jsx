@@ -3,7 +3,11 @@ import { Modal, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteExperienceAction } from "../../redux/actions";
 
-const DeleteSingleExpModal = ({ outerModalClose }) => {
+const DeleteSingleExpModal = ({
+  outerModalClose,
+  closingChecker,
+  changeStateOfCloseOuterModal,
+}) => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
 
@@ -18,16 +22,20 @@ const DeleteSingleExpModal = ({ outerModalClose }) => {
       <div
         onClick={() => {
           handleShow();
+          changeStateOfCloseOuterModal(true);
         }}
-        className="cursor-on-hover"
+        className="cursor-on-hover deleteButtonOuterModal"
       >
-        Delete
+        Delete experience
       </div>
       <Modal
         show={show}
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
+        onClick={() => {
+          changeStateOfCloseOuterModal(false);
+        }}
       >
         <Modal.Header closeButton>
           <Modal.Title>Delete experience</Modal.Title>
@@ -36,11 +44,19 @@ const DeleteSingleExpModal = ({ outerModalClose }) => {
           Are you sure you want to delete this experience?
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button
+            variant="outline-primary"
+            className="rounded-pill"
+            onClick={() => {
+              changeStateOfCloseOuterModal(false);
+              handleClose();
+            }}
+          >
             No thanks
           </Button>
           <Button
             variant="primary"
+            className="rounded-pill"
             onClick={() => {
               outerModalClose();
               if (userId && expId) {
