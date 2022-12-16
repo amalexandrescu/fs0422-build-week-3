@@ -497,9 +497,10 @@ export const getCurrentUserAction = (userId) => {
         let data = await response.json()
         dispatch({
           type: GET_CURRENT_USER_DATA,
+
           payload: data
         })
-      } else {
+         } else {
         console.log(
           "error while fetching current user data for random user page"
         )

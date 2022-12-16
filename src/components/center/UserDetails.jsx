@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Dot, Linkedin, Pencil, XLg } from "react-bootstrap-icons";
 import { useSelector } from "react-redux";
@@ -8,12 +7,10 @@ import EditContactInfoModal from "./EditContactInfoModal";
 import EditUserDetailsModal from "./EditUserDetailsModal";
 import MoreDropDownButton from "./MoreDropdownButton";
 import OpenToDropDownButton from "./OpenToDropdownButton";
-import * as Icon from "react-bootstrap-icons";
+import ProfileImageModal from "./ProfileImageModal";
 
 const UserDetails = ({ profileData }) => {
-  let details = useSelector((state) => state.myProfile.detailsData);
   let isFetched = useSelector((state) => state.myProfile.isFetched);
-  console.log("🚀UserDetails ~ details", details);
 
   let pathname = window.location.pathname;
 
@@ -27,13 +24,7 @@ const UserDetails = ({ profileData }) => {
           >
             <Row className="justify-content-between">
               {/* User profile Image */}
-              <div className="profileImageDiv d-flex justify-content-center align-items-center">
-                <img
-                  src={profileData.image}
-                  alt="User profile img"
-                  className="profileImage"
-                />
-              </div>
+              <ProfileImageModal profileData={profileData} />
 
               {/* Edit Button User profile Header */}
               <div
