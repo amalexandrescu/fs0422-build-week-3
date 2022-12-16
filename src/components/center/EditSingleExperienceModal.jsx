@@ -21,6 +21,12 @@ const EditSingleExperienceModal = ({ exp }) => {
     (state) => state.experiences.experienceEdited
   );
 
+  const [closeOuterModal, setCloseOuterModal] = useState(false);
+
+  const changeStateOfCloseOuterModal = (value) => {
+    setCloseOuterModal(value);
+  };
+
   const [image, setImage] = useState(null);
   const [isImageUploaded, setIsImageUploaded] = useState(false);
 
@@ -127,6 +133,7 @@ const EditSingleExperienceModal = ({ exp }) => {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
+        className={closeOuterModal === true ? "d-none" : "d-block"}
       >
         <Modal.Header closeButton>
           <Modal.Title>Edit experience</Modal.Title>
@@ -299,9 +306,17 @@ const EditSingleExperienceModal = ({ exp }) => {
           )}
         </Modal.Body>
         <Modal.Footer className="d-flex justify-content-between">
-          <DeleteSingleExpModal outerModalClose={handleClose} />
-          <Button variant="primary" onClick={onSubmitHandler}>
-            Edit
+          <DeleteSingleExpModal
+            outerModalClose={handleClose}
+            closingChecker={closeOuterModal}
+            changeStateOfCloseOuterModal={changeStateOfCloseOuterModal}
+          />
+          <Button
+            variant="primary"
+            onClick={onSubmitHandler}
+            className="rounded-pill"
+          >
+            Save
           </Button>
         </Modal.Footer>
       </Modal>

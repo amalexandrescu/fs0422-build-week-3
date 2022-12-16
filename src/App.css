@@ -701,6 +701,10 @@ p {
   border-radius: 50px !important;
 }
 
+.deleteButtonOuterModal:hover {
+  color: gray;
+}
+
 /*-----------------------UPDATING NAVBAR-----------------------*/
 
 .rightSideNavbarContainer {
@@ -915,4 +919,14 @@ p {
 .hoverGreyBg:hover {
   cursor: pointer;
   background-color: rgb(237, 237, 237) !important;
+}
+
+.containerTest {
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  position: absolute;
+  top: 62px;
+  z-index: 3;
+  border-radius: 5px;
 }
