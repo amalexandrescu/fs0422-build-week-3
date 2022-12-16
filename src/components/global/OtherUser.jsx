@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 import RandomUserProfilePage from "../randomUser/RandomUserProfilePage";

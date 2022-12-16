@@ -18,7 +18,7 @@ function EditUserDetailsModal() {
   // Fetching variables
   let details = useSelector((state) => state.myProfile.detailsData);
   let isFetched = useSelector((state) => state.myProfile.isFetched);
-  console.log("🚀EditUserDetails ~ details", details);
+
   let dispatch = useDispatch();
 
   // Changing Data via Modal submit

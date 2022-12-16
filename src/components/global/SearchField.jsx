@@ -22,7 +22,6 @@ export default function SearchField() {
       return userFullName.toLowerCase().includes(query.toLowerCase());
     });
 
-    console.log("filteredUsers -->", filteredUsers);
     dispatch(sendUserSearchAction(filteredUsers));
   };
 
@@ -37,7 +36,6 @@ export default function SearchField() {
       return userFullName.toLowerCase().includes(query.toLowerCase());
     });
 
-    console.log("filteredUsers -->", filteredUsers);
     dispatch(sendUserSearchAction(filteredUsers));
   };
 

@@ -18,7 +18,6 @@ function EditContactInfoModal() {
   // Fetching variables
   let details = useSelector((state) => state.myProfile.detailsData);
   let isFetched = useSelector((state) => state.myProfile.isFetched);
-  console.log("🚀EditAboutModal ~ details", details);
 
   // Changing Data via Modal submit
 

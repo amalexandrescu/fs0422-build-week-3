@@ -1,34 +1,36 @@
-import { Container, Row, ListGroup, Badge } from "react-bootstrap";
+import { Container, ListGroup, Badge } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ResourcesSinglePageComponent = () => {
-  const navigate = useNavigate();
   return (
-    <Container className="profilePageCenterContainer px-0 mt-4">
+    <Container className="profilePageCenterContainer px-0 mt-2">
       {/* <Row> */}
       <div className="resources-container-design p-4">
-        <div className="d-flex">
-          <div className="d-flex justify-content-center align-items-center mr-2 cursor-on-hover">
-            {/* this goes back to the previous page depending not just back to profile page */}
-            <Link to={-1} className="text-decoration-none text-secondary">
-              <Icon.ArrowLeft />
-            </Link>
-          </div>
+        <div className="d-flex align-items-center">
+          {/* this goes back to the previous page depending not just back to profile page */}
+          <Link to={-1} className="text-decoration-none text-secondary">
+            <div
+              className="d-flex rounded-circle justify-content-center align-items-center mr-2 cursor-on-hover hoverGreyBg"
+              style={{ height: "30px", width: "30px", aspectRatio: "1/1" }}
+            >
+              <Icon.ArrowLeft style={{ fontSize: "20px" }} />
+            </div>
+          </Link>
           <h5 className=" d-flex justify-content-center align-items-centertext-left mb-0 normal-cursor-on-hover font-weight-bold">
             Resources
           </h5>
         </div>
-        <div className="d-flex mb-2 normal-cursor-on-hover">
-          <div className="mr-2">
+        <div className="d-flex mb-2 mt-3 normal-cursor-on-hover pl-2">
+          <div className="mr-3">
             <Icon.EyeFill />
           </div>
           <div>Private to you</div>
         </div>
-        <div className=" ">
+        <div className=" pl-2 ">
           <ListGroup variant="flush" className="px-0 text-left">
             <ListGroup.Item className="px-0 d-flex">
-              <div className="mr-2">
+              <div className="mr-3">
                 <Icon.BroadcastPin />
               </div>
               <div>
@@ -45,7 +47,7 @@ const ResourcesSinglePageComponent = () => {
               </div>
             </ListGroup.Item>
             <ListGroup.Item className="px-0 d-flex">
-              <div className="mr-2">
+              <div className="mr-3">
                 <Icon.PeopleFill />
               </div>
               <div className="cursor-on-hover">
@@ -55,7 +57,7 @@ const ResourcesSinglePageComponent = () => {
             </ListGroup.Item>
 
             <ListGroup.Item className="px-0 d-flex">
-              <div className="mr-2">
+              <div className="mr-3">
                 <Icon.PersonFill />
               </div>
               <div className="cursor-on-hover">
@@ -66,7 +68,7 @@ const ResourcesSinglePageComponent = () => {
               </div>
             </ListGroup.Item>
             <ListGroup.Item className="px-0 d-flex">
-              <div className="mr-2">
+              <div className="mr-3">
                 <Icon.CardChecklist />
               </div>
               <div className="cursor-on-hover">
@@ -78,7 +80,7 @@ const ResourcesSinglePageComponent = () => {
               </div>
             </ListGroup.Item>
             <ListGroup.Item className="px-0 d-flex pb-0">
-              <div className="mr-2">
+              <div className="mr-3">
                 <Icon.BookmarkFill />
               </div>
               <div className="cursor-on-hover">

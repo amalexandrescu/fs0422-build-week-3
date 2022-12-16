@@ -1,5 +1,4 @@
 import { ListGroup } from "react-bootstrap";
-import * as Icon from "react-bootstrap-icons";
 import moment from "moment";
 import EditSingleExperienceModal from "./EditSingleExperienceModal";
 
