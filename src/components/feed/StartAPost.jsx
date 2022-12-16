@@ -16,8 +16,15 @@ export default function StartAPost() {
     <>
       <div id="feed-start-a-post-container" className="border p-feed">
         <div id="start-a-post-top">
-          <div className="border recommended-user-image mr-1">
-            <img src={isFetched ? details.image : placeholder} alt="Avatar" />
+          <div
+            className="border recommended-user-image mr-1"
+            style={{ objectFit: "cover" }}
+          >
+            <img
+              src={isFetched ? details.image : placeholder}
+              alt="Avatar"
+              style={{ height: "100%" }}
+            />
           </div>
           <div
             id="start-a-post"

@@ -27,6 +27,10 @@ export default function ModalEditPost() {
   console.log("textToEdit", textToEdit);
   const postId = currentText._id;
 
+  // Uploading image for POST
+  const [image, setImage] = useState(null);
+  const [imageUploaded, setImageUploaded] = useState(false);
+
   const onChangeHandler = (value, fieldToSet) => {
     setEditFeedPost({
       ...editFeedPost,
@@ -45,6 +49,38 @@ export default function ModalEditPost() {
     dispatch(updateSelectedFeedPost(editFeedPost));
     dispatch(editShowToggleAction());
     dispatch(getFeedPostsAction());
+
+    if (imageUploaded === true) {
+      submitFileData();
+      setImageUploaded(false);
+    }
+  };
+
+  const submitFileData = async () => {
+    const formData = new FormData();
+
+    formData.append("post", image);
+
+    const optionsPost = {
+      method: "POST",
+      body: formData,
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjAxM2M5NmRmYjAwMTUyMWE1YmEiLCJpYXQiOjE2NzA4MzYyNDMsImV4cCI6MTY3MjA0NTg0M30.y7kED45MhN6V7jWF7PwyZ4DryRe6OJ6b9-so68M-zaE",
+      },
+    };
+
+    try {
+      let res = await fetch(
+        `https://striveschool-api.herokuapp.com/api/posts/${postId}`,
+        optionsPost
+      );
+      console.log(res);
+      console.log("sucessfully updated");
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -53,10 +89,9 @@ export default function ModalEditPost() {
       onHide={() => dispatch(hideEditPostModalAction())}
     >
       <Modal.Header closeButton>
-        <h5 className="font-weight-light ml-1 mb-0">Create a post</h5>
+        <h5 className="font-weight-light ml-1 mb-0">Edit your post</h5>
       </Modal.Header>
       <div className="p-feed ml-2 d-flex">
-        {" "}
         <div className="border recommended-user-image">
           <img src={isFetched ? details.image : placeholder} alt="avatar" />
         </div>
@@ -88,6 +123,15 @@ export default function ModalEditPost() {
               value={editFeedPost.text}
               rows={5}
               onChange={(e) => onChangeHandler(e.target.value, "text")}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Upload your Avatar</Form.Label>
+            <Form.File
+              onChange={(e) => {
+                setImage(e.target.files[0]);
+                setImageUploaded(true);
+              }}
             />
           </Form.Group>
         </Form>

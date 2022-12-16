@@ -29,32 +29,36 @@ function EditUserDetailsModal() {
   const [bio, setBio] = useState(`${details.bio}`);
   const [title, setTitle] = useState(`${details.title}`);
   const [area, setArea] = useState(`${details.area}`);
+  const [imageUrl, setImageUrl] = useState(`${details.image}`);
   const [image, setImage] = useState(null);
   const [imageUploaded, setImageUploaded] = useState(false);
 
-  const changedDetails = {
-    name: name,
-    surname: surname,
-    email: email,
-    bio: bio,
-    title: title,
-    area: area,
-    // image: image,
-  };
+  const changedDetails =
+    imageUploaded === true
+      ? {
+          name: name,
+          surname: surname,
+          email: email,
+          bio: bio,
+          title: title,
+          area: area,
+        }
+      : {
+          name: name,
+          surname: surname,
+          email: email,
+          bio: bio,
+          title: title,
+          area: area,
+          image: imageUrl,
+        };
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
     dispatch({
       type: CHANGE_PROFILE_DETAILS,
-      payload: {
-        name: name,
-        startDate: surname,
-        email: email,
-        bio: bio,
-        title: title,
-        area: area,
-      },
+      payload: changedDetails,
     });
 
     dispatch(changeProfileDetailsAction(changedDetails));

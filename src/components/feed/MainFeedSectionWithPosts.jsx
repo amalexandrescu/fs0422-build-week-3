@@ -114,8 +114,15 @@ export default function MainFeedSectionWithPosts() {
                       <p className="mt-3 mb-3"> {post.text}</p>
 
                       {post.image && (
-                        <div className="post-image-wrapper">
-                          {" "}
+                        <div
+                          className="post-image-wrapper p-1"
+                          style={{
+                            width: "100%",
+                            height: "300px",
+                            overflow: "hidden",
+                            objectFit: "cover",
+                          }}
+                        >
                           <Image
                             src={post.image}
                             alt="user image"
