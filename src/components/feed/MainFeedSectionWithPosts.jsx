@@ -1,68 +1,74 @@
-import React, { useEffect, useState } from "react";
-import { Image, Button } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { BsThreeDots, BsFillArrowDownCircleFill } from "react-icons/bs";
+import React, { useEffect, useState } from "react"
+import { Image, Button } from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux"
+import { BsThreeDots, BsFillArrowDownCircleFill } from "react-icons/bs"
 import {
   editShowToggleAction,
   getFeedPostsAction,
-  saveSelectedFeedPostAction,
-} from "../../redux/actions";
-import FeedPostLike from "./FeedPostLike";
-import EditOwnPosts from "./EditOwnPosts";
+  saveSelectedFeedPostAction
+} from "../../redux/actions"
+import FeedPostLike from "./FeedPostLike"
+import EditOwnPosts from "./EditOwnPosts"
 
 export default function MainFeedSectionWithPosts() {
   // const [showEdit, setShowEdit] = useState(false)
-  const editOptions = useSelector((state) => state.editPostModal.openDropdown);
+  const editOptions = useSelector((state) => state.editPostModal.openDropdown)
 
-  const allFeedPosts = useSelector((state) => state.feedPosts.feedPostArray);
+  const allFeedPosts = useSelector((state) => state.feedPosts.feedPostArray)
   //   reversing the array so we get the newest posts
-  const allLatestPosts = allFeedPosts.slice(0).reverse();
-  console.log(allLatestPosts.length, "allLatestPosts");
+  const allLatestPosts = allFeedPosts.slice(0).reverse()
+  console.log(allLatestPosts.length, "allLatestPosts")
 
-  const longerPosts = allLatestPosts.filter((post) => post.text.length > 10);
+  const longerPosts = allLatestPosts.filter((post) => post.text.length > 10)
 
   const userPresent = longerPosts.filter((post) => {
-    return post.user !== null;
-  });
-  console.log(userPresent.length, "user present");
+    return post.user !== null
+  })
+  console.log(userPresent.length, "user present")
 
-  const [length, setLength] = useState(25);
-  const latestPostSlice = userPresent.slice(0, length);
+  const [length, setLength] = useState(25)
+  const latestPostSlice = userPresent.slice(0, length)
 
   const increaseCurrentLength = (e) => {
-    const increment = 500;
-    setLength(length + increment);
-    console.log(length);
+    const increment = 50
+    setLength(length + increment)
+    console.log(length)
 
     if (
       length.length >= userPresent.length ||
       userPresent.length - length.length < increment
     ) {
-      alert("you have read all the posts!");
+      alert("you have read all the posts!")
     }
-  };
+  }
 
-  const userId = useSelector((state) => state.myProfile.detailsData._id);
+  const userId = useSelector((state) => state.myProfile.detailsData._id)
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const myPostClickedHandler = (post) => {
-    console.log("my post is clicked");
-    dispatch(editShowToggleAction());
-    console.log(post);
+    console.log("my post is clicked")
+    dispatch(editShowToggleAction())
+    console.log(post)
     // use this post when editing
-    dispatch(saveSelectedFeedPostAction(post));
-  };
+    dispatch(saveSelectedFeedPostAction(post))
+  }
+
+  // back to top button
+
+  const backToTop = () => {
+    window.scrollTo({ top: 0, behaviour: "smooth" })
+  }
 
   useEffect(() => {
-    dispatch(getFeedPostsAction());
+    dispatch(getFeedPostsAction())
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
   return (
     <>
       {allFeedPosts && (
         <>
-          <div>
+          <div id="feed-main-container">
             {latestPostSlice.map((post) => (
               <>
                 {" "}
@@ -130,18 +136,26 @@ export default function MainFeedSectionWithPosts() {
                 )}
               </>
             ))}
-            <div
-              className="d-flex justify-content-center m-5"
-              onClick={increaseCurrentLength}
-            >
+            <div className="d-flex justify-content-center m-5">
               <BsFillArrowDownCircleFill
+                onClick={increaseCurrentLength}
                 className="text-primary"
                 style={{ fontSize: "30px", cursor: "pointer" }}
               />
             </div>
+            {length > 25 && (
+              <div
+                onClick={backToTop}
+                id="back-to-top"
+                className="gray-hover font-weight-light"
+              >
+                {" "}
+                back to top
+              </div>
+            )}
           </div>
         </>
       )}
     </>
-  );
+  )
 }
