@@ -17,17 +17,20 @@ const ExperienceComponent = ({ profileData }) => {
   let pathname = window.location.pathname;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // let userId = "";
+
   let userId = useSelector((state) => state.myProfile.detailsData._id);
   console.log("user id from exp comp", userId);
+  //checks if a new experience has been added
   let isNewExperienceAdded = useSelector(
     (state) => state.experiences.newExperienceAdded
   );
 
+  //checks if an experience has been deleted
   let didWeDeleteAnExperience = useSelector(
     (state) => state.experiences.deletedExp
   );
 
+  //gets all the experiences from the redux state
   const experiencesArray = useSelector(
     (state) => state.experiences.experiences
   );
@@ -36,6 +39,7 @@ const ExperienceComponent = ({ profileData }) => {
     dispatch(getMyProfileDetailsAction());
   }, []);
 
+  //fetches all the experiences with GET method
   useEffect(() => {
     if (userId) {
       dispatch(getExperiencesAction(userId));
@@ -58,6 +62,8 @@ const ExperienceComponent = ({ profileData }) => {
     }
   }, [userId, isNewExperienceAdded]);
 
+  //the plus button for showing the little dropdown with the "Add position" for opening the modal
+  //for adding a new experience
   const [plusButton, setPlusButton] = useState(false);
 
   const location = window.location.pathname;
@@ -125,6 +131,7 @@ const ExperienceComponent = ({ profileData }) => {
               </div>
               <div className="ml-5 ">
                 <ListGroup variant="flush" className="px-0 text-left">
+                  {/* we are mapping all the experiences and displaying them with SingleExp comp */}
                   {experiencesArray.length !== 0
                     ? experiencesArray.map((experience) => {
                         return (
@@ -265,7 +272,7 @@ const ExperienceComponent = ({ profileData }) => {
                     </ListGroup.Item>
                   </ListGroup>
                 ) : (
-                  "nope"
+                  <></>
                 )}
               </div>
             </div>

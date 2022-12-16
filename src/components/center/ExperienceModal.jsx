@@ -20,6 +20,10 @@ const ExperienceModal = () => {
 
   const [day, setDay] = useState("01");
   const [checked, setChecked] = useState(false);
+
+  //this is the template for adding a new experience
+  //the end/startMonth/Year is because we have to send something like "2022-12-01" when adding
+  //a new experience and we only have 2 input fields(for month and year)
   const [experience, setExperience] = useState({
     role: "",
     company: "",
@@ -55,6 +59,7 @@ const ExperienceModal = () => {
       setDay(randomDay);
     }
 
+    //this is the newExperience which wwe will send to the API
     let newExperience = {
       role: experience.role,
       company: experience.company,
@@ -69,7 +74,10 @@ const ExperienceModal = () => {
 
     console.log("new experience", newExperience);
 
+    //fetch function with POST method
     dispatch(addExperienceAction(newExperience, userId));
+
+    //we make the experience template empty again for the next exp we want to add
     setExperience({
       role: "",
       company: "",

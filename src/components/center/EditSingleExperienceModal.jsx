@@ -3,7 +3,7 @@ import { Button, Modal, Form } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  getSingleExpIdAction,
+  getSingleExpAction,
   editExperienceAction,
   getExperiencesAction,
   submitFileData,
@@ -13,16 +13,27 @@ import moment from "moment";
 
 const EditSingleExperienceModal = ({ exp }) => {
   const userId = useSelector((state) => state.myProfile.detailsData._id);
+
+  //checks if a checkbox is checked or not
   const [checked, setChecked] = useState(exp.endDate === null ? true : false);
+
+  //checks if we should disable the end date based on the checkbox
   const [disabledInput, setDisabledInput] = useState(
     checked && checked === true ? true : false
   );
+
+  //checks if we edited an experience
   const isExperienceEdited = useSelector(
     (state) => state.experiences.experienceEdited
   );
 
+  //this is for closing the outer modal when the inner one is open
+  //I passed the state as props to the inner modal (see the bottom of the code)
   const [closeOuterModal, setCloseOuterModal] = useState(false);
 
+  //this is the function which I use to change the state of this modal(the outer one)
+  //from the inner one. I passed it also as a prop to the inner modal
+  //basically, it's state elevation
   const changeStateOfCloseOuterModal = (value) => {
     setCloseOuterModal(value);
   };
@@ -30,6 +41,7 @@ const EditSingleExperienceModal = ({ exp }) => {
   const [image, setImage] = useState(null);
   const [isImageUploaded, setIsImageUploaded] = useState(false);
 
+  //changing the status of isExperienceEdited
   useEffect(() => {
     if (userId) {
       dispatch(getExperiencesAction(userId));
@@ -41,15 +53,24 @@ const EditSingleExperienceModal = ({ exp }) => {
   }, [isExperienceEdited]);
 
   const dispatch = useDispatch();
+
+  //gets the selected experience (we need the data to fill the outer modal)
   const selectedExperience = useSelector(
     (state) => state.experiences.clickedExp
   );
-  const [show, setShow] = useState(false);
+
+  //we don't have a day input, so I set a default one by 01 (the first day of the month)
+  //but this is changing later with a random number between 1-28 (I didn't want to check if a
+  //certain month has 30/31 days this is why I put only 28)
   const [day, setDay] = useState("01");
 
+  //those are for closing/opening the modal (it's from react bootstrap)
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  //this is our experience based on exp info
+  //exp is passed as a prop from clicking the pencil button(edit experience)
   const [experience, setExperience] = useState({
     role: exp.role,
     company: exp.company,
@@ -74,6 +95,7 @@ const EditSingleExperienceModal = ({ exp }) => {
         : moment(exp.endDate).format("MM"),
   });
 
+  //function for changing the input fields
   const onChangeHandler = (value, fieldToSet) => {
     setExperience((state) => ({
       // ...experience,
@@ -82,6 +104,13 @@ const EditSingleExperienceModal = ({ exp }) => {
     }));
   };
 
+  //function for submitting your form
+  //creates also the random day between 01-28
+  //creates an updatedExperience with the updated info of the input fields
+  //so when I created an experience, I had to send something like this: "2022-12-01"
+  //so for this, I have some properties in a single experience called endMonth and endYear
+  //because we only have to input field on our modal(the month and the year)
+  //also, the endDate could be null - this is when you're still working in that place
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
@@ -106,6 +135,7 @@ const EditSingleExperienceModal = ({ exp }) => {
 
     console.log("updated experience", updatedExperience);
 
+    //PUT method for updating the existing experience with the new data
     dispatch(editExperienceAction(updatedExperience, userId, exp._id));
 
     if (isImageUploaded === true) {
@@ -123,7 +153,8 @@ const EditSingleExperienceModal = ({ exp }) => {
         <Icon.Pencil
           className="edit-icon"
           onClick={() => {
-            dispatch(getSingleExpIdAction(exp));
+            //get's the experience when clicking on the eidt button(pencil icon)
+            dispatch(getSingleExpAction(exp));
           }}
         />
       </div>
@@ -139,6 +170,7 @@ const EditSingleExperienceModal = ({ exp }) => {
           <Modal.Title>Edit experience</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {/* fills the modal with the data of the selected experience */}
           {selectedExperience !== "" && (
             <Form className="experiencesModal">
               <Form.Group controlId="exampleForm.ControlInput1">

@@ -30,6 +30,7 @@ export default function OtherUser() {
     navigate("/me");
   }
 
+  //component that calls the randomUserProfile page when you search someone in the search input
   return (
     <>
       <Container>
